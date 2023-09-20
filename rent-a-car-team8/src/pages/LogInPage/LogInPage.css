@@ -1,0 +1,12 @@
+.log-in-form-container {
+	background-color: #424242;
+}
+
+.log-in-form-inner-container {
+	padding: 3% 0;
+	border-bottom: 1px white solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 2%;
+}

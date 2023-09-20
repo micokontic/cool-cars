@@ -1,20 +1,17 @@
 import "./App.css";
-import HomePage from "./pages/HomePage/HomePage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { appRoutes } from "./router/router";
 import Navigation from "./components/Navigation/Navigation";
-import OurStats from "./components/OurStats/OurStats";
-import PriceDiscount from "./components/PriceDiscount/PriceDiscount";
-import Waves from "./components/Waves/Waves";
+
 import Footer from "./components/Footer/Footer";
 
 function App() {
+	const router = createBrowserRouter(appRoutes);
 	return (
 		<>
 			<Navigation></Navigation>
-			<HomePage></HomePage>
-			<Waves></Waves>
-			<OurStats></OurStats>
+			<RouterProvider router={router} />
 
-			<PriceDiscount></PriceDiscount>
 			<Footer></Footer>
 		</>
 	);

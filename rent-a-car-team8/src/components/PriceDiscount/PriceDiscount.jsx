@@ -6,7 +6,7 @@ function PriceDiscount() {
 		<div className="p-6 bg-amber-400 text-gray-900 margin-up border-white border-y-1">
 			<div className="container mx-auto">
 				<div className="flex flex-col lg:flex-row items-center justify-between">
-					<h2 className="text-center text-6xl tracki font-bold">
+					<h2 className="text-center text-5xl tracki font-bold">
 						Popust do
 						<br className="sm:hidden"></br> 20%
 					</h2>
