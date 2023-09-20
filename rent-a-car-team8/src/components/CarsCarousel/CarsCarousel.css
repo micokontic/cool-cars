@@ -1,3 +1,7 @@
 .carausel-card-container {
 	margin: 0 auto;
 }
+
+.carousel-root {
+	width: 100%;
+}

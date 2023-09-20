@@ -1,0 +1,46 @@
+.car-data .detail {
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	align-content: center;
+	color: #0a0a0a;
+	padding: 1.5%;
+	font-size: 1.1rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.car-data {
+	margin-top: 7%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-left: 10%;
+	margin-bottom: 10%;
+}
+
+.text {
+	display: flex;
+	align-items: center;
+}
+
+.icon i {
+	color: #ff6b00;
+}
+
+.detail .text h4 {
+	display: flex;
+	align-items: center;
+	padding-left: 5%;
+	font-weight: 400;
+}
+
+.detail i {
+	font-size: 1.4rem;
+	display: flex;
+}
+
+.line {
+	border: 2px solid black;
+	margin-bottom: 10px;
+	margin-left: -16px;
+	margin-right: 75px;
+}

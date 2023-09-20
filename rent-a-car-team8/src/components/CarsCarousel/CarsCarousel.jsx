@@ -20,19 +20,19 @@ function CarsCarousel() {
 			<div className="carausel-card-container">
 				<CarCard></CarCard>
 			</div>
-			<div>
+			<div className="carausel-card-container">
 				<CarCard></CarCard>
 			</div>
-			<div>
+			<div className="carausel-card-container">
 				<CarCard></CarCard>
 			</div>
-			<div>
+			<div className="carausel-card-container">
 				<CarCard></CarCard>
 			</div>
-			<div>
+			<div className="carausel-card-container">
 				<CarCard></CarCard>
 			</div>
-			<div>
+			<div className="carausel-card-container">
 				<CarCard></CarCard>
 			</div>
 		</Carousel>

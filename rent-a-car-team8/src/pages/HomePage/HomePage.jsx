@@ -1,11 +1,19 @@
 import CarsCarousel from "../../components/CarsCarousel/CarsCarousel";
+import CarCard from "../../components/CarCard/CarCard";
+import Hero from "../../components/Hero/Hero";
 import "./HomePage.css";
 
 function HomePage() {
 	return (
-		<div className="home-page-container">
-			<CarsCarousel></CarsCarousel>
-		</div>
+		<>
+			<Hero></Hero>
+			<div className="home-page-container">
+				<div>
+					<CarsCarousel></CarsCarousel>
+				</div>
+				<div></div>
+			</div>
+		</>
 	);
 }
 
