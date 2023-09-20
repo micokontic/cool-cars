@@ -1,12 +1,14 @@
 import Navigation from "../components/Navigation/Navigation";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LogInPage/LogInPage";
+import LostPage from "../pages/LostPage/LostPage";
 
 import { ProtectedRoute, PublicRoute } from "./Routes";
 
 export const appRoutes = [
 	{
 		path: "/",
+		exact: "true",
 		element: <PublicRoute element={<HomePage />} />,
 		children: [
 			{
@@ -26,7 +28,7 @@ export const appRoutes = [
 				],
 			},
 			// { path: "users/:id", element: <UsersPage /> },
-			{ path: "*", element: <h1>404 Not found</h1> },
+			{ path: "*", element: <LostPage></LostPage> },
 		],
 	},
 	{ path: "login", element: <PublicRoute element={<LoginPage />} /> },
