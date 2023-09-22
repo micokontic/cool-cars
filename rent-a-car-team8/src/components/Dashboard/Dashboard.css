@@ -1,0 +1,10 @@
+.dashboard-container {
+	background-color: rgb(31, 41, 55);
+	padding: 30px;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+}
+
+.dashboard-element-container {
+	background-color: rgb(33, 33, 33);
+}

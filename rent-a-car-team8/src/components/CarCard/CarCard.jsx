@@ -35,7 +35,10 @@ function CarCard() {
 					letterSpacing={1}
 					fontWeight={600}
 				>
-					300 €
+					<Typography variant="body1" color="text.secondary" textAlign="inline">
+						Već od
+					</Typography>
+					30 150 €
 				</Typography>
 			</CardContent>
 		</Card>

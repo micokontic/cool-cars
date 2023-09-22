@@ -2,6 +2,7 @@ import Navigation from "../components/Navigation/Navigation";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LogInPage/LogInPage";
 import LostPage from "../pages/LostPage/LostPage";
+import DashBoardPage from "../pages/DashBoardPage/DashBoardPage";
 
 import { ProtectedRoute, PublicRoute } from "./Routes";
 
@@ -28,8 +29,10 @@ export const appRoutes = [
 				],
 			},
 			// { path: "users/:id", element: <UsersPage /> },
-			{ path: "*", element: <LostPage></LostPage> },
 		],
 	},
 	{ path: "login", element: <PublicRoute element={<LoginPage />} /> },
+	{ path: "dashboard", element: <PublicRoute element={<DashBoardPage />} /> },
+
+	{ path: "*", element: <LostPage></LostPage> },
 ];
