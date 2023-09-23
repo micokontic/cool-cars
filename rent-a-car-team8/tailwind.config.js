@@ -8,10 +8,11 @@ export default withMT({
 	theme: {
 		extend: {
 			colors: {
-				"cool-yellow": "#ffca28", // Replace with your desired color code
+				"cool-yellow": "#FFCA28",
 			},
 		},
 	},
+
 	plugins: [formsPlugin],
 	darkMode: "class",
 });
