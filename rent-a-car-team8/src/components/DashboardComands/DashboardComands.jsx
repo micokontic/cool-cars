@@ -1,22 +1,19 @@
-import { useState } from "react";
 import ProfileHead from "../ProfileHead/ProfileHead";
 
-function DashboardComands() {
-	const [selectedIndex, setSelectedIndex] = useState(1);
-
-	const handleListItemClick = (index) => {
-		setSelectedIndex(index);
-	};
-
+function DashboardComands({
+	selectedIndex,
+	handleListItemClick,
+	setSelectedIndex,
+}) {
 	return (
-		<div className="h-full p-4 space-y-2 w-80 bg-gray-900 text-gray-100">
+		<div className=" p-4 space-y-2 w-80 bg-gray-900 text-gray-100 align-to-start">
 			<ProfileHead></ProfileHead>
-			<div className="divide-y divide-gray-700">
+			<div className=" divide-y divide-gray-700">
 				<ul className="pt-2 pb-4 space-y-1 text-lg	">
 					<li
-						onClick={() => handleListItemClick(1)}
+						onClick={() => handleListItemClick(0)}
 						className={` ${
-							selectedIndex === 1
+							selectedIndex === 0
 								? "bg-gray-800 text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
@@ -37,9 +34,9 @@ function DashboardComands() {
 						</a>
 					</li>
 					<li
-						onClick={() => handleListItemClick(2)}
+						onClick={() => handleListItemClick(1)}
 						className={` ${
-							selectedIndex === 2
+							selectedIndex === 1
 								? "bg-gray-800 text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
@@ -61,9 +58,9 @@ function DashboardComands() {
 						</a>
 					</li>
 					<li
-						onClick={() => handleListItemClick(3)}
+						onClick={() => handleListItemClick(2)}
 						className={` ${
-							selectedIndex === 3
+							selectedIndex === 2
 								? "bg-gray-800 text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
@@ -86,9 +83,9 @@ function DashboardComands() {
 						</a>
 					</li>
 					<li
-						onClick={() => handleListItemClick(4)}
+						onClick={() => handleListItemClick(3)}
 						className={` ${
-							selectedIndex === 4
+							selectedIndex === 3
 								? "bg-gray-800 text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
@@ -105,15 +102,15 @@ function DashboardComands() {
 							>
 								<path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
 							</svg>
-							<span>Statistika korisnika</span>
+							<span>Statistika</span>
 						</a>
 					</li>
 				</ul>
 				<ul className="pt-4 pb-2 space-y-1 text-lg">
 					<li
-						onClick={() => handleListItemClick(5)}
+						onClick={() => handleListItemClick(4)}
 						className={` ${
-							selectedIndex === 5
+							selectedIndex === 4
 								? "bg-gray-800 text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
@@ -135,9 +132,9 @@ function DashboardComands() {
 						</a>
 					</li>
 					<li
-						onClick={() => handleListItemClick(6)}
+						onClick={() => handleListItemClick(5)}
 						className={` ${
-							selectedIndex === 6
+							selectedIndex === 5
 								? "bg-gray-800 text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}

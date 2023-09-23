@@ -3,13 +3,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardData from "../CarData/CarData";
+import ApproveTick from "./ApproveTick";
 
-function CarCard() {
+function CarCard({ unApproved = false }) {
 	return (
 		<Card
 			sx={{ maxWidth: 345, margin: "3% auto" }}
 			className="car-card-container-inner"
 		>
+			{unApproved ? <ApproveTick></ApproveTick> : ""}
 			<CardMedia
 				component="img"
 				alt="green iguana"
@@ -21,6 +23,13 @@ function CarCard() {
 					Škoda SUPERB
 				</Typography>
 				<div className="line"></div>
+				<Typography
+					variant="body1"
+					textAlign="left"
+					sx={{ fontWeight: 700, marginBottom: "0.5rem" }}
+				>
+					Auto ČačakPodgorica
+				</Typography>
 				<Typography variant="body1" color="text.secondary" textAlign="left">
 					Nova Škoda SUPERB izgleda samouvjereno, moderno i dinamično.
 				</Typography>

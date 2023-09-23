@@ -1,3 +1,5 @@
+import deleteIcon from "../../assets/icons/delete-retailer.svg";
+
 function RetailerInTable() {
 	return (
 		<tbody className="border-b bg-gray-900 border-gray-700">
@@ -17,7 +19,7 @@ function RetailerInTable() {
 					</div>
 				</td>
 				<td className="px-3 py-2">
-					<span>Administrative Services Manager</span>
+					<span>Volkswagen retail Crna Gora</span>
 				</td>
 				<td className="px-3 py-2">
 					<p>alex@bridges.com</p>
@@ -26,15 +28,13 @@ function RetailerInTable() {
 					<p>34</p>
 				</td>
 
-				<td className="px-3 py-2">
+				<td className="">
 					<button
 						type="button"
-						title="Open details"
-						className="p-1 rounded-full text-gray-600 hover:bg-gray-700 focus:bg-gray-700"
+						title="Obriši prodavca"
+						className="p-1 rounded-lg text-gray-600 hover:bg-gray-300"
 					>
-						<svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-							<path d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z"></path>
-						</svg>
+						<img src={deleteIcon} alt="delete retailer" />
 					</button>
 				</td>
 			</tr>

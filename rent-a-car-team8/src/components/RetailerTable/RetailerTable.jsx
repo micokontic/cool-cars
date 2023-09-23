@@ -27,9 +27,9 @@ function RetailerTable() {
 							<th className="p-3">Ime i prezime</th>
 							<th className="p-3">Kompanija</th>
 							<th className="p-3">Email</th>
-							<th className="p-3">Broj automobila na prodaju</th>
+							<th className="p-3 text-center">Broj automobila</th>
 
-							<th className="p-3">
+							<th className="p-3 px-4">
 								<span className="sr-only"></span>
 							</th>
 						</tr>

@@ -8,3 +8,7 @@
 .dashboard-element-container {
 	background-color: rgb(33, 33, 33);
 }
+
+.dashboard-container .align-to-start {
+	align-self: start;
+}
