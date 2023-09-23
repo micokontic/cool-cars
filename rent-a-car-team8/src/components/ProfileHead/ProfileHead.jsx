@@ -1,4 +1,4 @@
-function ProfileHead() {
+function ProfileHead({ superAdmin = true }) {
 	return (
 		<div className="flex items-center p-2 space-x-4">
 			<img
@@ -14,7 +14,7 @@ function ProfileHead() {
 						href="#"
 						className="text-s hover:underline text-gray-400"
 					>
-						Wolksvagen
+						{superAdmin ? "SuperAdmin" : "ŠkodaČačak CG"}
 					</a>
 				</span>
 			</div>

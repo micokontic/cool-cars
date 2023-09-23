@@ -33,6 +33,10 @@ export const appRoutes = [
 	},
 	{ path: "login", element: <PublicRoute element={<LoginPage />} /> },
 	{ path: "dashboard", element: <PublicRoute element={<DashBoardPage />} /> },
+	{
+		path: "user",
+		element: <PublicRoute element={<DashBoardPage superAdmin={false} />} />,
+	},
 
 	{ path: "*", element: <LostPage></LostPage> },
 ];

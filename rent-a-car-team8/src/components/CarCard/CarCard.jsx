@@ -4,6 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardData from "../CarData/CarData";
 import ApproveTick from "./ApproveTick";
+import DisapproveTick from "./DisapproveTick";
 
 function CarCard({ unApproved = false }) {
 	return (
@@ -11,7 +12,16 @@ function CarCard({ unApproved = false }) {
 			sx={{ maxWidth: 345, margin: "3% auto" }}
 			className="car-card-container-inner"
 		>
-			{unApproved ? <ApproveTick></ApproveTick> : ""}
+			{unApproved ? (
+				<div className="relative">
+					<div className="absolute top-3 right-3">
+						<ApproveTick></ApproveTick>
+						<DisapproveTick></DisapproveTick>
+					</div>
+				</div>
+			) : (
+				""
+			)}
 			<CardMedia
 				component="img"
 				alt="green iguana"
