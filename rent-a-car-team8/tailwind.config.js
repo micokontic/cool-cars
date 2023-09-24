@@ -9,6 +9,7 @@ export default withMT({
 		extend: {
 			colors: {
 				"cool-yellow": "#FFCA28",
+				"cool-blue": "#1f2937",
 			},
 		},
 	},

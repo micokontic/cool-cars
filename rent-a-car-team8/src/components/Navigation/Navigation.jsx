@@ -12,6 +12,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import siteLogo from "../../assets/siteLogo.svg";
+import MUIcon from "../jsxIcons/MUIcon/MUIcon";
 
 const pages = ["NEW CARS", "Contact", "Login"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -39,7 +41,7 @@ function ResponsiveAppBar() {
 		<AppBar position="static" sx={{ color: "#424242", background: "#FFCA28" }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
-					<AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+					<MUIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
 					<Typography
 						variant="h6"
 						noWrap
@@ -47,15 +49,17 @@ function ResponsiveAppBar() {
 						href="/"
 						sx={{
 							mr: 2,
+							ml: 3,
 							display: { xs: "none", md: "flex" },
 							fontFamily: "monospace",
-							fontWeight: 700,
-							letterSpacing: ".3rem",
+							fontWeight: "800",
+							letterSpacing: ".1rem",
 							color: "inherit",
 							textDecoration: "none",
+							fontSize: "2.4rem",
 						}}
 					>
-						LOGO
+						COOL CARS
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -146,7 +150,10 @@ function ResponsiveAppBar() {
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title="Avatar of user">
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-								<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+								<Avatar
+									alt="Remy Sharp"
+									src="https://source.unsplash.com/100x100/?portrait"
+								/>
 							</IconButton>
 						</Tooltip>
 					</Box>

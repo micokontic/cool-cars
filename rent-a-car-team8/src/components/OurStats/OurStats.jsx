@@ -2,7 +2,7 @@ import "./OurStats.css";
 
 function OurStats() {
 	return (
-		<section className="p-6 pt-0 bg-gray-800 text-gray-100 pull-down">
+		<section className="p-6 pt-0 bg-cool-blue text-gray-100 pull-down">
 			<div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
 				<div className="flex flex-col justify-start m-2 lg:m-6">
 					<p className="text-4xl font-bold leadi lg:text-6xl">500+</p>

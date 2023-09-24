@@ -19,7 +19,7 @@ function RetailerInTable() {
 					</div>
 				</td>
 				<td className="px-3 py-2">
-					<span>Volkswagen retail Crna Gora</span>
+					<span>Menadzer prodaje</span>
 				</td>
 				<td className="px-3 py-2">
 					<p>alex@bridges.com</p>

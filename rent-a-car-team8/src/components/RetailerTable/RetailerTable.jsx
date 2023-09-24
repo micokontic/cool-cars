@@ -25,7 +25,7 @@ function RetailerTable() {
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</th>
 							<th className="p-3">Ime i prezime</th>
-							<th className="p-3">Kompanija</th>
+							<th className="p-3">Pozicija</th>
 							<th className="p-3">Email</th>
 							<th className="p-3 text-center">Broj automobila</th>
 

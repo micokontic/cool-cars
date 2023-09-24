@@ -12,7 +12,7 @@ function CarsCarousel() {
 			interval={2000}
 			showIndicators={false}
 			useKeyboardArrows={true}
-			autoPlay={false}
+			autoPlay={true}
 			transitionTime={500}
 			showThumbs={false}
 			showStatus={false}

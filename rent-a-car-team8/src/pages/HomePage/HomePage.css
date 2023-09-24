@@ -1,5 +1,11 @@
 .home-page-card-container {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
-	margin: 0 4%;
+	margin: 0 2%;
+}
+
+.cheapest {
+	margin: 4% 4%;
+	border: 2px #ffca28 solid;
+	padding: 5% 4%;
 }

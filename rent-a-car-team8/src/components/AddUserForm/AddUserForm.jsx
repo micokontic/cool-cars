@@ -54,13 +54,13 @@ function AddUserForm() {
 							/>
 						</div>
 						<div className="col-span-full sm:col-span-3">
-							<label htmlFor="company" className="text-sm">
-								Kompanija prodavca
+							<label htmlFor="position" className="text-sm">
+								Pozicija
 							</label>
 							<input
-								id="company"
+								id="position"
 								type="text"
-								placeholder="Kompanija"
+								placeholder="Pozicija zaposlenog"
 								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
 							/>
 						</div>
@@ -74,7 +74,7 @@ function AddUserForm() {
 									type="file"
 									name="files"
 									id="files"
-									className="px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-gray-800 w-full"
+									className="px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full"
 								/>
 							</div>
 						</div>

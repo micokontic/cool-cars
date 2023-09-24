@@ -1,10 +1,10 @@
 import ProfileHead from "../ProfileHead/ProfileHead";
-import RetailersIcon from "../CommandIcons/RetailersIcon";
-import AddRetailIcon from "../CommandIcons/AddRetailIcon";
-import ApproveIcon from "../CommandIcons/ApproveIcon";
-import StatisticIcon from "../CommandIcons/StatisticIcon";
-import SettingsIcon from "../CommandIcons/SettingsIcon";
-import LogOutIcon from "../CommandIcons/LogOutIcon";
+import RetailersIcon from "../jsxIcons/CommandIcons/RetailersIcon";
+import AddRetailIcon from "../jsxIcons/CommandIcons/AddRetailIcon";
+import ApproveIcon from "../jsxIcons/CommandIcons/ApproveIcon";
+import StatisticIcon from "../jsxIcons/CommandIcons/StatisticIcon";
+import SettingsIcon from "../jsxIcons/CommandIcons/SettingsIcon";
+import LogOutIcon from "../jsxIcons/CommandIcons/LogOutIcon";
 
 function DashboardCommands({
 	selectedIndex,
@@ -20,7 +20,7 @@ function DashboardCommands({
 						onClick={() => handleListItemClick(0)}
 						className={` ${
 							selectedIndex === 0
-								? "bg-gray-800 text-gray-50"
+								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
 					>
@@ -37,7 +37,7 @@ function DashboardCommands({
 						onClick={() => handleListItemClick(1)}
 						className={` ${
 							selectedIndex === 1
-								? "bg-gray-800 text-gray-50"
+								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
 					>
@@ -54,7 +54,7 @@ function DashboardCommands({
 						onClick={() => handleListItemClick(2)}
 						className={` ${
 							selectedIndex === 2
-								? "bg-gray-800 text-gray-50"
+								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
 					>
@@ -71,7 +71,7 @@ function DashboardCommands({
 						onClick={() => handleListItemClick(3)}
 						className={` ${
 							selectedIndex === 3
-								? "bg-gray-800 text-gray-50"
+								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
 					>
@@ -90,7 +90,7 @@ function DashboardCommands({
 						onClick={() => handleListItemClick(4)}
 						className={` ${
 							selectedIndex === 4
-								? "bg-gray-800 text-gray-50"
+								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
 					>
@@ -107,7 +107,7 @@ function DashboardCommands({
 						onClick={() => handleListItemClick(5)}
 						className={` ${
 							selectedIndex === 5
-								? "bg-gray-800 text-gray-50"
+								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}
 					>

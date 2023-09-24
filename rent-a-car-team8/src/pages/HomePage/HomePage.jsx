@@ -5,6 +5,7 @@ import Waves from "../../components/Waves/Waves";
 import OurStats from "../../components/OurStats/OurStats";
 import PriceDiscount from "../../components/PriceDiscount/PriceDiscount";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import OurServices from "../../components/OurServices/OurServices";
 import "./HomePage.css";
 
 function HomePage() {
@@ -16,18 +17,20 @@ function HomePage() {
 					<SectionHeading
 						heading={"Naši najprodavaniji automobili"}
 						text={
-							" Subscribe to my weekly newsletter to find out about the latest and greatest news about just about everything!"
+							" Top 10 najprodavanijih automobila u našoj ponudi! U našem nastojanju da vam ponudimo najbolje vozne opcije, pažljivo smo izabrali ove automobile koji su se izdvojili u svojoj klasi."
 						}
 					></SectionHeading>
 					<CarsCarousel></CarsCarousel>
 				</div>
-				<div>
+				<div className="cheapest">
+					<SectionHeading heading={"Najjeftinije u ponudi"}></SectionHeading>
 					<CarCard></CarCard>
 				</div>
 			</div>
 			<Waves></Waves>
 			<OurStats></OurStats>
 			<PriceDiscount></PriceDiscount>
+			<OurServices></OurServices>
 		</>
 	);
 }
