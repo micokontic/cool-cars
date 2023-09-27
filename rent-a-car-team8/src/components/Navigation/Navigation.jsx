@@ -12,15 +12,14 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import siteLogo from "../../assets/siteLogo.svg";
 import MUIcon from "../jsxIcons/MUIcon/MUIcon";
 
-const pages = ["NEW CARS", "Contact", "Login"];
+const pages = ["NEW CARS", "ABOUT US", "CONTACT", "LOG IN"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
 	const [anchorElNav, setAnchorElNav] = useState(null);
-	const [anchorElUser, setAnchorElUser] = useState(null);
+	const [activeButton, setActiveButton] = useState(null);
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
@@ -31,10 +30,6 @@ function ResponsiveAppBar() {
 
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
-	};
-
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
 	};
 
 	return (
@@ -91,11 +86,35 @@ function ResponsiveAppBar() {
 								display: { xs: "block", md: "none" },
 							}}
 						>
-							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">{page}</Typography>
-								</MenuItem>
-							))}
+							<div className="bg-cool-yellow">
+								{pages.map((page, i) => (
+									<Button
+										key={page}
+										onClick={() => {
+											setActiveButton(i);
+											handleCloseNavMenu();
+										}}
+										sx={{
+											my: 2,
+											color: "#424242",
+											display: "block",
+											padding: "0",
+											paddingBottom: "2px",
+											margin: "5px 10px",
+											borderBottom:
+												activeButton == i ? "solid 3px #424242" : "none",
+											borderRadius: "0px",
+										}}
+									>
+										<Typography
+											variant="body1"
+											style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
+										>
+											{page}
+										</Typography>
+									</Button>
+								))}
+							</div>
 						</Menu>
 					</Box>
 
@@ -127,14 +146,22 @@ function ResponsiveAppBar() {
 							marginRight: "2rem",
 						}}
 					>
-						{pages.map((page) => (
+						{pages.map((page, i) => (
 							<Button
 								key={page}
-								onClick={handleCloseNavMenu}
+								onClick={() => {
+									setActiveButton(i);
+								}}
 								sx={{
 									my: 2,
 									color: "#424242",
 									display: "block",
+									padding: "0",
+									paddingBottom: "2px",
+									margin: "5px 10px",
+									borderBottom:
+										activeButton == i ? "solid 3px #424242" : "none",
+									borderRadius: "0px",
 								}}
 							>
 								<Typography

@@ -1,6 +1,40 @@
+import { useState, useContext } from "react";
+import { UserContext } from "../../contexts/userContext";
+import { useNavigate } from "react-router-dom";
 import "./LogInPage.css";
+import { carServiceNew } from "../../service/beckCommunication";
+const { getToken } = carServiceNew;
 
 function LogInPage() {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const { handleUserLogin } = useContext(UserContext);
+	const navigate = useNavigate();
+
+	const handleInputChange = (event, setState) => {
+		const {
+			target: { value },
+		} = event;
+
+		setState(value);
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		try {
+			const body = JSON.stringify({ username, password });
+
+			const response = await getToken(body);
+			console.log("token body");
+			console.log(body);
+			handleUserLogin(response.data.token);
+			navigate("/");
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<div className="log-in-form-container">
 			<div className="log-in-form-inner-container mx-4">
@@ -39,18 +73,25 @@ function LogInPage() {
 						<p className="px-3 text-gray-400">OR</p>
 						<hr className="w-full text-gray-400"></hr>
 					</div>
-					<form noValidate="" action="" className="space-y-8">
+					<form
+						noValidate=""
+						action=""
+						className="space-y-8"
+						onSubmit={handleSubmit}
+					>
 						<div className="space-y-4">
 							<div className="space-y-2">
-								<label htmlFor="email" className="block text-sm">
-									Email address
+								<label htmlFor="username" className="text-sm flex flex-start">
+									Username
 								</label>
 								<input
-									type="email"
-									name="email"
-									id="email"
-									placeholder="leroy@jenkins.com"
+									type="username"
+									name="username"
+									id="username"
+									placeholder="username"
 									className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-amber-400"
+									value={username}
+									onChange={(event) => handleInputChange(event, setUsername)}
 								/>
 							</div>
 							<div className="space-y-2">
@@ -72,11 +113,13 @@ function LogInPage() {
 									id="password"
 									placeholder="*****"
 									className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-amber-400"
+									value={password}
+									onChange={(event) => handleInputChange(event, setPassword)}
 								/>
 							</div>
 						</div>
 						<button
-							type="button"
+							type="submit"
 							className="w-full px-8 py-3 font-semibold rounded-md bg-amber-400 text-gray-900"
 						>
 							Sign in

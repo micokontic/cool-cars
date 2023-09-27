@@ -13,7 +13,7 @@ function HomePage() {
 		<>
 			<Hero></Hero>
 			<div className="home-page-card-container">
-				<div>
+				<div className="left inline-element">
 					<SectionHeading
 						heading={"Naši najprodavaniji automobili"}
 						text={
@@ -22,7 +22,7 @@ function HomePage() {
 					></SectionHeading>
 					<CarsCarousel></CarsCarousel>
 				</div>
-				<div className="cheapest">
+				<div className="cheapest inline-element">
 					<SectionHeading heading={"Najjeftinije u ponudi"}></SectionHeading>
 					<CarCard></CarCard>
 				</div>

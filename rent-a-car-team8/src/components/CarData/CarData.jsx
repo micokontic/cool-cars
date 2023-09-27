@@ -5,7 +5,20 @@ import Typography from "@mui/material/Typography";
 import Transmission from "../../assets/icons/manual-transmission.svg";
 import Seat from "../../assets/icons/seat.svg";
 
-function CarData() {
+function CarData({
+	car = {
+		description: "Brza i pouzdana",
+		door_count: 5,
+		fuel_type: "Dizel",
+		id: 2,
+		owner: 1,
+		transmission: "Automatik",
+		vehicle_make: "Skoda",
+		vehicle_model: "Fabia",
+		vehicle_price: "40000.00",
+		year_of_manufacturing: 2023,
+	},
+}) {
 	return (
 		<div className="car-data">
 			{/* left data */}
@@ -21,7 +34,7 @@ function CarData() {
 							textAlign="left"
 							ml={2}
 						>
-							4
+							{car.door_count}
 						</Typography>
 					</div>
 				</div>
@@ -37,12 +50,12 @@ function CarData() {
 							textAlign="left"
 							ml={2}
 						>
-							Dizel
+							{car.fuel_type}
 						</Typography>
 					</div>
 				</div>
 			</div>
-			{/* right data */}
+
 			<div>
 				<div className="detail">
 					<div className="icon">
@@ -55,7 +68,7 @@ function CarData() {
 							textAlign="left"
 							ml={2}
 						>
-							5
+							{car.door_count}
 						</Typography>
 					</div>
 				</div>
@@ -71,7 +84,7 @@ function CarData() {
 							textAlign="left"
 							ml={2}
 						>
-							DSG
+							{car.transmission}
 						</Typography>
 					</div>
 				</div>

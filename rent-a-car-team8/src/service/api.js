@@ -1,10 +1,15 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-	baseURL: "https://rickandmortyapi.com/api/location/1",
+	baseURL: import.meta.env.VITE_API_BASE_URL,
 	timeout: 5000,
 	headers: {
 		"Content-Type": "application/json",
+		"ngrok-skip-browser-warning": true,
+		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Credentials": true,
+		"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+		"Access-Control-Allow-Headers": "*",
 	},
 });
 

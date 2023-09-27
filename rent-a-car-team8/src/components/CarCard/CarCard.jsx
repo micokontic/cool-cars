@@ -6,10 +6,27 @@ import CardData from "../CarData/CarData";
 import ApproveTick from "./ApproveTick";
 import DisapproveTick from "./DisapproveTick";
 
-function CarCard({ unApproved = false }) {
+function CarCard({
+	unApproved = false,
+	car = {
+		description: "Brza i pouzdana",
+		door_count: 5,
+		fuel_type: "Dizel",
+		id: 2,
+		owner: 1,
+		transmission: "Automatik",
+		vehicle_make: "Skoda",
+		vehicle_model: "Fabia",
+		vehicle_price: "40000.00",
+		year_of_manufacturing: 2023,
+	},
+}) {
 	return (
 		<Card
-			sx={{ maxWidth: 345, margin: "3% auto" }}
+			sx={{
+				maxWidth: 345,
+				margin: "3% auto",
+			}}
 			className="car-card-container-inner"
 		>
 			{unApproved ? (
@@ -30,7 +47,7 @@ function CarCard({ unApproved = false }) {
 			/>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div" textAlign="left">
-					Škoda SUPERB
+					{car.vehicle_make} {car.vehicle_model}
 				</Typography>
 				<div className="line"></div>
 				<Typography
@@ -41,9 +58,9 @@ function CarCard({ unApproved = false }) {
 					Auto ČačakPodgorica
 				</Typography>
 				<Typography variant="body1" color="text.secondary" textAlign="left">
-					Nova Škoda SUPERB izgleda samouvjereno, moderno i dinamično.
+					{car.description}
 				</Typography>
-				<CardData></CardData>
+				<CardData car={car}></CardData>
 				<Typography
 					gutterBottom
 					variant="h4"
@@ -57,7 +74,7 @@ function CarCard({ unApproved = false }) {
 					<Typography variant="body1" color="text.secondary" textAlign="inline">
 						Već od
 					</Typography>
-					30 150 €
+					{car.vehicle_price}
 				</Typography>
 			</CardContent>
 		</Card>
