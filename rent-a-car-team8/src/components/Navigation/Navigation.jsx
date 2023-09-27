@@ -1,18 +1,20 @@
 import { useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import MUIcon from "../jsxIcons/MUIcon/MUIcon";
+import NavBarMd from "../NavBarMd/NavBarMd";
 
 const pages = ["NEW CARS", "ABOUT US", "CONTACT", "LOG IN"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -146,32 +148,10 @@ function ResponsiveAppBar() {
 							marginRight: "2rem",
 						}}
 					>
-						{pages.map((page, i) => (
-							<Button
-								key={page}
-								onClick={() => {
-									setActiveButton(i);
-								}}
-								sx={{
-									my: 2,
-									color: "#424242",
-									display: "block",
-									padding: "0",
-									paddingBottom: "2px",
-									margin: "5px 10px",
-									borderBottom:
-										activeButton == i ? "solid 3px #424242" : "none",
-									borderRadius: "0px",
-								}}
-							>
-								<Typography
-									variant="body1"
-									style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
-								>
-									{page}
-								</Typography>
-							</Button>
-						))}
+						<NavBarMd
+							activeButton={activeButton}
+							setActiveButton={setActiveButton}
+						></NavBarMd>
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>

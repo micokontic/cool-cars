@@ -28,7 +28,8 @@ function LogInPage() {
 			const response = await getToken(body);
 			console.log("token body");
 			console.log(body);
-			handleUserLogin(response.data.token);
+			console.log(response);
+			handleUserLogin(response.data.access);
 			navigate("/");
 		} catch (error) {
 			console.log(error);
