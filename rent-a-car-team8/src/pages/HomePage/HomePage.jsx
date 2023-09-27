@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import CarsCarousel from "../../components/CarsCarousel/CarsCarousel";
 import CarCard from "../../components/CarCard/CarCard";
 import Hero from "../../components/Hero/Hero";
@@ -6,9 +7,29 @@ import OurStats from "../../components/OurStats/OurStats";
 import PriceDiscount from "../../components/PriceDiscount/PriceDiscount";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import OurServices from "../../components/OurServices/OurServices";
+import { carServiceNew } from "../../service/beckCommunication";
+
 import "./HomePage.css";
+const { getCheapestCar } = carServiceNew;
 
 function HomePage() {
+	const [cheapestCar, setCheapestCar] = useState({});
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const result = await getCheapestCar();
+				console.log(result);
+				console.log(result.data);
+				setCheapestCar(result.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<>
 			<Hero></Hero>
@@ -24,7 +45,7 @@ function HomePage() {
 				</div>
 				<div className="cheapest inline-element">
 					<SectionHeading heading={"Najjeftinije u ponudi"}></SectionHeading>
-					<CarCard></CarCard>
+					<CarCard car={cheapestCar}></CarCard>
 				</div>
 			</div>
 			<Waves></Waves>

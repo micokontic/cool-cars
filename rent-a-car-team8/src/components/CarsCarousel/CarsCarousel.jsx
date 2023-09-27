@@ -27,7 +27,7 @@ function CarsCarousel() {
 				const result = await getCars();
 				console.log(result);
 				console.log(result.data);
-				var shortArray = result.data.slice(0, 5);
+				var shortArray = result.data;
 				setTenCars(shortArray);
 				console.log(shortArray);
 			} catch (err) {

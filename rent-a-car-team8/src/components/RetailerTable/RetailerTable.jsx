@@ -1,7 +1,26 @@
+import { useEffect, useState } from "react";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import RetailerInTable from "../RetailerInTable/RetailerInTable";
+import { carServiceNew } from "../../service/beckCommunication";
+const { getUsers } = carServiceNew;
 
 function RetailerTable() {
+	const [allRetailers, setAllRetailers] = useState([]);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const result = await getUsers();
+				console.log(result);
+				console.log(result.data);
+				setAllRetailers(result.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<div className="container p-2 mx-auto sm:p-4 text-gray-100 bg-gray-900">
 			<SectionHeading
@@ -34,11 +53,11 @@ function RetailerTable() {
 							</th>
 						</tr>
 					</thead>
-					<RetailerInTable></RetailerInTable>
-					<RetailerInTable></RetailerInTable>
-					<RetailerInTable></RetailerInTable>
-					<RetailerInTable></RetailerInTable>
-					<RetailerInTable></RetailerInTable>
+					{allRetailers.map((retailer, i) => {
+						return (
+							<RetailerInTable key={i} retailer={retailer}></RetailerInTable>
+						);
+					})}
 				</table>
 			</div>
 		</div>

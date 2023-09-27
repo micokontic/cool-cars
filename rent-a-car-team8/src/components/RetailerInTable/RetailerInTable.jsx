@@ -1,6 +1,6 @@
 import deleteIcon from "../../assets/icons/delete-retailer.svg";
 
-function RetailerInTable() {
+function RetailerInTable({ retailer }) {
 	return (
 		<tbody className="border-b bg-gray-900 border-gray-700">
 			<tr>
@@ -14,7 +14,9 @@ function RetailerInTable() {
 				<td className="px-3 py-2">
 					<div className="flex items-center p-2 space-x-4">
 						<div>
-							<h2 className="text-lg font-semibold">Janko Petrović</h2>
+							<h2 className="text-lg font-semibold">
+								{retailer.first_name} {retailer.last_name}
+							</h2>
 						</div>
 					</div>
 				</td>
@@ -22,7 +24,7 @@ function RetailerInTable() {
 					<span>Menadzer prodaje</span>
 				</td>
 				<td className="px-3 py-2">
-					<p>alex@bridges.com</p>
+					<p>{retailer.email}</p>
 				</td>
 				<td className="px-3 py-2 text-center">
 					<p>34</p>

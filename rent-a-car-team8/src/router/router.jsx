@@ -1,20 +1,34 @@
-import Navigation from "../components/Navigation/Navigation";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LogInPage/LogInPage";
 import LostPage from "../pages/LostPage/LostPage";
 import DashBoardPage from "../pages/DashBoardPage/DashBoardPage";
+import Navigation from "../components/Navigation/Navigation";
+import Footer from "../components/Footer/Footer";
 
 import { ProtectedRoute, PublicRoute } from "./Routes";
+import { Login } from "@mui/icons-material";
 
 export const appRoutes = [
 	{
 		path: "/",
 		exact: "true",
-		element: <PublicRoute element={<HomePage />} />,
+		element: (
+			<>
+				<Navigation></Navigation>
+				<HomePage />
+				<Footer></Footer>
+			</>
+		),
 		children: [
 			{
 				index: true,
-				element: <HomePage />,
+				element: (
+					<>
+						<Navigation></Navigation>
+						<HomePage />
+						<Footer></Footer>
+					</>
+				),
 				exact: true,
 			},
 			{
@@ -22,7 +36,13 @@ export const appRoutes = [
 				children: [
 					{
 						index: true,
-						element: <h1>about page</h1>,
+						element: (
+							<>
+								<Navigation></Navigation>
+								<h1>About page</h1>
+								<Footer></Footer>
+							</>
+						),
 						exact: true,
 					},
 					{ path: "team", element: <h1>Team page</h1> },
@@ -31,12 +51,57 @@ export const appRoutes = [
 			// { path: "users/:id", element: <UsersPage /> },
 		],
 	},
-	{ path: "login", element: <PublicRoute element={<LoginPage />} /> },
-	{ path: "dashboard", element: <PublicRoute element={<DashBoardPage />} /> },
+	{
+		path: "login",
+		element: (
+			<PublicRoute
+				element={
+					<>
+						<Navigation></Navigation>
+						<LoginPage></LoginPage>
+						<Footer></Footer>
+					</>
+				}
+			/>
+		),
+	},
+	{
+		path: "dashboard",
+		element: (
+			<PublicRoute
+				element={
+					<>
+						<Navigation></Navigation>
+						<DashBoardPage></DashBoardPage>
+						<Footer></Footer>
+					</>
+				}
+			/>
+		),
+	},
 	{
 		path: "user",
-		element: <PublicRoute element={<DashBoardPage superAdmin={false} />} />,
+		element: (
+			<PublicRoute
+				element={
+					<>
+						<Navigation></Navigation>
+						<DashBoardPage superAdmin={false} />
+						<Footer></Footer>
+					</>
+				}
+			/>
+		),
 	},
 
-	{ path: "*", element: <LostPage></LostPage> },
+	{
+		path: "*",
+		element: (
+			<>
+				<Navigation></Navigation>
+				<LostPage />
+				<Footer></Footer>
+			</>
+		),
+	},
 ];

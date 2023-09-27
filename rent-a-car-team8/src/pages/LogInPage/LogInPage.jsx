@@ -30,7 +30,7 @@ function LogInPage() {
 			console.log(body);
 			console.log(response);
 			handleUserLogin(response.data.access);
-			navigate("/");
+			navigate("/dashboard");
 		} catch (error) {
 			console.log(error);
 		}
