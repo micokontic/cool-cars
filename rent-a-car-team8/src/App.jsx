@@ -6,6 +6,7 @@ import PriceDiscount from "./components/PriceDiscount/PriceDiscount";
 import Waves from "./components/Waves/Waves";
 import Footer from "./components/Footer/Footer";
 
+
 function App() {
 	return (
 		<>
