@@ -8,6 +8,7 @@ import { appRoutes } from "./router/router";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 
+
 function App() {
 	const router = createBrowserRouter(appRoutes);
 	return <RouterProvider router={router} />;
