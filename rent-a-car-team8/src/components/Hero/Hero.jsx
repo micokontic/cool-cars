@@ -1,4 +1,5 @@
 import CarHero from "../../assets/SingleCarHero.png";
+import { NavLink } from "react-router-dom";
 
 function Hero() {
 	return (
@@ -14,20 +15,24 @@ function Hero() {
 						<span className="text-amber-400"> Vas </span> prevariti
 					</p>
 					<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-						<a
-							rel="noopener noreferrer"
-							href="#"
-							className="px-8 py-3 text-lg font-semibold rounded bg-amber-400 text-gray-900"
-						>
-							Naša ponuda
-						</a>
-						<a
-							rel="noopener noreferrer"
-							href="#"
-							className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 border-2"
-						>
-							Kontakt
-						</a>
+						<NavLink to="/cars">
+							<a
+								rel="noopener noreferrer"
+								href="#"
+								className="px-8 py-3 text-lg font-semibold rounded bg-amber-400 text-gray-900"
+							>
+								Naša ponuda
+							</a>
+						</NavLink>
+						<NavLink to="/contact">
+							<a
+								rel="noopener noreferrer"
+								href="#"
+								className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 border-2 sm:mt-3"
+							>
+								Kontakt
+							</a>
+						</NavLink>
 					</div>
 				</div>
 				<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">

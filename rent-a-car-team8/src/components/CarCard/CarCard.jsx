@@ -19,6 +19,7 @@ function CarCard({
 		vehicle_model: "Fabia",
 		vehicle_price: "40000.00",
 		year_of_manufacturing: 2023,
+		seat_number: "4",
 	},
 }) {
 	return (

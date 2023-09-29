@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import "./PriceDiscount.css";
 
 function PriceDiscount() {
@@ -15,13 +17,15 @@ function PriceDiscount() {
 							Za <span className="font-bold text-5xl">KEŠ</span> kupovinu
 						</span>
 					</div>
-					<a
-						rel="noopener noreferrer"
-						href="#"
-						className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 text-white"
-					>
-						Naša ponuda
-					</a>
+					<NavLink to="/cars">
+						<a
+							rel="noopener noreferrer"
+							href="#"
+							className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 text-white"
+						>
+							Naša ponuda
+						</a>
+					</NavLink>
 				</div>
 			</div>
 		</div>

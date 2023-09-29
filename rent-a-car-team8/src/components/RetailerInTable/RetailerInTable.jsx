@@ -21,7 +21,10 @@ function RetailerInTable({ retailer }) {
 					</div>
 				</td>
 				<td className="px-3 py-2">
-					<span>Menadzer prodaje</span>
+					<span>{retailer.username}</span>
+				</td>
+				<td className="px-3 py-2">
+					<span>Mali menadzer</span>
 				</td>
 				<td className="px-3 py-2">
 					<p>{retailer.email}</p>

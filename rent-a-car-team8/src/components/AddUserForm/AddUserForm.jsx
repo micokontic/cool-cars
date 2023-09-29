@@ -1,6 +1,40 @@
+import { useState, useEffect } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
+import { carServiceNew } from "../../service/beckCommunication";
+const { addRetailer } = carServiceNew;
 
 function AddUserForm() {
+	const [retailer, setRetailer] = useState({
+		username: "",
+		email: "",
+		first_name: "",
+		last_name: "",
+		password: "",
+	});
+
+	const addRetailerSubmit = () => {
+		const addRetailerApi = async () => {
+			try {
+				const result = await addRetailer(retailer);
+				console.log(result.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		addRetailerApi();
+	};
+
+	const handleChange = (e) => {
+		const { id, value } = e.target;
+
+		// Update the formData state using the id as the key and value as the new value
+		setRetailer((prevRetailer) => ({
+			...prevRetailer,
+			[id]: value,
+		}));
+	};
+
 	return (
 		<section className="p-2 text-gray-50 text-left">
 			<SectionHeading
@@ -21,27 +55,30 @@ function AddUserForm() {
 					</div>
 					<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 						<div className="col-span-full sm:col-span-3">
-							<label htmlFor="firstname" className="text-sm">
+							<label htmlFor="first_name" className="text-sm">
 								First name
 							</label>
 							<input
-								id="firstname"
+								id="first_name"
 								type="text"
 								placeholder="First name"
 								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
 							/>
 						</div>
 						<div className="col-span-full sm:col-span-3">
-							<label htmlFor="lastname" className="text-sm">
+							<label htmlFor="last_name" className="text-sm">
 								Last name
 							</label>
 							<input
-								id="lastname"
+								id="last_name"
 								type="text"
 								placeholder="Last name"
 								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
 							/>
 						</div>
+
 						<div className="col-span-full sm:col-span-3">
 							<label htmlFor="email" className="text-sm">
 								Email
@@ -51,8 +88,10 @@ function AddUserForm() {
 								type="email"
 								placeholder="Email"
 								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
 							/>
 						</div>
+
 						<div className="col-span-full sm:col-span-3">
 							<label htmlFor="position" className="text-sm">
 								Pozicija
@@ -62,6 +101,46 @@ function AddUserForm() {
 								type="text"
 								placeholder="Pozicija zaposlenog"
 								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
+							/>
+						</div>
+
+						<div className="col-span-full sm:col-span-3">
+							<label htmlFor="password" className="text-sm">
+								Password
+							</label>
+							<input
+								id="password"
+								type="password"
+								placeholder="Password"
+								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
+							/>
+						</div>
+
+						<div className="col-span-full sm:col-span-3">
+							<label htmlFor="password" className="text-sm">
+								Ponovite password
+							</label>
+							<input
+								id="password"
+								type="password"
+								placeholder="Ponovite password"
+								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
+							/>
+						</div>
+
+						<div className="col-span-full sm:col-span-3">
+							<label htmlFor="username" className="text-sm">
+								Username
+							</label>
+							<input
+								id="username"
+								type="text"
+								placeholder="Username"
+								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								onChange={handleChange}
 							/>
 						</div>
 
@@ -82,6 +161,7 @@ function AddUserForm() {
 					<div></div>
 					<div className="flex justify-end space-x-4 col-span-full sm:col-span-3">
 						<button
+							onClick={addRetailerSubmit}
 							type="button"
 							className="px-8 py-3 border rounded-md bg-amber-400 text-gray-900 border-amber-400 font-semibold"
 						>

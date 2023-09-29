@@ -9,7 +9,31 @@
 	border: 2px #ffca28 solid;
 	padding: 5% 4%;
 	width: 100%;
+	margin: 0 20px;
 }
 
 .home-page-card-container .left {
+}
+
+@media screen and (max-width: 1400px) {
+	.home-page-card-container {
+		grid-template-columns: 60% 40%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.home-page-card-container {
+		grid-template-columns: 50% 50%;
+	}
+}
+@media screen and (max-width: 800px) {
+	.home-page-card-container {
+		grid-template-columns: 100%;
+	}
+	.home-page-card-container .MuiPaper-root {
+		max-width: 320px !important;
+	}
+	.cheapest {
+		margin: 0 5px;
+	}
 }

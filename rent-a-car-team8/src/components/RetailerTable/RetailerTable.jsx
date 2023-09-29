@@ -31,6 +31,7 @@ function RetailerTable() {
 				<table className="w-full p-6 text-body  text-left whitespace-nowrap">
 					<colgroup>
 						<col className="w-5"></col>
+						<col></col>
 
 						<col></col>
 						<col></col>
@@ -44,6 +45,8 @@ function RetailerTable() {
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</th>
 							<th className="p-3">Ime i prezime</th>
+							<th className="p-3">Username</th>
+
 							<th className="p-3">Pozicija</th>
 							<th className="p-3">Email</th>
 							<th className="p-3 text-center">Broj automobila</th>

@@ -68,7 +68,7 @@ function CarData({
 							textAlign="left"
 							ml={2}
 						>
-							{car.door_count}
+							{car.seat_number}
 						</Typography>
 					</div>
 				</div>

@@ -39,11 +39,11 @@ function LogInPage() {
 	return (
 		<div className="log-in-form-container">
 			<div className="log-in-form-inner-container mx-4">
-				<div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
+				<div className="w-full max-w-md p-4 py-9 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
 					<h2 className="mb-3 text-3xl font-semibold text-center">
 						Login to your account
 					</h2>
-					<p className="text-sm text-center text-gray-400">
+					{/* <p className="text-sm text-center text-gray-400">
 						Dont have account?
 						<a
 							href="#"
@@ -52,8 +52,8 @@ function LogInPage() {
 						>
 							Sign up here
 						</a>
-					</p>
-					<div className="my-6 space-y-4">
+					</p> */}
+					{/* <div className="my-6 space-y-4">
 						<button
 							aria-label="Login with Google"
 							type="button"
@@ -68,12 +68,12 @@ function LogInPage() {
 							</svg>
 							<p>Login with Google</p>
 						</button>
-					</div>
-					<div className="flex items-center w-full my-4">
+					</div> */}
+					{/* <div className="flex items-center w-full my-4">
 						<hr className="w-full text-gray-400"></hr>
 						<p className="px-3 text-gray-400">OR</p>
 						<hr className="w-full text-gray-400"></hr>
-					</div>
+					</div> */}
 					<form
 						noValidate=""
 						action=""

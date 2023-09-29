@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import ProfileHead from "../ProfileHead/ProfileHead";
 import RetailersIcon from "../jsxIcons/CommandIcons/RetailersIcon";
 import AddRetailIcon from "../jsxIcons/CommandIcons/AddRetailIcon";
@@ -5,12 +6,14 @@ import ApproveIcon from "../jsxIcons/CommandIcons/ApproveIcon";
 import StatisticIcon from "../jsxIcons/CommandIcons/StatisticIcon";
 import SettingsIcon from "../jsxIcons/CommandIcons/SettingsIcon";
 import LogOutIcon from "../jsxIcons/CommandIcons/LogOutIcon";
+import { UserContext } from "../../contexts/userContext";
 
 function DashboardCommands({
 	selectedIndex,
 	handleListItemClick,
 	setSelectedIndex,
 }) {
+	const { handleUserLogout } = useContext(UserContext);
 	return (
 		<div className=" p-4 space-y-2 w-80 bg-gray-900 text-gray-100 align-to-start">
 			<ProfileHead></ProfileHead>
@@ -104,7 +107,10 @@ function DashboardCommands({
 						</a>
 					</li>
 					<li
-						onClick={() => handleListItemClick(5)}
+						onClick={() => {
+							handleListItemClick(5);
+							handleUserLogout();
+						}}
 						className={` ${
 							selectedIndex === 5
 								? "bg-cool-blue text-gray-50"

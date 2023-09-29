@@ -1,15 +1,18 @@
+import { useContext } from "react";
 import ProfileHead from "../ProfileHead/ProfileHead";
 import AddCarIcon from "../jsxIcons/CommandIcons/AddCarIcon";
 import CarListIcon from "../jsxIcons/CommandIcons/CarListIcon";
 import StatisticIcon from "../jsxIcons/CommandIcons/StatisticIcon";
 import LogOutIcon from "../jsxIcons/CommandIcons/LogOutIcon";
 import SettingsIcon from "../jsxIcons/CommandIcons/SettingsIcon";
+import { UserContext } from "../../contexts/userContext";
 
 function DashboardCommandsUser({
 	selectedIndex,
 	handleListItemClick,
 	setSelectedIndex,
 }) {
+	const { handleUserLogout } = useContext(UserContext);
 	return (
 		<div className=" p-4 space-y-2 w-80 bg-gray-900 text-gray-100 align-to-start">
 			<ProfileHead superAdmin={false}></ProfileHead>
@@ -87,7 +90,10 @@ function DashboardCommandsUser({
 						</a>
 					</li>
 					<li
-						onClick={() => handleListItemClick(5)}
+						onClick={() => {
+							handleListItemClick(5);
+							handleUserLogout();
+						}}
 						className={` ${
 							selectedIndex === 5
 								? "bg-cool-blue text-gray-50"

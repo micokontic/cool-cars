@@ -36,9 +36,9 @@ function HomePage() {
 			<div className="home-page-card-container">
 				<div className="left inline-element">
 					<SectionHeading
-						heading={"Naši najprodavaniji automobili"}
+						heading={"Naši najnoviji automobili"}
 						text={
-							" Top 10 najprodavanijih automobila u našoj ponudi! U našem nastojanju da vam ponudimo najbolje vozne opcije, pažljivo smo izabrali ove automobile koji su se izdvojili u svojoj klasi."
+							"Najnoviji automobili u našoj ponudi! U našem nastojanju da vam ponudimo najbolje vozne opcije, pažljivo smo izabrali ove automobile koji su se izdvojili u svojoj klasi."
 						}
 					></SectionHeading>
 					<CarsCarousel></CarsCarousel>

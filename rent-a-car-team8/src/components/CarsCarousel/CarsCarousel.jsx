@@ -20,6 +20,7 @@ const car = {
 };
 function CarsCarousel() {
 	const [tenCars, setTenCars] = useState([]);
+	const [centerSlidePercentage, setCenterSlidePercentage] = useState(33);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -39,11 +40,40 @@ function CarsCarousel() {
 		fetchData();
 	}, []);
 
+	// to abjust sentersliderpercentage depending on resolution
+
+	useEffect(() => {
+		function handleResize() {
+			// Adjust centerSlidePercentage based on screen width
+			const screenWidth = window.innerWidth;
+			if (screenWidth > 1400) {
+				setCenterSlidePercentage(33);
+			} else if (screenWidth > 1000) {
+				setCenterSlidePercentage(50);
+			} else if (screenWidth > 800) {
+				setCenterSlidePercentage(100);
+			} else {
+				setCenterSlidePercentage(100);
+			}
+		}
+
+		// Add an event listener to handle window resizing
+		window.addEventListener("resize", handleResize);
+
+		// Call handleResize initially to set the initial value
+		handleResize();
+
+		// Cleanup the event listener when the component unmounts
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
 	return (
 		<Carousel
 			infiniteLoop={true}
 			centerMode
-			centerSlidePercentage={33}
+			centerSlidePercentage={centerSlidePercentage}
 			interval={2000}
 			showIndicators={false}
 			useKeyboardArrows={true}

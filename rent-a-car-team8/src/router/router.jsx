@@ -4,6 +4,8 @@ import LostPage from "../pages/LostPage/LostPage";
 import DashBoardPage from "../pages/DashBoardPage/DashBoardPage";
 import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
+import ContactUs from "../pages/ContactUs/ContactUs";
+import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 
 import { ProtectedRoute, PublicRoute } from "./Routes";
 import { Login } from "@mui/icons-material";
@@ -31,24 +33,6 @@ export const appRoutes = [
 				),
 				exact: true,
 			},
-			{
-				path: "about",
-				children: [
-					{
-						index: true,
-						element: (
-							<>
-								<Navigation></Navigation>
-								<h1>About page</h1>
-								<Footer></Footer>
-							</>
-						),
-						exact: true,
-					},
-					{ path: "team", element: <h1>Team page</h1> },
-				],
-			},
-			// { path: "users/:id", element: <UsersPage /> },
 		],
 	},
 	{
@@ -59,6 +43,20 @@ export const appRoutes = [
 					<>
 						<Navigation></Navigation>
 						<LoginPage></LoginPage>
+						<Footer></Footer>
+					</>
+				}
+			/>
+		),
+	},
+	{
+		path: "about",
+		element: (
+			<PublicRoute
+				element={
+					<>
+						<Navigation></Navigation>
+						<AboutUsPage></AboutUsPage>
 						<Footer></Footer>
 					</>
 				}
@@ -87,6 +85,20 @@ export const appRoutes = [
 					<>
 						<Navigation></Navigation>
 						<DashBoardPage superAdmin={false} />
+						<Footer></Footer>
+					</>
+				}
+			/>
+		),
+	},
+	{
+		path: "contact",
+		element: (
+			<PublicRoute
+				element={
+					<>
+						<Navigation></Navigation>
+						<ContactUs></ContactUs>
 						<Footer></Footer>
 					</>
 				}
