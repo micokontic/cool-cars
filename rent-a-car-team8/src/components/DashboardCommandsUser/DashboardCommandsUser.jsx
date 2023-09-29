@@ -14,7 +14,7 @@ function DashboardCommandsUser({
 }) {
 	const { handleUserLogout } = useContext(UserContext);
 	return (
-		<div className=" p-4 space-y-2 w-80 bg-gray-900 text-gray-100 align-to-start">
+		<div className=" p-4 space-y-2 w-80 bg-gray-900 text-gray-100 align-to-start hight-must">
 			<ProfileHead superAdmin={false}></ProfileHead>
 			<div className=" divide-y divide-gray-700">
 				<ul className="pt-2 pb-4 space-y-1 text-lg	">

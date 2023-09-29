@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import CarCard from "../CarCard/CarCard";
+import Loading from "../../components/Loading/Loading";
 import "./CarsCarousel.css";
 import { useState, useEffect } from "react";
 import { carServiceNew } from "../../service/beckCommunication";
@@ -19,6 +20,7 @@ const car = {
 	year_of_manufacturing: 2023,
 };
 function CarsCarousel() {
+	const [isLoading, setIsLoading] = useState(true);
 	const [tenCars, setTenCars] = useState([]);
 	const [centerSlidePercentage, setCenterSlidePercentage] = useState(33);
 
@@ -30,9 +32,11 @@ function CarsCarousel() {
 				console.log(result.data);
 				var shortArray = result.data;
 				setTenCars(shortArray);
-				console.log(shortArray);
+
+				setIsLoading(false);
 			} catch (err) {
 				console.log(err);
+				setIsLoading(false);
 				setTenCars([car, car, car, car, car]);
 			}
 		};
@@ -69,7 +73,9 @@ function CarsCarousel() {
 		};
 	}, []);
 
-	return (
+	return isLoading ? (
+		<Loading></Loading>
+	) : (
 		<Carousel
 			infiniteLoop={true}
 			centerMode
@@ -90,14 +96,6 @@ function CarsCarousel() {
 					</div>
 				);
 			})}
-
-			{/* {tenCars.map((car, i) => {
-				return (
-					<div key={i} className="carausel-card-container">
-						<CarCard car={car}></CarCard>
-					</div>
-				);
-			})} */}
 		</Carousel>
 	);
 }

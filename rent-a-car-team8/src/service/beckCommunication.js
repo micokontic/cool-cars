@@ -17,6 +17,12 @@ class carService {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		});
+	getCarsOfUser = async () =>
+		await axiosInstance.get("user/1", {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+		});
 }
 
 export const carServiceNew = new carService();

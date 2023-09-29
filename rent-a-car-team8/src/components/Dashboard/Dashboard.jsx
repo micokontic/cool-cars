@@ -20,7 +20,7 @@ function Dashboard() {
 	];
 
 	return (
-		<div className="dashboard-container">
+		<div className="dashboard-container hight-must">
 			<DashboardCommands
 				selectedIndex={selectedIndex}
 				setSelectedIndex={setSelectedIndex}

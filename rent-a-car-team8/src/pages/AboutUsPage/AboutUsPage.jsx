@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutUsPage() {
 	return (
-		<section className="py-6 bg-cool-blue text-gray-100">
+		<section className="py-6 bg-cool-blue text-gray-100 hight-must center">
 			<div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
 				<p className="p-2 text-sm font-medium tracki text-center uppercase">
 					Development team

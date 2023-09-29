@@ -37,7 +37,7 @@ function LogInPage() {
 	};
 
 	return (
-		<div className="log-in-form-container">
+		<div className="log-in-form-container hight-must center">
 			<div className="log-in-form-inner-container mx-4">
 				<div className="w-full max-w-md p-4 py-9 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
 					<h2 className="mb-3 text-3xl font-semibold text-center">

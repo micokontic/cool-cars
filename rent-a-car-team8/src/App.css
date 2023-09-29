@@ -9,3 +9,12 @@ body {
 html {
 	font-family: ui-sans-serif, system-ui !important;
 }
+
+.hight-must {
+	min-height: 75vh;
+}
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
