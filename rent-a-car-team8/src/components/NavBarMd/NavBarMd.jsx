@@ -33,7 +33,7 @@ function NavBarMd({ activeButton, setActiveButton, handleOpenUserMenu }) {
 						variant="body1"
 						style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
 					>
-						NEW CARS
+						MODELS
 					</Typography>
 				</Button>
 			</NavLink>
@@ -113,18 +113,20 @@ function NavBarMd({ activeButton, setActiveButton, handleOpenUserMenu }) {
 						</Box>
 					</NavLink>
 
-					<NavLink to="/dashboard">
-						<Box sx={{ flexGrow: 0 }}>
-							<Tooltip title="Avatar of user">
-								<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-									<Avatar
-										alt="Remy Sharp"
-										src="https://source.unsplash.com/100x100/?portrait"
-									/>
-								</IconButton>
-							</Tooltip>
-						</Box>
-					</NavLink>
+					<div className="navigation-avatar">
+						<NavLink to="/dashboard">
+							<Box sx={{ flexGrow: 0 }}>
+								<Tooltip title="Avatar of user">
+									<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+										<Avatar
+											alt="Remy Sharp"
+											src="https://source.unsplash.com/100x100/?portrait"
+										/>
+									</IconButton>
+								</Tooltip>
+							</Box>
+						</NavLink>
+					</div>
 				</>
 			) : (
 				<NavLink to="/login">

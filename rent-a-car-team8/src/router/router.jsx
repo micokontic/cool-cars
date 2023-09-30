@@ -6,6 +6,7 @@ import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
+import ModelsPage from "../pages/ModelsPage/ModelsPage";
 
 import { ProtectedRoute, PublicRoute } from "./Routes";
 import { Login } from "@mui/icons-material";
@@ -99,6 +100,20 @@ export const appRoutes = [
 					<>
 						<Navigation></Navigation>
 						<ContactUs></ContactUs>
+						<Footer></Footer>
+					</>
+				}
+			/>
+		),
+	},
+	{
+		path: "cars",
+		element: (
+			<PublicRoute
+				element={
+					<>
+						<Navigation></Navigation>
+						<ModelsPage></ModelsPage>
 						<Footer></Footer>
 					</>
 				}

@@ -1,0 +1,9 @@
+.MuiModal-root .MuiPaper-root {
+	background-color: #ffca28;
+}
+
+.navigation-avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

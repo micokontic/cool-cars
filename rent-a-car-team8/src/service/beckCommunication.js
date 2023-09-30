@@ -23,6 +23,12 @@ class carService {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		});
+	addCar = async () =>
+		await axiosInstance.post("/cars/create", {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+		});
 }
 
 export const carServiceNew = new carService();

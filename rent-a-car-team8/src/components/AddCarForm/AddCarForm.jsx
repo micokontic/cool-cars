@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
-import { carServiceNew } from "../../service/beckCommunication";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import "./AddCarForm.css";
-const { addRetailer } = carServiceNew;
+
+import { carServiceNew } from "../../service/beckCommunication";
+const { addCar } = carServiceNew;
 
 const MenuProps = {
 	getContentAnchorEl: null,
@@ -30,17 +31,17 @@ function AddUserForm() {
 		seat_number: "3",
 	});
 
-	const addRetailerSubmit = () => {
-		const addRetailerApi = async () => {
+	const addCarSubmit = () => {
+		const addCarApi = async () => {
 			try {
-				const result = await addRetailer(car);
+				const result = await addCar(car);
 				console.log(result.data);
 			} catch (err) {
 				console.log(err);
 			}
 		};
 
-		addRetailerApi();
+		addCarApi();
 	};
 
 	const handleChange = (e) => {
@@ -243,7 +244,7 @@ function AddUserForm() {
 					<div></div>
 					<div className="flex justify-end space-x-4 col-span-full sm:col-span-3">
 						<button
-							onClick={addRetailerSubmit}
+							onClick={addCarSubmit}
 							type="button"
 							className="px-8 py-3 border rounded-md bg-amber-400 text-gray-900 border-amber-400 font-semibold"
 						>
