@@ -27,7 +27,7 @@ function CarsCarousel() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const result = await getCars();
+				const result = await getCars("");
 				console.log(result);
 				console.log(result.data);
 				var shortArray = result.data;

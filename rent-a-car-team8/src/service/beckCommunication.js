@@ -1,7 +1,7 @@
 import { axiosInstance } from "./api";
 
 class carService {
-	getCars = async () => await axiosInstance.get("cars");
+	getCars = async (url) => await axiosInstance.get("cars" + url);
 	getToken = async (body) => await axiosInstance.post("api/token/", body);
 	getCheapestCar = async () => await axiosInstance.get("cheapest-car");
 	addRetailer = async (body) =>

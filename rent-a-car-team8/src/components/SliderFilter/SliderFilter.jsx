@@ -1,31 +1,50 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { Typography } from "@mui/material";
 
 function valuetext(value) {
-	let numberString = value.toString();
+	let numberString = (value * 1000).toString();
 
 	// Use a regular expression to add commas as thousands separators
-	numberString = numberString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
+	numberString = numberString.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €";
+	console.log(numberString);
 	return numberString;
 }
 
-export default function SliderFilter() {
-	const [value, setValue] = React.useState([5000, 100000]);
+const minDistance = 5;
 
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
+export default function SliderFilter({ setSliderValue, sliderValue }) {
+	const handleChange = (event, newValue, activeThumb) => {
+		if (!Array.isArray(newValue)) {
+			return;
+		}
+
+		if (newValue[1] - newValue[0] < minDistance) {
+			if (activeThumb === 0) {
+				const clamped = Math.min(newValue[0], 100 - minDistance);
+				setSliderValue([clamped, clamped + minDistance]);
+			} else {
+				const clamped = Math.max(newValue[1], minDistance);
+				setSliderValue([clamped - minDistance, clamped]);
+			}
+		} else {
+			setSliderValue(newValue);
+		}
 	};
 
 	return (
 		<Box sx={{ width: "100%" }}>
+			<Typography id="input-slider" gutterBottom>
+				Opseg cijena za pretragu
+			</Typography>
 			<Slider
+				aria-label="Always visible"
 				getAriaLabel={() => "Opseg cijena"}
-				value={value}
+				value={sliderValue}
 				onChange={handleChange}
-				valueLabelDisplay="auto"
-				getAriaValueText={valuetext}
+				valueLabelDisplay="on"
+				valueLabelFormat={valuetext}
+				disableSwap
 			/>
 		</Box>
 	);

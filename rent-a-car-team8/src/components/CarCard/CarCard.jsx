@@ -11,6 +11,7 @@ import { Modal, Box } from "@mui/material";
 
 function CarCard({
 	unApproved = false,
+	maxWidth = 345,
 	car = {
 		description: "Brza i pouzdana",
 		door_count: 5,
@@ -43,7 +44,7 @@ function CarCard({
 			<>
 				<Card
 					sx={{
-						maxWidth: 345,
+						maxWidth: { maxWidth },
 						margin: "3% auto",
 					}}
 					className="car-card-container-inner"

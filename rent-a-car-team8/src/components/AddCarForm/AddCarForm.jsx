@@ -180,8 +180,8 @@ function AddUserForm() {
 										backgroundColor: "#fff",
 									}}
 								>
-									<MenuItem value={"Manuelni"}>Manuelni</MenuItem>
-									<MenuItem value={"Automatski"}>Automatski</MenuItem>
+									<MenuItem value={"Manual"}>Manual</MenuItem>
+									<MenuItem value={"Automatik"}>Automatik</MenuItem>
 									<MenuItem value={"DSG"}>DSG</MenuItem>
 								</Select>
 							</FormControl>
