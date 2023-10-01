@@ -89,7 +89,7 @@ function ResponsiveAppBar() {
 									display: { xs: "block", md: "none" },
 								}}
 							>
-								<div className="bg-cool-yellow">
+								<div>
 									<NavBarMd
 										activeButton={activeButton}
 										setActiveButton={setActiveButton}
