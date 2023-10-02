@@ -5,7 +5,7 @@ import Loading from "../../components/Loading/Loading";
 import "./CarsCarousel.css";
 import { useState, useEffect } from "react";
 import { carServiceNew } from "../../service/beckCommunication";
-const { getCars } = carServiceNew;
+const { getNewCars } = carServiceNew;
 
 const car = {
 	description: "Brza i pouzdana DUM",
@@ -47,7 +47,7 @@ function CarsCarousel() {
 
 		const fetchData = async () => {
 			try {
-				const result = await getCars("");
+				const result = await getNewCars();
 				console.log(result);
 				console.log(result.data);
 				var shortArray = result.data;

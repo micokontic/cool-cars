@@ -1,10 +1,13 @@
-function ApproveTick() {
+function ApproveTick({ patchCarSubmit }) {
 	return (
 		<>
 			<button
 				type="button"
 				className=" rounded-lg text-gray-600"
 				title="Odobri oglas"
+				onClick={() => {
+					patchCarSubmit({ status: "approved" });
+				}}
 			>
 				<span className="icon lightStar">
 					<svg

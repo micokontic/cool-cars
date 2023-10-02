@@ -12,8 +12,8 @@ export default function validateInputCar(values) {
 	if (!values.description.trim()) {
 		errors.description = "Description required";
 	}
-	if (!values.price.trim()) {
-		errors.price = "Price required";
+	if (!values.vehicle_price.trim()) {
+		errors.vehicle_price = "Price required";
 	}
 	if (!values.seat_number.trim()) {
 		errors.seat_number = "Seat number required";

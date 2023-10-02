@@ -11,6 +11,18 @@ import "./AddCarForm.css";
 import { carServiceNew } from "../../service/beckCommunication";
 const { addCar } = carServiceNew;
 
+const testCar = {
+	vehicle_make: "Mercedes",
+	vehicle_model: "A Class",
+	year_of_manufacturing: "2022",
+	description: "Strava kola i to",
+	fuel_type: "Dizel",
+	transmission: "Automatik",
+	door_count: "5",
+	seat_number: "4",
+	vehicle_price: "50000.00",
+};
+
 const MenuProps = {
 	getContentAnchorEl: null,
 	PaperProps: {
@@ -26,11 +38,12 @@ function AddUserForm() {
 		fuel_type: "",
 		transmission: "",
 		door_count: "",
-		price: "",
+		vehicle_price: "",
 		vehicle_make: "",
 		vehicle_model: "",
 		description: "",
 		seat_number: "",
+		year_of_manufacturing: "2022",
 	});
 
 	const [errors, setErrors] = useState({});
@@ -38,6 +51,9 @@ function AddUserForm() {
 	const addCarSubmit = () => {
 		const addCarApi = async () => {
 			try {
+				console.log("evo ih");
+				console.log(car);
+				console.log(testCar);
 				const result = await addCar(car);
 				console.log(result.data);
 			} catch (err) {
@@ -148,23 +164,25 @@ function AddUserForm() {
 						</div>
 
 						<div className="col-span-full sm:col-span-3">
-							<label htmlFor="price" className="text-sm">
+							<label htmlFor="vehicle_price" className="text-sm">
 								Cijena automobila[EUR]
 							</label>
 							<input
 								min="0"
 								max="1000000"
-								name="price"
+								name="vehicle_price"
 								type="number"
 								placeholder="Unesite cijenu automobila"
 								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
-									errors.price && "ring  ring-red-500"
+									errors.vehicle_price && "ring  ring-red-500"
 								}`}
 								onChange={handleChange}
-								value={car.price}
+								value={car.vehicle_price}
 							/>
-							{errors.price ? (
-								<p className="text-red-500 text-xs mt-1">{errors.price}</p>
+							{errors.vehicle_price ? (
+								<p className="text-red-500 text-xs mt-1">
+									{errors.vehicle_price}
+								</p>
 							) : (
 								<p className="text-transparent text-xs mt-1">place for error</p>
 							)}
@@ -216,7 +234,6 @@ function AddUserForm() {
 									<MenuItem value={"Dizel"}>Dizel</MenuItem>
 									<MenuItem value={"Benzin"}>Benzin</MenuItem>
 									<MenuItem value={"Električni"}>Električni</MenuItem>
-									<MenuItem value={"Hibrid"}>Hibrid</MenuItem>
 								</Select>
 							</FormControl>
 						</div>

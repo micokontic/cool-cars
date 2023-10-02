@@ -1,10 +1,13 @@
-function DisapproveTick() {
+function DisapproveTick({ patchCarSubmit }) {
 	return (
 		<>
 			<button
 				type="button"
 				className=" rounded-lg text-gray-600"
 				title="Odbij oglas"
+				onClick={() => {
+					patchCarSubmit({ status: "denied" });
+				}}
 			>
 				<span className="icon lightStar">
 					<svg

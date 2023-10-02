@@ -8,6 +8,8 @@ import ApproveTick from "./ApproveTick";
 import Button from "@mui/material/Button";
 import DisapproveTick from "./DisapproveTick";
 import { Modal, Box } from "@mui/material";
+import { carServiceNew } from "../../service/beckCommunication";
+const { patchCar } = carServiceNew;
 
 function CarCard({
 	unApproved = false,
@@ -25,9 +27,26 @@ function CarCard({
 		year_of_manufacturing: 2023,
 		seat_number: "4",
 	},
+	refreshUser = () => {
+		console.log("dummy");
+	},
 }) {
 	const [isModalOpen, setModalOpen] = useState(false);
 	const [selectedCar, setSelectedCar] = useState(null);
+
+	const patchCarSubmit = (status) => {
+		console.log("patchujem");
+		const patchCarApi = async () => {
+			try {
+				const result = await patchCar(status, car.id);
+				console.log(result.data);
+				refreshUser();
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		patchCarApi();
+	};
 
 	const openModal = (car) => {
 		setSelectedCar(car);
@@ -52,8 +71,10 @@ function CarCard({
 					{unApproved ? (
 						<div className="relative">
 							<div className="absolute top-3 right-3">
-								<ApproveTick></ApproveTick>
-								<DisapproveTick></DisapproveTick>
+								<ApproveTick patchCarSubmit={patchCarSubmit}></ApproveTick>
+								<DisapproveTick
+									patchCarSubmit={patchCarSubmit}
+								></DisapproveTick>
 							</div>
 						</div>
 					) : (
