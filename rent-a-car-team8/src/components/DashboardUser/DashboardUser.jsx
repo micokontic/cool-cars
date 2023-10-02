@@ -21,7 +21,7 @@ function DashboardUser() {
 	];
 
 	return (
-		<div className="dashboard-container mb-6 lg:mx-0 mx-3">
+		<div className="dashboard-container lg:mx-0 mx-3">
 			<DashboardCommandsUser
 				selectedIndex={selectedIndex}
 				setSelectedIndex={setSelectedIndex}

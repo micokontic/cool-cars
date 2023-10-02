@@ -1,14 +1,15 @@
-const isProtected = false;
-export const ProtectedRoute = ({ element }) => {
-	// const { user } = useContext(UserContext);
+import { useContext } from "react";
+import { UserContext } from "../contexts/userContext";
+import { Navigate } from "react-router-dom";
 
-	// return !isProtected ? <>{element}</> : <Navigate to="/login" />;
-	return element;
+export const ProtectedRoute = ({ element }) => {
+	const { user } = useContext(UserContext);
+
+	return user?.user_id ? <>{element}</> : <Navigate to="/login" />;
 };
 
 export const PublicRoute = ({ element }) => {
-	// const { user } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 
-	// return !isProtected ? <Navigate to="/" /> : <>{element}</>;
-	return element;
+	return <>{element}</>;
 };

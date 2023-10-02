@@ -25,28 +25,6 @@ function CarsCarousel() {
 	const [centerSlidePercentage, setCenterSlidePercentage] = useState(33);
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const result = await getCars("");
-				console.log(result);
-				console.log(result.data);
-				var shortArray = result.data;
-				setTenCars(shortArray);
-
-				setIsLoading(false);
-			} catch (err) {
-				console.log(err);
-				setIsLoading(false);
-				setTenCars([car, car, car, car, car]);
-			}
-		};
-
-		fetchData();
-	}, []);
-
-	// to abjust sentersliderpercentage depending on resolution
-
-	useEffect(() => {
 		function handleResize() {
 			// Adjust centerSlidePercentage based on screen width
 			const screenWidth = window.innerWidth;
@@ -66,6 +44,24 @@ function CarsCarousel() {
 
 		// Call handleResize initially to set the initial value
 		handleResize();
+
+		const fetchData = async () => {
+			try {
+				const result = await getCars("");
+				console.log(result);
+				console.log(result.data);
+				var shortArray = result.data;
+				setTenCars(shortArray);
+
+				setIsLoading(false);
+			} catch (err) {
+				console.log(err);
+				setIsLoading(false);
+				setTenCars([car, car, car, car, car]);
+			}
+		};
+
+		fetchData();
 
 		// Cleanup the event listener when the component unmounts
 		return () => {

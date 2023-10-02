@@ -4,6 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import validateInputCar from "../../service/validateInputCar";
+
 import "./AddCarForm.css";
 
 import { carServiceNew } from "../../service/beckCommunication";
@@ -21,15 +23,17 @@ const MenuProps = {
 
 function AddUserForm() {
 	const [car, setCar] = useState({
-		fuel_type: "Dizel",
-		transmission: "DSG",
-		door_count: "4",
-		price: "10000",
-		vehicle_make: "Skoda",
-		vehicle_model: "Fabia",
-		description: "Fin auto za male pare",
-		seat_number: "3",
+		fuel_type: "",
+		transmission: "",
+		door_count: "",
+		price: "",
+		vehicle_make: "",
+		vehicle_model: "",
+		description: "",
+		seat_number: "",
 	});
+
+	const [errors, setErrors] = useState({});
 
 	const addCarSubmit = () => {
 		const addCarApi = async () => {
@@ -41,7 +45,12 @@ function AddUserForm() {
 			}
 		};
 
-		addCarApi();
+		setErrors(validateInputCar(car));
+		console.log("stampam ovo");
+		console.log(errors);
+		if (Object.keys(errors).length === 0) {
+			addCarApi();
+		}
 	};
 
 	const handleChange = (e) => {
@@ -54,6 +63,21 @@ function AddUserForm() {
 			...prevCar,
 			[name]: value,
 		}));
+	};
+
+	const handleFileChange = (e) => {
+		const file = e.target.files[0];
+
+		if (file && file.type === "image/jpeg") {
+			// If the file is a JPEG image, set it in state
+			setCar((prevRetailer) => ({
+				...prevRetailer,
+				["file"]: file,
+			}));
+		} else {
+			// If the file is not a JPEG image, show an error message
+			e.target.value = null; // Clear the file input
+		}
 	};
 
 	return (
@@ -86,10 +110,20 @@ function AddUserForm() {
 								value={car.vehicle_make}
 								type="text"
 								placeholder="Škoda"
-								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
+									errors.vehicle_make && "ring  ring-red-500"
+								}`}
 								onChange={handleChange}
 							/>
+							{errors.vehicle_make ? (
+								<p className="text-red-500 text-xs mt-1">
+									{errors.vehicle_make}
+								</p>
+							) : (
+								<p className="text-transparent text-xs mt-1">place for error</p>
+							)}
 						</div>
+
 						<div className="col-span-full sm:col-span-3">
 							<label htmlFor="vehicle_model" className="text-sm">
 								Model automobila
@@ -99,9 +133,18 @@ function AddUserForm() {
 								name="vehicle_model"
 								type="text"
 								placeholder="Fabia"
-								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
+									errors.vehicle_model && "ring  ring-red-500"
+								}`}
 								onChange={handleChange}
 							/>
+							{errors.vehicle_model ? (
+								<p className="text-red-500 text-xs mt-1">
+									{errors.vehicle_model}
+								</p>
+							) : (
+								<p className="text-transparent text-xs mt-1">place for error</p>
+							)}
 						</div>
 
 						<div className="col-span-full sm:col-span-3">
@@ -114,10 +157,17 @@ function AddUserForm() {
 								name="price"
 								type="number"
 								placeholder="Unesite cijenu automobila"
-								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
+									errors.price && "ring  ring-red-500"
+								}`}
 								onChange={handleChange}
 								value={car.price}
 							/>
+							{errors.price ? (
+								<p className="text-red-500 text-xs mt-1">{errors.price}</p>
+							) : (
+								<p className="text-transparent text-xs mt-1">place for error</p>
+							)}
 						</div>
 						<div className="col-span-full sm:col-span-3">
 							<label htmlFor="seat_number" className="text-sm">
@@ -129,10 +179,19 @@ function AddUserForm() {
 								max="50"
 								type="number"
 								placeholder="Unesite broj sjedišta"
-								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
+									errors.seat_numbers && "ring  ring-red-500"
+								}`}
 								onChange={handleChange}
 								value={car.seat_number}
 							/>
+							{errors.seat_number ? (
+								<p className="text-red-500 text-xs mt-1">
+									{errors.seat_number}
+								</p>
+							) : (
+								<p className="text-transparent text-xs mt-1">place for error</p>
+							)}
 						</div>
 
 						<div className="col-span-full sm:col-span-3 lg:col-span-2">
@@ -222,9 +281,18 @@ function AddUserForm() {
 								name="description"
 								type="text"
 								placeholder="Kratak opis automobila"
-								className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
+									errors.description && "ring  ring-red-500"
+								}`}
 								onChange={handleChange}
 							/>
+							{errors.description ? (
+								<p className="text-red-500 text-xs mt-1">
+									{errors.description}
+								</p>
+							) : (
+								<p className="text-transparent text-xs mt-1">place for error</p>
+							)}
 						</div>
 
 						<div className="col-span-full space-y-1 text-gray-100">
@@ -236,6 +304,7 @@ function AddUserForm() {
 									type="file"
 									name="files"
 									id="files"
+									onChange={handleFileChange}
 									className="px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full"
 								/>
 							</div>

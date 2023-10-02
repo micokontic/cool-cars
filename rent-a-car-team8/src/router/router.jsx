@@ -67,7 +67,7 @@ export const appRoutes = [
 	{
 		path: "dashboard",
 		element: (
-			<PublicRoute
+			<ProtectedRoute
 				element={
 					<>
 						<Navigation></Navigation>
@@ -81,7 +81,7 @@ export const appRoutes = [
 	{
 		path: "user",
 		element: (
-			<PublicRoute
+			<ProtectedRoute
 				element={
 					<>
 						<Navigation></Navigation>

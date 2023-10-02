@@ -4,6 +4,8 @@ import SliderFilter from "../../components/SliderFilter/SliderFilter";
 import CarCard from "../../components/CarCard/CarCard";
 import "./ModelsPage.css";
 import { carServiceNew } from "../../service/beckCommunication";
+import toast, { Toaster } from "react-hot-toast";
+
 const { getCars } = carServiceNew;
 
 function ModelsPage({ superAdmin = false }) {
@@ -33,18 +35,26 @@ function ModelsPage({ superAdmin = false }) {
 	};
 
 	useEffect(() => {
+		let isMounted = true;
+
 		const fetchData = async () => {
+			console.log("odje udjoh");
 			try {
 				const url = createURL();
 				console.log(url);
 				const result = await getCars(url);
-				setCars(result.data);
+				if (isMounted) {
+					setCars(result.data);
+				}
 			} catch (err) {
 				console.log(err);
 			}
 		};
-
+		console.log("ovo pozvah");
 		fetchData();
+		return () => {
+			isMounted = false;
+		};
 	}, []);
 
 	const getCarsSubmit = () => {
@@ -55,6 +65,7 @@ function ModelsPage({ superAdmin = false }) {
 				const result = await getCars(url);
 				console.log(result.data);
 				setCars(result.data);
+				console.log("submit post");
 			} catch (err) {
 				console.log(err);
 			}

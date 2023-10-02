@@ -18,3 +18,12 @@ html {
 	justify-content: center;
 	align-items: center;
 }
+
+.MuiMenuItem-root {
+	font-weight: 600 !important;
+}
+
+.models-page-container .MuiSelect-select {
+	font-weight: 600 !important;
+	font-size: 1.2rem;
+}

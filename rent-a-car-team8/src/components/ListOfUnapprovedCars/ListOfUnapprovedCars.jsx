@@ -37,9 +37,9 @@ function ListOfUnaprovedCars({ superAdmin = true }) {
 						return (
 							<div key={i} className="lg:col-span-2 md:col-span-3 col-span-6">
 								{superAdmin == true ? (
-									<CarCard unApproved={true} car={car}></CarCard>
+									<CarCard unApproved={true} car={car} maxWidth={400}></CarCard>
 								) : (
-									<CarCard car={car}></CarCard>
+									<CarCard car={car} maxWidth={400}></CarCard>
 								)}
 							</div>
 						);

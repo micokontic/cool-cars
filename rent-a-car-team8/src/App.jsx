@@ -5,13 +5,16 @@ import {
 	RouterProvider,
 } from "react-router-dom";
 import { appRoutes } from "./router/router";
-import Navigation from "./components/Navigation/Navigation";
-import Footer from "./components/Footer/Footer";
-
+import { Toaster } from "react-hot-toast";
 
 function App() {
 	const router = createBrowserRouter(appRoutes);
-	return <RouterProvider router={router} />;
+	return (
+		<>
+			<RouterProvider router={router} />
+			<Toaster></Toaster>
+		</>
+	);
 }
 
 export default App;
