@@ -92,6 +92,10 @@ function AddUserForm() {
 			}));
 		} else {
 			// If the file is not a JPEG image, show an error message
+			setErrors((prevErrors) => ({
+				...prevErrors,
+				["file"]: "Slika moze biti jedino JPEG",
+			}));
 			e.target.value = null; // Clear the file input
 		}
 	};
@@ -324,6 +328,13 @@ function AddUserForm() {
 									onChange={handleFileChange}
 									className="px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full"
 								/>
+								{errors.file ? (
+									<p className="text-red-500 text-xs mt-1">{errors.file}</p>
+								) : (
+									<p className="text-transparent text-xs mt-1">
+										place for error
+									</p>
+								)}
 							</div>
 						</div>
 					</div>

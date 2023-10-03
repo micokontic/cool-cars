@@ -33,5 +33,10 @@ export default function validateInputUser(values) {
 	} else if (values.password2 !== values.password) {
 		errors.password2 = "Passwords do not match";
 	}
+
+	if (!errors.file && values.file) {
+		errors.file = "Morate dodati Vašu sliku";
+	}
+
 	return errors;
 }

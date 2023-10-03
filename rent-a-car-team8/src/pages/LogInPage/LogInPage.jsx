@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { useNavigate } from "react-router-dom";
 import "./LogInPage.css";
@@ -8,7 +8,7 @@ const { getToken } = carServiceNew;
 function LogInPage() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const { handleUserLogin } = useContext(UserContext);
+	const { handleUserLogin, user } = useContext(UserContext);
 	const navigate = useNavigate();
 
 	const handleInputChange = (event, setState) => {
@@ -18,6 +18,16 @@ function LogInPage() {
 
 		setState(value);
 	};
+
+	useEffect(() => {
+		if (user) {
+			if (user.is_superuser) {
+				navigate("/dashboard");
+			} else {
+				navigate("/user");
+			}
+		}
+	}, [user]);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -30,7 +40,6 @@ function LogInPage() {
 			console.log(body);
 			console.log(response);
 			handleUserLogin(response.data.access);
-			navigate("/dashboard");
 		} catch (error) {
 			console.log(error);
 		}

@@ -9,7 +9,7 @@ import { carServiceNew } from "../../service/beckCommunication";
 const { getUser } = carServiceNew;
 
 function Dashboard() {
-	const [selectedIndex, setSelectedIndex] = useState(1);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const { user } = useContext(UserContext);
 	const [userData, setUserData] = useState({
