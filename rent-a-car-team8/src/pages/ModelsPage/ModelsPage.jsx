@@ -4,6 +4,7 @@ import SliderFilter from "../../components/SliderFilter/SliderFilter";
 import CarCard from "../../components/CarCard/CarCard";
 import "./ModelsPage.css";
 import { carServiceNew } from "../../service/beckCommunication";
+import NoCarsToShow from "../../components/NoCarsToShow/NoCarsToShow";
 import toast, { Toaster } from "react-hot-toast";
 
 const { getCars } = carServiceNew;
@@ -92,18 +93,22 @@ function ModelsPage({ superAdmin = false }) {
 			<div className="models-page-container px-3 lg:px-10 lg:pt-1">
 				<div className="p-8 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5">
 					<div className="mt-4">
-						<div className="list-of-unapproved-cars grid grid-cols-6 gap-4">
-							{cars.map((car, i) => {
-								return (
-									<div
-										key={i}
-										className="lg:col-span-2 md:col-span-3 col-span-6"
-									>
-										<CarCard car={car} maxWidth={450}></CarCard>
-									</div>
-								);
-							})}
-						</div>
+						{cars.length > 0 ? (
+							<>
+								<div className="list-of-unapproved-cars grid grid-cols-6 gap-4">
+									{cars.map((car, i) => (
+										<div
+											key={i}
+											className="lg:col-span-2 md:col-span-3 col-span-6"
+										>
+											<CarCard car={car} maxWidth={450}></CarCard>
+										</div>
+									))}
+								</div>
+							</>
+						) : (
+							<NoCarsToShow></NoCarsToShow>
+						)}
 					</div>
 				</div>
 			</div>

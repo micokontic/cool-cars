@@ -22,19 +22,6 @@ export const appRoutes = [
 				<Footer></Footer>
 			</>
 		),
-		children: [
-			{
-				index: true,
-				element: (
-					<>
-						<Navigation></Navigation>
-						<HomePage />
-						<Footer></Footer>
-					</>
-				),
-				exact: true,
-			},
-		],
 	},
 	{
 		path: "login",

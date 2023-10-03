@@ -29,10 +29,12 @@ function AddUserForm() {
 		setErrors(validateInputUser(retailer));
 		console.log("stampam ovo");
 		console.log(errors);
-		if (Object.keys(errors).length === 0) {
-			console.log("pozivam server");
-			addRetailerApi();
-		}
+		setTimeout(() => {
+			if (Object.keys(errors).length === 0) {
+				console.log("pozivam server");
+				addRetailerApi();
+			}
+		}, 5000);
 	};
 
 	const handleChange = (e) => {
@@ -52,13 +54,13 @@ function AddUserForm() {
 			// If the file is a JPEG image, set it in state
 			setRetailer((prevRetailer) => ({
 				...prevRetailer,
-				["file"]: file,
+				["img"]: file,
 			}));
 		} else {
 			// If the file is not a JPEG image, show an error message
 			setErrors((prevErrors) => ({
 				...prevErrors,
-				["file"]: "Slika moze biti jedino JPEG",
+				["img"]: "Slika moze biti jedino JPEG",
 			}));
 			e.target.value = null; // Clear the file input
 		}
@@ -74,6 +76,7 @@ function AddUserForm() {
 				noValidate=""
 				action=""
 				className="container flex flex-col mx-auto space-y-12"
+				encType="multipart/form-data"
 			>
 				<fieldset className="grid grid-cols-4 gap-6 py-6 rounded-md shadow-sm bg-gray-900">
 					<div className="space-y-2 col-span-full lg:col-span-1">
@@ -232,11 +235,13 @@ function AddUserForm() {
 									name="file"
 									id="file"
 									onChange={handleFileChange}
-									className="px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full"
+									className={`px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full ${
+										errors.img && `border-red-500`
+									}`}
 								/>
-								{errors.file ? (
+								{errors.img ? (
 									<p className="text-red-500 text-xs mt-1 block">
-										{errors.file}
+										{errors.img}
 									</p>
 								) : (
 									<p className="text-transparent text-xs mt-1 block">

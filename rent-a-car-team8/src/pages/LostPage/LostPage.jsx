@@ -1,6 +1,6 @@
 function LostPage() {
 	return (
-		<div className="log-in-form-container">
+		<div className="log-in-form-container bg-cool-blue">
 			<div className="log-in-form-inner-container mx-4">
 				<section className="flex items-center h-full p-16 bg-gray-900 text-gray-100 bg-opacity-0">
 					<div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">

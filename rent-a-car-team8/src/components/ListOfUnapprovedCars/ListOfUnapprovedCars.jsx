@@ -37,6 +37,7 @@ function ListOfUnaprovedCars({ superAdmin = true, cars, refreshUser }) {
 											unApproved={true}
 											car={car}
 											maxWidth={400}
+											refreshUser={refreshUser}
 										></CarCard>
 									) : (
 										<CarCard car={car}></CarCard>

@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import jwtDecode from "jwt-decode";
 
 export const UserContext = createContext(null);
+import { Navigate } from "react-router-dom";
 
 const { Provider } = UserContext;
 
@@ -21,6 +22,7 @@ export const UserProvider = ({ children }) => {
 	const handleUserLogout = () => {
 		localStorage.removeItem("token");
 		setUser(null);
+		<Navigate to="/" />;
 	};
 
 	return (

@@ -11,18 +11,6 @@ import "./AddCarForm.css";
 import { carServiceNew } from "../../service/beckCommunication";
 const { addCar } = carServiceNew;
 
-const testCar = {
-	vehicle_make: "Mercedes",
-	vehicle_model: "A Class",
-	year_of_manufacturing: "2022",
-	description: "Strava kola i to",
-	fuel_type: "Dizel",
-	transmission: "Automatik",
-	door_count: "5",
-	seat_number: "4",
-	vehicle_price: "50000.00",
-};
-
 const MenuProps = {
 	getContentAnchorEl: null,
 	PaperProps: {
@@ -33,11 +21,11 @@ const MenuProps = {
 	},
 };
 
-function AddUserForm() {
+function AddUserForm({ refreshUser }) {
 	const [car, setCar] = useState({
-		fuel_type: "",
-		transmission: "",
-		door_count: "",
+		fuel_type: "Dizel",
+		transmission: "Manual",
+		door_count: "4",
 		vehicle_price: "",
 		vehicle_make: "",
 		vehicle_model: "",
@@ -53,8 +41,20 @@ function AddUserForm() {
 			try {
 				console.log("evo ih");
 				console.log(car);
-				console.log(testCar);
-				const result = await addCar(car);
+				const formData = new FormData();
+				for (const key in car) {
+					if (car.hasOwnProperty(key)) {
+						if (car[key] instanceof File) {
+							// If the value is a file, append it with the key "file"
+							formData.append("image", car[key]);
+						} else {
+							// If it's a variable, append it with its key
+							formData.append(key, car[key]);
+						}
+					}
+				}
+				console.log(formData);
+				const result = await addCar(formData);
 				console.log(result.data);
 			} catch (err) {
 				console.log(err);
@@ -63,9 +63,12 @@ function AddUserForm() {
 
 		setErrors(validateInputCar(car));
 		console.log("stampam ovo");
-		console.log(errors);
+		console.log(car);
+
 		if (Object.keys(errors).length === 0) {
+			console.log("pozivam server");
 			addCarApi();
+			refreshUser();
 		}
 	};
 
@@ -83,18 +86,19 @@ function AddUserForm() {
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
-
+		console.log("file type");
+		console.log(file.type);
 		if (file && file.type === "image/jpeg") {
 			// If the file is a JPEG image, set it in state
 			setCar((prevRetailer) => ({
 				...prevRetailer,
-				["file"]: file,
+				["image"]: file,
 			}));
 		} else {
 			// If the file is not a JPEG image, show an error message
 			setErrors((prevErrors) => ({
 				...prevErrors,
-				["file"]: "Slika moze biti jedino JPEG",
+				["image"]: "Slika moze biti jedino JPEG",
 			}));
 			e.target.value = null; // Clear the file input
 		}
@@ -110,6 +114,7 @@ function AddUserForm() {
 				noValidate=""
 				action=""
 				className="container flex flex-col mx-auto space-y-12"
+				encType="multipart/form-data"
 			>
 				<fieldset className="grid grid-cols-4 gap-6 py-6 rounded-md shadow-sm bg-gray-900">
 					<div className="space-y-2 col-span-full lg:col-span-1">
@@ -202,7 +207,7 @@ function AddUserForm() {
 								type="number"
 								placeholder="Unesite broj sjedišta"
 								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
-									errors.seat_numbers && "ring  ring-red-500"
+									errors.seat_number && "ring  ring-red-500"
 								}`}
 								onChange={handleChange}
 								value={car.seat_number}
@@ -320,18 +325,22 @@ function AddUserForm() {
 							<label htmlFor="files" className="text-sm">
 								Dodajte sliku automobila
 							</label>
-							<div className="flex">
+							<div className="flex  flex-col">
 								<input
 									type="file"
 									name="files"
 									id="files"
 									onChange={handleFileChange}
-									className="px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full"
+									className={`px-8 py-7 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-cool-blue w-full ${
+										errors.image && `border-red-500`
+									}`}
 								/>
-								{errors.file ? (
-									<p className="text-red-500 text-xs mt-1">{errors.file}</p>
+								{errors.image ? (
+									<p className="text-red-500 text-xs mt-1 block">
+										{errors.image}
+									</p>
 								) : (
-									<p className="text-transparent text-xs mt-1">
+									<p className="text-transparent text-xs mt-1 block">
 										place for error
 									</p>
 								)}

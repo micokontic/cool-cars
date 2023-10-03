@@ -42,12 +42,24 @@ function DashboardUser() {
 		setSelectedIndex(index);
 	};
 
+	const refreshUser = async () => {
+		try {
+			const result = await getUser(user.user_id);
+			console.log("refreshovao sam");
+			console.log(result.data);
+			setUserData(result.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	const DashboardComponentsArray = [
-		<AddCarForm key={1} />,
+		<AddCarForm key={1} refreshUser={refreshUser} />,
 		<ListOfUnapprovedCars
 			superAdmin={false}
 			key={2}
 			cars={userData.vehicles}
+			refreshUser={refreshUser}
 		/>,
 		<NumberOfCarsChart key={3} />,
 	];

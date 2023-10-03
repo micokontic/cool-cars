@@ -9,10 +9,10 @@ export const ProtectedRoute = ({ element }) => {
 		!user.is_superuser ? (
 			<>{element}</>
 		) : (
-			<Navigate to="/login" />
+			<Navigate to="/" />
 		)
 	) : (
-		<Navigate to="/login" />
+		<Navigate to="/" />
 	);
 };
 
@@ -29,9 +29,9 @@ export const SuperAdminRoute = ({ element }) => {
 		user.is_superuser ? (
 			<>{element}</>
 		) : (
-			<Navigate to="/user" />
+			<Navigate to="/" />
 		)
 	) : (
-		<Navigate to="/login" />
+		<Navigate to="/" />
 	);
 };

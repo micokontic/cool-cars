@@ -27,3 +27,7 @@ html {
 	font-weight: 600 !important;
 	font-size: 1.2rem;
 }
+
+.car-card-container-inner .MuiCardMedia-root {
+	height: 170px !important;
+}

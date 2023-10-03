@@ -84,7 +84,11 @@ function CarCard({
 						component="img"
 						alt="green iguana"
 						height="140"
-						image="https://bizrent.rs/wp-content/uploads/2023/05/Screenshot-2023-05-18-at-17.44.42.png"
+						image={
+							car.image == null
+								? "https://bizrent.rs/wp-content/uploads/2023/05/Screenshot-2023-05-18-at-17.44.42.png"
+								: import.meta.env.VITE_API_BASE_URL + car.image
+						}
 					/>
 					<CardContent>
 						<Typography

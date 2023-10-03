@@ -1,4 +1,5 @@
 import deleteIcon from "../../assets/icons/delete-retailer.svg";
+import profileImageBlank from "../../assets/profileImageBlank.png";
 
 function RetailerInTable({ retailer }) {
 	return (
@@ -6,7 +7,7 @@ function RetailerInTable({ retailer }) {
 			<tr>
 				<td className="px-3 text-2xl font-medium text-gray-400">
 					<img
-						src="https://source.unsplash.com/100x100/?portrait"
+						src={retailer.img == null ? profileImageBlank : retailer.img}
 						alt=""
 						className="w-12 h-12 rounded-full bg-gray-500"
 					/>

@@ -21,6 +21,7 @@ class carService {
 			axiosInstance.post("/admin/users/create/", body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"content-type": "multipart/form-data",
 				},
 			}),
 			requestObjectMessage
@@ -43,6 +44,7 @@ class carService {
 			axiosInstance.post("/cars/create", body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"content-type": "multipart/form-data",
 				},
 			}),
 			requestObjectMessage
