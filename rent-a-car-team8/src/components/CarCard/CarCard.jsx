@@ -30,38 +30,43 @@ function CarCard({
 		seat_number: "4",
 		car_body: "Limuzina",
 	},
-	refreshUser = () => {
+	setRefresh = () => {
 		console.log("dummy");
 	},
+	refresh,
 }) {
 	const [isModalOpen, setModalOpen] = useState(false);
 	const [selectedCar, setSelectedCar] = useState(null);
 
+	const patchCarApi = async (status) => {
+		try {
+			const result = await patchCar(status, car.id);
+			console.log(result.data);
+			setRefresh(!refresh);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	const patchCarSubmit = (status) => {
 		console.log("patchujem");
-		const patchCarApi = async () => {
-			try {
-				const result = await patchCar(status, car.id);
-				console.log(result.data);
-				refreshUser();
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		patchCarApi();
+
+		patchCarApi(status);
+	};
+
+	const deleteCarApi = async () => {
+		try {
+			const result = await deleteCar(car.id);
+			console.log(result.data);
+			setRefresh(!refresh);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const deleteCarSubmit = () => {
 		console.log("brisem");
-		const deleteCarApi = async () => {
-			try {
-				const result = await deleteCar(car.id);
-				console.log(result.data);
-				refreshUser();
-			} catch (err) {
-				console.log(err);
-			}
-		};
+
 		deleteCarApi();
 	};
 

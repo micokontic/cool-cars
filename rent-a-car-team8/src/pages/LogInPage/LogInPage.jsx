@@ -5,11 +5,15 @@ import "./LogInPage.css";
 import { carServiceNew } from "../../service/beckCommunication";
 const { getToken } = carServiceNew;
 
+import validateLogIn from "../../service/validateLogIn";
+
 function LogInPage() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const { handleUserLogin, user } = useContext(UserContext);
 	const navigate = useNavigate();
+
+	const [errors, setErrors] = useState({});
 
 	const handleInputChange = (event, setState) => {
 		const {
@@ -34,12 +38,16 @@ function LogInPage() {
 
 		try {
 			const body = JSON.stringify({ username, password });
-
-			const response = await getToken(body);
-			console.log("token body");
-			console.log(body);
-			console.log(response);
-			handleUserLogin(response.data.access);
+			setErrors(validateLogIn({ username, password }));
+			console.log("stampam ovo");
+			console.log(errors);
+			setTimeout(async () => {
+				if (Object.keys(errors).length === 0) {
+					console.log("pozivam server");
+					const response = await getToken(body);
+					handleUserLogin(response.data.access);
+				}
+			}, 2000);
 		} catch (error) {
 			console.log(error);
 		}
@@ -99,10 +107,19 @@ function LogInPage() {
 									name="username"
 									id="username"
 									placeholder="username"
-									className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-amber-400"
+									className={`w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-amber-400 ${
+										errors.username && "ring  ring-red-500"
+									}`}
 									value={username}
 									onChange={(event) => handleInputChange(event, setUsername)}
 								/>
+								{errors.username ? (
+									<p className="text-red-500 text-xs mt-1">{errors.username}</p>
+								) : (
+									<p className="text-transparent text-xs mt-1">
+										place for error
+									</p>
+								)}
 							</div>
 							<div className="space-y-2">
 								<div className="flex justify-between">
@@ -122,10 +139,19 @@ function LogInPage() {
 									name="password"
 									id="password"
 									placeholder="*****"
-									className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-amber-400"
+									className={`w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-amber-400 ${
+										errors.password && "ring  ring-red-500"
+									}`}
 									value={password}
 									onChange={(event) => handleInputChange(event, setPassword)}
 								/>
+								{errors.password ? (
+									<p className="text-red-500 text-xs mt-1">{errors.password}</p>
+								) : (
+									<p className="text-transparent text-xs mt-1">
+										place for error
+									</p>
+								)}
 							</div>
 						</div>
 						<button

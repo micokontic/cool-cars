@@ -20,7 +20,7 @@ const MenuProps = {
 	},
 };
 
-function AddUserForm({ refreshUser }) {
+function AddUserForm({ refresh, setRefresh }) {
 	const [car, setCar] = useState({
 		fuel_type: "Dizel",
 		transmission: "Manual",
@@ -56,7 +56,7 @@ function AddUserForm({ refreshUser }) {
 				console.log(formData);
 				const result = await addCar(formData);
 				console.log(result.data);
-				refreshUser();
+				setRefresh(!refresh);
 			} catch (err) {
 				console.log(err);
 			}

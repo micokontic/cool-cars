@@ -5,7 +5,8 @@ import CarCard from "../CarCard/CarCard";
 function ListOfUnaprovedCars({
 	superAdmin = true,
 	cars,
-	refreshUser,
+	setRefresh,
+	refresh,
 	deletePossible = false,
 }) {
 	return (
@@ -27,7 +28,8 @@ function ListOfUnaprovedCars({
 											unApproved={true}
 											car={car}
 											maxWidth={400}
-											refreshUser={refreshUser}
+											setRefresh={setRefresh}
+											refresh={refresh}
 										></CarCard>
 									) : (
 										<CarCard car={car}></CarCard>
@@ -42,7 +44,8 @@ function ListOfUnaprovedCars({
 											unApproved={true}
 											car={car}
 											maxWidth={400}
-											refreshUser={refreshUser}
+											setRefresh={setRefresh}
+											refresh={refresh}
 										></CarCard>
 									) : (
 										<CarCard

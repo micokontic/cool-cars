@@ -12,6 +12,8 @@ const { getUser } = carServiceNew;
 
 function DashboardUser() {
 	const [selectedIndex, setSelectedIndex] = useState(1);
+	const [refresh, setRefresh] = useState(true);
+
 	const { user } = useContext(UserContext);
 	console.log("user je");
 	console.log(user);
@@ -23,46 +25,44 @@ function DashboardUser() {
 		},
 		vehicles: [],
 	});
-
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const result = await getUser(user.user_id);
-				console.log(result.data);
-				setUserData(result.data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-
-		fetchData();
-	}, []);
-
-	const handleListItemClick = (index) => {
-		setSelectedIndex(index);
-	};
-
-	const refreshUser = async () => {
+	const fetchData = async () => {
 		try {
 			const result = await getUser(user.user_id);
-			console.log("refreshovao sam");
 			console.log(result.data);
 			setUserData(result.data);
 		} catch (err) {
 			console.log(err);
 		}
 	};
+	useEffect(() => {
+		fetchData();
+	}, []);
+	useEffect(() => {
+		fetchData();
+	}, [refresh]);
+
+	const handleListItemClick = (index) => {
+		setSelectedIndex(index);
+	};
 
 	const DashboardComponentsArray = [
-		<AddCarForm key={0} refreshUser={refreshUser} />,
+		<AddCarForm key={0} setRefresh={setRefresh} refresh={refresh} />,
 		<ListOfUnapprovedCars
 			superAdmin={false}
 			key={1}
 			cars={userData.vehicles}
 			deletePossible={true}
+			setRefresh={setRefresh}
+			refresh={refresh}
 		/>,
 		<NumberOfCarsChart key={2} />,
-		<AddUserForm key={3} edit={true} profileData={userData.user} />,
+		<AddUserForm
+			key={3}
+			edit={true}
+			profileData={userData.user}
+			setRefresh={setRefresh}
+			refresh={refresh}
+		/>,
 	];
 
 	return (

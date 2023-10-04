@@ -6,20 +6,27 @@ const { getUsers } = carServiceNew;
 
 function RetailerTable() {
 	const [allRetailers, setAllRetailers] = useState([]);
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const result = await getUsers();
-				console.log(result);
-				console.log(result.data);
-				setAllRetailers(result.data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
+	const [refresh, setRefresh] = useState(true);
 
+	const fetchData = async () => {
+		try {
+			const result = await getUsers();
+			console.log(result);
+			console.log(result.data);
+			setAllRetailers(result.data);
+			setRefresh(!refresh);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
 		fetchData();
 	}, []);
+
+	useEffect(() => {
+		fetchData();
+	}, [refresh]);
 
 	return (
 		<div className="container p-2 mx-auto sm:p-4 text-gray-100 bg-gray-900">
@@ -58,7 +65,12 @@ function RetailerTable() {
 					</thead>
 					{allRetailers.map((retailer, i) => {
 						return (
-							<RetailerInTable key={i} retailer={retailer}></RetailerInTable>
+							<RetailerInTable
+								key={i}
+								retailer={retailer}
+								setRefresh={setRefresh}
+								refresh={refresh}
+							></RetailerInTable>
 						);
 					})}
 				</table>

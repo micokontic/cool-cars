@@ -53,21 +53,21 @@ function Footer() {
 					</div>
 					<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
 						<div className="space-y-3">
-							<h3 className="tracki uppercase text-gray-50">Product</h3>
+							<h3 className="tracki uppercase text-gray-50">Usluge</h3>
 							<ul className="space-y-1">
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Features
+										Automobili
 									</a>
 								</li>
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Integrations
+										Servis
 									</a>
 								</li>
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Pricing
+										Cjenovnik
 									</a>
 								</li>
 								<li>
@@ -78,36 +78,36 @@ function Footer() {
 							</ul>
 						</div>
 						<div className="space-y-3">
-							<h3 className="tracki uppercase text-gray-50">Company</h3>
+							<h3 className="tracki uppercase text-gray-50">Kompanija</h3>
 							<ul className="space-y-1">
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Privacy
+										Zaposleni
 									</a>
 								</li>
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Terms of Service
+										Uslovi poslovanja
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div className="space-y-3">
-							<h3 className="uppercase text-gray-50">Developers</h3>
+							<h3 className="uppercase text-gray-50">Poslovanje</h3>
 							<ul className="space-y-1">
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Public API
+										Finansijski izvjestaj
 									</a>
 								</li>
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Documentation
+										Licence
 									</a>
 								</li>
 								<li>
 									<a rel="noopener noreferrer" href="#">
-										Guides
+										Prodajna mjesta
 									</a>
 								</li>
 							</ul>

@@ -15,6 +15,7 @@ function ModelsPage({ superAdmin = false }) {
 		fuel_type: "Izaberi",
 		transmission: "Izaberi",
 		door_count: "Izaberi",
+		car_body: "Izaberi",
 	});
 	const [cars, setCars] = useState([]);
 

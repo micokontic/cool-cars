@@ -15,26 +15,34 @@ function AddUserForm({
 		password: "",
 		position: "",
 	},
+	setRefresh = () => {
+		console.log("dummy function");
+	},
+	refresh,
 }) {
 	const [retailer, setRetailer] = useState(profileData);
 
 	const [errors, setErrors] = useState({});
 
-	const addRetailerSubmit = () => {
-		const addRetailerApi = async () => {
-			try {
-				if (edit) {
-					console.log(retailer);
-					console.log(profileData.id);
-					const result = await patchUser(retailer, profileData.id);
-				} else {
-					const result = await addRetailer(retailer);
-				}
+	const addRetailerApi = async () => {
+		try {
+			if (edit) {
+				console.log(retailer);
+				console.log(profileData.id);
+				const result = await patchUser(retailer, profileData.id);
 				console.log(result.data);
-			} catch (error) {
-				console.log(error);
+			} else {
+				const result = await addRetailer(retailer);
+				console.log(result.data);
 			}
-		};
+
+			setRefresh(!refresh);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const addRetailerSubmit = () => {
 		setErrors(validateInputUser(retailer));
 		console.log("stampam ovo");
 		console.log(errors);
@@ -44,7 +52,7 @@ function AddUserForm({
 
 				addRetailerApi();
 			}
-		}, 5000);
+		}, 2000);
 	};
 
 	const handleChange = (e) => {

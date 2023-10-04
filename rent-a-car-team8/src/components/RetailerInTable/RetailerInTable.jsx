@@ -1,7 +1,22 @@
 import deleteIcon from "../../assets/icons/delete-retailer.svg";
 import profileImageBlank from "../../assets/profileImageBlank.png";
+import { carServiceNew } from "../../service/beckCommunication";
+const { deleteUser } = carServiceNew;
+function RetailerInTable({ retailer, setRefresh, refresh }) {
+	const deleteUserSubmit = () => {
+		console.log("brisem");
+		const deleteUserApi = async () => {
+			try {
+				const result = await deleteUser(retailer.id);
+				console.log(result.data);
+				setRefresh(!refresh);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		deleteUserApi();
+	};
 
-function RetailerInTable({ retailer }) {
 	return (
 		<tbody className="border-b bg-gray-900 border-gray-700">
 			<tr>
@@ -39,6 +54,9 @@ function RetailerInTable({ retailer }) {
 						type="button"
 						title="Obriši prodavca"
 						className="p-1 rounded-lg text-gray-600 hover:bg-gray-300"
+						onClick={() => {
+							deleteUserSubmit();
+						}}
 					>
 						<img src={deleteIcon} alt="delete retailer" />
 					</button>

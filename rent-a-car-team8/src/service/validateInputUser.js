@@ -2,36 +2,36 @@ export default function validateInputUser(values) {
 	let errors = {};
 
 	if (!values.username.trim()) {
-		errors.username = "Username required";
+		errors.username = "Potrebno je unijeti username";
 	}
 	if (!values.first_name.trim()) {
-		errors.first_name = "Username required";
+		errors.first_name = "Potrebno je unijeti ime korisnika";
 	}
 	if (!values.last_name.trim()) {
-		errors.last_name = "Lastname required";
+		errors.last_name = "Potrebno je unijeti prezime korisnika";
 	}
 	if (!values.position.trim()) {
-		errors.position = "Position required";
+		errors.position = "Potrebno je unijeti poziciju korisnika";
 	}
 	if (!values.email) {
-		errors.email = "Email required";
+		errors.email = "Potrebno je unijeti email korisnika";
 	} else if (!/\S+@\S+\.\S+/.test(values.email)) {
-		errors.email = "Email address is invalid";
+		errors.email = "Email nije isparavan";
 	}
 	if (!values.password) {
-		errors.password = "Password is required";
+		errors.password = "Potrebno je unijeti password";
 	} else if (values.password.length < 6) {
-		errors.password = "Password needs to be 6 characters or more";
+		errors.password = "Password mora imati najmanje 6 karaktera";
 	} else if (values.password2 !== values.password) {
-		errors.password = "Passwords do not match";
+		errors.password = "Passwordi se ne poklapaju";
 	}
 
 	if (!values.password2) {
-		errors.password2 = "Password is required";
+		errors.password2 = "Potrebno je unijeti password";
 	} else if (values.password2.length < 6) {
-		errors.password2 = "Password needs to be 6 characters or more";
+		errors.password2 = "Password mora imati najmanje 6 karaktera";
 	} else if (values.password2 !== values.password) {
-		errors.password2 = "Passwords do not match";
+		errors.password2 = "Passwordi se ne poklapaju";
 	}
 
 	if (values.img == null) {

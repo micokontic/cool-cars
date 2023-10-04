@@ -49,6 +49,15 @@ class carService {
 			}),
 			requestObjectMessage
 		);
+	deleteUser = async (id) =>
+		await toast.promise(
+			axiosInstance.delete(`admin/user/${id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			}),
+			requestObjectMessage
+		);
 
 	patchUser = async (body, id) =>
 		await toast.promise(
@@ -65,6 +74,7 @@ class carService {
 			axiosInstance.post("/cars/create", body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"content-type": "multipart/form-data",
 				},
 			}),
 			requestObjectMessage

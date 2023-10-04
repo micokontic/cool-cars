@@ -10,6 +10,7 @@ const { getUser } = carServiceNew;
 
 function Dashboard() {
 	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [refresh, setRefresh] = useState(true);
 
 	const { user } = useContext(UserContext);
 	const [userData, setUserData] = useState({
@@ -21,19 +22,23 @@ function Dashboard() {
 		vehicles: [],
 	});
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const result = await getUser(user.user_id);
-				console.log(result.data);
-				setUserData(result.data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
+	const fetchData = async () => {
+		try {
+			const result = await getUser(user.user_id);
+			console.log(result.data);
+			setUserData(result.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
+	useEffect(() => {
 		fetchData();
 	}, []);
+
+	useEffect(() => {
+		fetchData();
+	}, [refresh]);
 
 	const refreshUser = async () => {
 		try {
@@ -51,14 +56,22 @@ function Dashboard() {
 
 	const DashboardComponentsArray = [
 		<RetailerTable key={0} />,
-		<AddUserForm key={1} />,
+		<AddUserForm key={1} setRefresh={setRefresh} refresh={refresh} />,
 		<ListOfUnapprovedCars
 			key={2}
 			cars={userData.vehicles}
 			refreshUser={refreshUser}
+			setRefresh={setRefresh}
+			refresh={refresh}
 		/>,
 		<NumberOfCarsChart key={3} />,
-		<AddUserForm key={4} edit={true} profileData={userData.user} />,
+		<AddUserForm
+			key={4}
+			edit={true}
+			profileData={userData.user}
+			setRefresh={setRefresh}
+			refresh={refresh}
+		/>,
 	];
 
 	return (

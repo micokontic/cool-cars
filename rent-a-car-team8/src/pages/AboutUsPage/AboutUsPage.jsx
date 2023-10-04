@@ -18,8 +18,8 @@ function AboutUsPage() {
 							src="https://source.unsplash.com/100x100/?portrait?0"
 						/>
 						<div className="flex-1 my-4">
-							<p className="text-xl font-semibold leadi">Leroy Jenkins</p>
-							<p>Visual Designer</p>
+							<p className="text-xl font-semibold leadi"> Ersan Hodzic</p>
+							<p>Front-end</p>
 						</div>
 						<div className="flex items-center justify-center p-3 space-x-3 border-t-2">
 							<a
@@ -92,8 +92,8 @@ function AboutUsPage() {
 							src="https://source.unsplash.com/100x100/?portrait?1"
 						/>
 						<div className="flex-1 my-4">
-							<p className="text-xl font-semibold leadi">Leroy Jenkins</p>
-							<p>Visual Designer</p>
+							<p className="text-xl font-semibold leadi">Jovana Ikovic</p>
+							<p>Beck-end</p>
 						</div>
 						<div className="flex items-center justify-center p-3 space-x-3 border-t-2">
 							<a
@@ -166,8 +166,8 @@ function AboutUsPage() {
 							src="https://source.unsplash.com/100x100/?portrait?2"
 						/>
 						<div className="flex-1 my-4">
-							<p className="text-xl font-semibold leadi">Leroy Jenkins</p>
-							<p>Visual Designer</p>
+							<p className="text-xl font-semibold leadi">Mico Kontic</p>
+							<p>Front-end</p>
 						</div>
 						<div className="flex items-center justify-center p-3 space-x-3 border-t-2">
 							<a

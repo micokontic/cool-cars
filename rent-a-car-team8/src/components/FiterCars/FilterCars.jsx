@@ -104,8 +104,37 @@ function FilterCars({ setFilter, filter, getCarsSubmit }) {
 					</Select>
 				</FormControl>
 			</div>
+			<div className="col-span-full sm:col-span-6 lg:col-span-3">
+				<FormControl fullWidth>
+					<label htmlFor="car_body" className="text-sm">
+						Karoserija
+					</label>
+					<Select
+						labelId="car_body"
+						id="car_body"
+						name="car_body"
+						value={filter.car_body}
+						label="Karoserija"
+						onChange={handleChange}
+						sx={{
+							color: "#212121",
+							display: "block",
+							backgroundColor: "#fff",
+						}}
+					>
+						<MenuItem value="Izaberi">
+							<em>Izaberi</em>
+						</MenuItem>
+						<MenuItem value={"Limuzina"}>Limuzina</MenuItem>
+						<MenuItem value={"Karavan"}>Karavan</MenuItem>
+						<MenuItem value={"Kupe"}>Kupe</MenuItem>
+						<MenuItem value={"Kabriolet"}>Kabriolet</MenuItem>
+						<MenuItem value={"SUV"}>SUV</MenuItem>
+					</Select>
+				</FormControl>
+			</div>
 
-			<div className="col-span-full sm:col-span-6 lg:col-span-3 flex flex-col">
+			<div className="col-span-full  flex flex-col">
 				<label
 					htmlFor="door_count"
 					className="text-sm"
