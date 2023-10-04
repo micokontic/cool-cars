@@ -3,24 +3,33 @@ import SectionHeading from "../SectionHeading/SectionHeading";
 import { carServiceNew } from "../../service/beckCommunication";
 import validateInputUser from "../../service/validateInputUser";
 
-const { addRetailer } = carServiceNew;
+const { addRetailer, patchUser } = carServiceNew;
 
-function AddUserForm() {
-	const [retailer, setRetailer] = useState({
+function AddUserForm({
+	edit = false,
+	profileData = {
 		username: "",
 		email: "",
 		first_name: "",
 		last_name: "",
 		password: "",
 		position: "",
-	});
+	},
+}) {
+	const [retailer, setRetailer] = useState(profileData);
 
 	const [errors, setErrors] = useState({});
 
 	const addRetailerSubmit = () => {
 		const addRetailerApi = async () => {
 			try {
-				const result = await addRetailer(retailer);
+				if (edit) {
+					console.log(retailer);
+					console.log(profileData.id);
+					const result = await patchUser(retailer, profileData.id);
+				} else {
+					const result = await addRetailer(retailer);
+				}
 				console.log(result.data);
 			} catch (error) {
 				console.log(error);
@@ -32,6 +41,7 @@ function AddUserForm() {
 		setTimeout(() => {
 			if (Object.keys(errors).length === 0) {
 				console.log("pozivam server");
+
 				addRetailerApi();
 			}
 		}, 5000);
@@ -69,7 +79,7 @@ function AddUserForm() {
 	return (
 		<section className="p-2 text-gray-50 text-left">
 			<SectionHeading
-				heading={"Dodajte novog prodavca"}
+				heading={edit ? "Izmijenite Vaše podatke" : "Dodajte novog prodavca"}
 				colorWhite={true}
 			></SectionHeading>
 			<form
@@ -80,10 +90,21 @@ function AddUserForm() {
 			>
 				<fieldset className="grid grid-cols-4 gap-6 py-6 rounded-md shadow-sm bg-gray-900">
 					<div className="space-y-2 col-span-full lg:col-span-1">
-						<p className="font-medium text-lg">Dodajte novog prodavca</p>
-						<p className="text-base">
-							Moguće je dodati samo unaprijed provjerene prodavce!
-						</p>
+						{edit ? (
+							<>
+								<p className="font-medium text-lg">Promijenite Vaše podatke</p>
+								<p className="text-base">
+									Ovdje možete promijeniti podatke o Vašem nalogu.
+								</p>
+							</>
+						) : (
+							<>
+								<p className="font-medium text-lg">Dodajte novog prodavca</p>
+								<p className="text-base">
+									Moguće je dodati samo unaprijed provjerene prodavce!
+								</p>
+							</>
+						)}
 					</div>
 					<div className="grid grid-cols-6 gap-y-0 gap-x-6 col-span-full lg:col-span-3">
 						<div className="col-span-full sm:col-span-3">
@@ -91,6 +112,7 @@ function AddUserForm() {
 								First name
 							</label>
 							<input
+								value={retailer.first_name}
 								id="first_name"
 								type="text"
 								placeholder="First name"
@@ -110,6 +132,7 @@ function AddUserForm() {
 								Last name
 							</label>
 							<input
+								value={retailer.last_name}
 								id="last_name"
 								type="text"
 								placeholder="Last name"
@@ -133,6 +156,7 @@ function AddUserForm() {
 								id="email"
 								type="email"
 								placeholder="Email"
+								value={retailer.email}
 								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
 									errors.email && "ring  ring-red-500"
 								}`}
@@ -152,6 +176,7 @@ function AddUserForm() {
 							<input
 								id="position"
 								type="text"
+								value={retailer.position}
 								placeholder="Pozicija zaposlenog"
 								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
 									errors.position && "ring  ring-red-500"
@@ -212,6 +237,7 @@ function AddUserForm() {
 							<input
 								id="username"
 								type="text"
+								value={retailer.username}
 								placeholder="Username"
 								className={`w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 ${
 									errors.username && `ring  ring-red-500`
@@ -258,7 +284,7 @@ function AddUserForm() {
 							type="button"
 							className="px-8 py-3 border rounded-md bg-amber-400 text-gray-900 border-amber-400 font-semibold"
 						>
-							Dodaj prodavca
+							{edit ? "Promijeni podatke" : "Dodaj prodavca"}
 						</button>
 					</div>
 				</fieldset>

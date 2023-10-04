@@ -31,3 +31,7 @@ html {
 .car-card-container-inner .MuiCardMedia-root {
 	height: 170px !important;
 }
+
+.h-12 {
+	object-fit: cover;
+}

@@ -74,9 +74,9 @@ function DashboardCommandsUser({
 				</ul>
 				<ul className="pt-4 pb-2 space-y-1 text-lg">
 					<li
-						onClick={() => handleListItemClick(4)}
+						onClick={() => handleListItemClick(3)}
 						className={` ${
-							selectedIndex === 4
+							selectedIndex === 3
 								? "bg-cool-blue text-gray-50"
 								: "'hover:bg-gray-200 hover:text-gray-800'"
 						}`}

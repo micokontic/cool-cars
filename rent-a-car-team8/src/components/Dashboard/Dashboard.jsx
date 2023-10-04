@@ -50,14 +50,15 @@ function Dashboard() {
 	};
 
 	const DashboardComponentsArray = [
-		<RetailerTable key={1} />,
-		<AddUserForm key={2} />,
+		<RetailerTable key={0} />,
+		<AddUserForm key={1} />,
 		<ListOfUnapprovedCars
-			key={3}
+			key={2}
 			cars={userData.vehicles}
 			refreshUser={refreshUser}
 		/>,
-		<NumberOfCarsChart key={4} />,
+		<NumberOfCarsChart key={3} />,
+		<AddUserForm key={4} edit={true} profileData={userData.user} />,
 	];
 
 	return (

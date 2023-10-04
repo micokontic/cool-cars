@@ -7,13 +7,15 @@ import CardData from "../CarData/CarData";
 import ApproveTick from "./ApproveTick";
 import Button from "@mui/material/Button";
 import DisapproveTick from "./DisapproveTick";
+import DeleteCar from "./DeleteCar";
 import { Modal, Box } from "@mui/material";
 import { carServiceNew } from "../../service/beckCommunication";
-const { patchCar } = carServiceNew;
+const { patchCar, deleteCar } = carServiceNew;
 
 function CarCard({
 	unApproved = false,
 	maxWidth = 345,
+	deletePossible = false,
 	car = {
 		description: "Brza i pouzdana",
 		door_count: 5,
@@ -26,6 +28,7 @@ function CarCard({
 		vehicle_price: "40000.00",
 		year_of_manufacturing: 2023,
 		seat_number: "4",
+		car_body: "Limuzina",
 	},
 	refreshUser = () => {
 		console.log("dummy");
@@ -46,6 +49,20 @@ function CarCard({
 			}
 		};
 		patchCarApi();
+	};
+
+	const deleteCarSubmit = () => {
+		console.log("brisem");
+		const deleteCarApi = async () => {
+			try {
+				const result = await deleteCar(car.id);
+				console.log(result.data);
+				refreshUser();
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		deleteCarApi();
 	};
 
 	const openModal = (car) => {
@@ -71,14 +88,28 @@ function CarCard({
 					{unApproved ? (
 						<div className="relative">
 							<div className="absolute top-3 right-3">
-								<ApproveTick patchCarSubmit={patchCarSubmit}></ApproveTick>
-								<DisapproveTick
-									patchCarSubmit={patchCarSubmit}
-								></DisapproveTick>
+								{deletePossible ? (
+									<DeleteCar deleteCarSubmit={deleteCarSubmit}></DeleteCar>
+								) : (
+									<>
+										<ApproveTick patchCarSubmit={patchCarSubmit}></ApproveTick>
+										<DisapproveTick
+											patchCarSubmit={patchCarSubmit}
+										></DisapproveTick>
+									</>
+								)}
 							</div>
 						</div>
 					) : (
-						""
+						<div className="relative">
+							<div className="absolute top-3 right-3">
+								{deletePossible ? (
+									<DeleteCar deleteCarSubmit={deleteCarSubmit}></DeleteCar>
+								) : (
+									<></>
+								)}
+							</div>
+						</div>
 					)}
 					<CardMedia
 						component="img"
@@ -105,7 +136,7 @@ function CarCard({
 							textAlign="left"
 							sx={{ fontWeight: 700, marginBottom: "0.5rem" }}
 						>
-							Auto ČačakPodgorica
+							{car.car_body ? car.car_body : "SUV4x4"}
 						</Typography>
 						<Typography variant="body1" color="text.secondary" textAlign="left">
 							{car.description}

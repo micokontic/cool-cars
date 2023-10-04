@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import CarCard from "../CarCard/CarCard";
 
-function ListOfUnaprovedCars({ superAdmin = true, cars, refreshUser }) {
+function ListOfUnaprovedCars({
+	superAdmin = true,
+	cars,
+	refreshUser,
+	deletePossible = false,
+}) {
 	return (
 		<div className="container p-2 mx-auto sm:p-4 text-gray-100 bg-gray-900">
 			<SectionHeading
@@ -40,7 +45,10 @@ function ListOfUnaprovedCars({ superAdmin = true, cars, refreshUser }) {
 											refreshUser={refreshUser}
 										></CarCard>
 									) : (
-										<CarCard car={car}></CarCard>
+										<CarCard
+											car={car}
+											deletePossible={deletePossible}
+										></CarCard>
 									)}
 								</div>
 							);

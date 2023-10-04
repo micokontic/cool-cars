@@ -11,12 +11,12 @@ function DisapproveTick({ patchCarSubmit }) {
 			>
 				<span className="icon lightStar">
 					<svg
-						width="50px"
-						height="50px"
-						viewBox="0 0 24 24"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 						className="text-red-300	 hover:text-red-600 hover:fill-current"
+						width="50px"
+						height="50px"
+						viewBox="0 0 24 24"
 					>
 						<path
 							className="fill-current"

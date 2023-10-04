@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
-import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -26,6 +25,7 @@ function AddUserForm({ refreshUser }) {
 		fuel_type: "Dizel",
 		transmission: "Manual",
 		door_count: "4",
+		car_body: "Limuzina",
 		vehicle_price: "",
 		vehicle_make: "",
 		vehicle_model: "",
@@ -56,6 +56,7 @@ function AddUserForm({ refreshUser }) {
 				console.log(formData);
 				const result = await addCar(formData);
 				console.log(result.data);
+				refreshUser();
 			} catch (err) {
 				console.log(err);
 			}
@@ -68,7 +69,6 @@ function AddUserForm({ refreshUser }) {
 		if (Object.keys(errors).length === 0) {
 			console.log("pozivam server");
 			addCarApi();
-			refreshUser();
 		}
 	};
 
@@ -220,8 +220,33 @@ function AddUserForm({ refreshUser }) {
 								<p className="text-transparent text-xs mt-1">place for error</p>
 							)}
 						</div>
-
-						<div className="col-span-full sm:col-span-3 lg:col-span-2">
+						<div className="col-span-full sm:col-span-3 lg:col-span-3">
+							<FormControl fullWidth>
+								<label htmlFor="car_body" className="text-sm">
+									Karoserija
+								</label>
+								<Select
+									labelId="car_body"
+									id="car_body"
+									name="car_body"
+									value={car.car_body}
+									label="Karoserija"
+									onChange={handleChange}
+									sx={{
+										color: "#212121",
+										display: "block",
+										backgroundColor: "#fff",
+									}}
+								>
+									<MenuItem value={"Limuzina"}>Limuzina</MenuItem>
+									<MenuItem value={"Karavan"}>Karavan</MenuItem>
+									<MenuItem value={"Kupe"}>Kupe</MenuItem>
+									<MenuItem value={"Kabriolet"}>Kabriolet</MenuItem>
+									<MenuItem value={"SUV"}>SUV</MenuItem>
+								</Select>
+							</FormControl>
+						</div>
+						<div className="col-span-full sm:col-span-3 lg:col-span-3">
 							<FormControl fullWidth>
 								<label htmlFor="fuel_type" className="text-sm">
 									Gorivo
@@ -247,7 +272,7 @@ function AddUserForm({ refreshUser }) {
 							</FormControl>
 						</div>
 
-						<div className="col-span-full sm:col-span-3 lg:col-span-2">
+						<div className="col-span-full sm:col-span-3 lg:col-span-3">
 							<FormControl fullWidth>
 								<label htmlFor="transmission" className="text-sm">
 									Mjenjač
@@ -272,7 +297,7 @@ function AddUserForm({ refreshUser }) {
 							</FormControl>
 						</div>
 
-						<div className="col-span-full sm:col-span-3 lg:col-span-2">
+						<div className="col-span-full sm:col-span-3 lg:col-span-3">
 							<FormControl fullWidth>
 								<label htmlFor="door_count" className="text-sm">
 									Broj vrata

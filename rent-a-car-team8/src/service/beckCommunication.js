@@ -1,3 +1,4 @@
+import DeleteCar from "../components/CarCard/DeleteCar";
 import { axiosInstance } from "./api";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -39,12 +40,31 @@ class carService {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		});
+	deleteCar = async (id) =>
+		await toast.promise(
+			axiosInstance.delete(`/car/${id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			}),
+			requestObjectMessage
+		);
+
+	patchUser = async (body, id) =>
+		await toast.promise(
+			axiosInstance.patch(`admin/user/${id}/`, body, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"content-type": "multipart/form-data",
+				},
+			}),
+			requestObjectMessage
+		);
 	addCar = async (body) =>
 		await toast.promise(
 			axiosInstance.post("/cars/create", body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
-					"content-type": "multipart/form-data",
 				},
 			}),
 			requestObjectMessage
@@ -54,6 +74,7 @@ class carService {
 			axiosInstance.patch(`car/${id}/`, body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"content-type": "multipart/form-data",
 				},
 			}),
 			requestObjectMessage

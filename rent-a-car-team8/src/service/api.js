@@ -5,10 +5,9 @@ export const axiosInstance = axios.create({
 	timeout: 5000,
 	headers: {
 		"Content-Type": "application/json",
-		"ngrok-skip-browser-warning": true,
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Credentials": true,
-		"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+		"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT,PATCH",
 		"Access-Control-Allow-Headers": "*",
 	},
 });
