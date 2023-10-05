@@ -9,7 +9,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 			<NavLink to="/cars">
 				<Button
 					onClick={() => {
-						setActiveButton(1);
+						setActiveButton(0);
 						handleCloseNavMenu();
 					}}
 					sx={{
@@ -34,7 +34,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 			<NavLink to="/about">
 				<Button
 					onClick={() => {
-						setActiveButton(2);
+						setActiveButton(1);
 						handleCloseNavMenu();
 					}}
 					sx={{
@@ -59,7 +59,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 			<NavLink to="/contact">
 				<Button
 					onClick={() => {
-						setActiveButton(3);
+						setActiveButton(2);
 						handleCloseNavMenu();
 					}}
 					sx={{
@@ -84,7 +84,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 
 			<Button
 				onClick={() => {
-					setActiveButton(4);
+					setActiveButton(3);
 					handleCloseNavMenu();
 				}}
 				sx={{

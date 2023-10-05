@@ -13,7 +13,12 @@ export default withMT({
 			},
 		},
 	},
-
+	extend: {
+		// Extend the existing classes with custom classes
+		scale: {
+			103: "1.03",
+		},
+	},
 	plugins: [formsPlugin],
 	darkMode: "class",
 });

@@ -10,6 +10,7 @@ import DisapproveTick from "./DisapproveTick";
 import DeleteCar from "./DeleteCar";
 import { Modal, Box } from "@mui/material";
 import { carServiceNew } from "../../service/beckCommunication";
+import "./CarCard.css";
 const { patchCar, deleteCar } = carServiceNew;
 
 function CarCard({
@@ -89,6 +90,7 @@ function CarCard({
 						margin: "3% auto",
 					}}
 					className="car-card-container-inner"
+					onClick={() => openModal(car)}
 				>
 					{unApproved ? (
 						<div className="relative">
@@ -166,7 +168,6 @@ function CarCard({
 							</Typography>
 							{car.vehicle_price}
 						</Typography>
-						<Button onClick={() => openModal(car)}>View Details</Button>
 					</CardContent>
 				</Card>
 				<Modal

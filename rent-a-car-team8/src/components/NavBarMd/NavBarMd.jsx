@@ -16,6 +16,7 @@ function NavBarMd({ activeButton, setActiveButton, handleOpenUserMenu }) {
 			<NavLink to="/cars">
 				<Button
 					onClick={() => {
+						console.log("kliknuto je");
 						setActiveButton(0);
 					}}
 					sx={{

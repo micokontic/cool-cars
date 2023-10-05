@@ -1,0 +1,8 @@
+.car-card-container-inner {
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out !important;
+}
+
+.car-card-container-inner:hover {
+	transform: scale(1.03); /* Enlarge by 10% on hover */
+}

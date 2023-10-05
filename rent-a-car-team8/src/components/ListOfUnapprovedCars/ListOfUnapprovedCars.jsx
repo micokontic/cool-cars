@@ -22,7 +22,10 @@ function ListOfUnaprovedCars({
 					{cars.map((car, i) => {
 						if (car.status == "pending" && superAdmin) {
 							return (
-								<div key={i} className="lg:col-span-2 md:col-span-3 col-span-6">
+								<div
+									key={i}
+									className="lg:col-span-3 md:col-span-3 xl:col-span-2 col-span-6"
+								>
 									{superAdmin == true ? (
 										<CarCard
 											unApproved={true}

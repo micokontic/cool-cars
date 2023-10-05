@@ -19,7 +19,7 @@ function Hero() {
 							<a
 								rel="noopener noreferrer"
 								href="#"
-								className="px-8 py-3 text-lg font-semibold rounded bg-amber-400 text-gray-900"
+								className="enlarge-on-hover px-8 py-3 text-lg font-semibold rounded bg-amber-400 text-gray-900 transition duration-300 ease-in-out transition-transform  hover:bg-amber-600 hover:text-white hover:border-amber-500"
 							>
 								Naša ponuda
 							</a>
@@ -29,7 +29,7 @@ function Hero() {
 								<a
 									rel="noopener noreferrer"
 									href="#"
-									className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 border-2 sm:mt-3"
+									className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 border-2 sm:mt-3 transition duration-300 ease-in-out hover:border-cool-yellow hover:text-cool-yellow"
 								>
 									Kontakt
 								</a>

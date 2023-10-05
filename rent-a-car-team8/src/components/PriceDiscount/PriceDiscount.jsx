@@ -21,7 +21,7 @@ function PriceDiscount() {
 						<a
 							rel="noopener noreferrer"
 							href="#"
-							className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 text-white"
+							className="px-8 py-3 text-lg font-semibold border rounded border-gray-100 text-white transition-transform  hover:bg-amber-600 hover:text-white hover:border-amber-500 duration-300 ease-in-out"
 						>
 							Naša ponuda
 						</a>

@@ -32,6 +32,9 @@ function ModelsPage({ superAdmin = false }) {
 		if (filter.door_count != "Izaberi") {
 			url = url + "door_count=" + filter.door_count + "&";
 		}
+		if (filter.car_body != "Izaberi") {
+			url = url + "car_body=" + filter.door_count + "&";
+		}
 
 		return url;
 	};

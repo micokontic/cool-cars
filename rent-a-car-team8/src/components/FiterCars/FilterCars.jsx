@@ -145,7 +145,7 @@ function FilterCars({ setFilter, filter, getCarsSubmit }) {
 				<button
 					onClick={getCarsSubmit}
 					type="button"
-					className="px-8 py-4 border rounded-md bg-amber-400 text-gray-900 border-amber-400 font-semibold text-lg"
+					className=" enlarge-on-hover px-8 py-4 border rounded-md bg-amber-400 text-gray-900 border-amber-400 font-semibold text-lg transition-transform  hover:bg-amber-600 hover:text-white hover:border-amber-500 duration-300 ease-in-out"
 				>
 					Pronađi svoj automobil
 				</button>
