@@ -18,7 +18,7 @@ function FilterCars({ setFilter, filter, getCarsSubmit }) {
 
 	return (
 		<fieldset className="grid grid-cols-12 gap-6 py-6 rounded-md shadow-sm bg-gray-900">
-			<div className="col-span-full sm:col-span-6 lg:col-span-3">
+			<div className="col-span-full">
 				<FormControl fullWidth>
 					<label htmlFor="fuel_type" className="text-sm">
 						Gorivo
@@ -48,7 +48,7 @@ function FilterCars({ setFilter, filter, getCarsSubmit }) {
 				</FormControl>
 			</div>
 
-			<div className="col-span-full sm:col-span-6 lg:col-span-3">
+			<div className="col-span-full ">
 				<FormControl fullWidth>
 					<label htmlFor="transmission" className="text-sm">
 						Mjenjač
@@ -76,7 +76,7 @@ function FilterCars({ setFilter, filter, getCarsSubmit }) {
 				</FormControl>
 			</div>
 
-			<div className="col-span-full sm:col-span-6 lg:col-span-3">
+			<div className="col-span-full">
 				<FormControl fullWidth>
 					<label htmlFor="door_count" className="text-sm">
 						Broj vrata
@@ -104,7 +104,7 @@ function FilterCars({ setFilter, filter, getCarsSubmit }) {
 					</Select>
 				</FormControl>
 			</div>
-			<div className="col-span-full sm:col-span-6 lg:col-span-3">
+			<div className="col-span-full">
 				<FormControl fullWidth>
 					<label htmlFor="car_body" className="text-sm">
 						Karoserija

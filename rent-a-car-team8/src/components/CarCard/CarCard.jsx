@@ -39,6 +39,10 @@ function CarCard({
 	const [isModalOpen, setModalOpen] = useState(false);
 	const [selectedCar, setSelectedCar] = useState(null);
 
+	function hasWWW(str) {
+		return str.indexOf("https") !== -1;
+	}
+
 	const patchCarApi = async (status) => {
 		try {
 			const result = await patchCar(status, car.id);
@@ -125,6 +129,8 @@ function CarCard({
 						image={
 							car.image == null
 								? "https://bizrent.rs/wp-content/uploads/2023/05/Screenshot-2023-05-18-at-17.44.42.png"
+								: hasWWW(car.image)
+								? car.image
 								: import.meta.env.VITE_API_BASE_URL + car.image
 						}
 					/>

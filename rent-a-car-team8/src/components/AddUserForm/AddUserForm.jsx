@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import { carServiceNew } from "../../service/beckCommunication";
-import validateInputUser from "../../service/validateInputUser";
+import validateInputUser from "../../utils/validateInputUser";
 
 const { addRetailer, patchUser } = carServiceNew;
 

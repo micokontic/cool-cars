@@ -5,7 +5,7 @@ import "./LogInPage.css";
 import { carServiceNew } from "../../service/beckCommunication";
 const { getToken } = carServiceNew;
 
-import validateLogIn from "../../service/validateLogIn";
+import validateLogIn from "../../utils/validateLogIn";
 
 function LogInPage() {
 	const [username, setUsername] = useState("");
@@ -39,8 +39,6 @@ function LogInPage() {
 		try {
 			const body = JSON.stringify({ username, password });
 			setErrors(validateLogIn({ username, password }));
-			console.log("stampam ovo");
-			console.log(errors);
 			setTimeout(async () => {
 				if (Object.keys(errors).length === 0) {
 					console.log("pozivam server");

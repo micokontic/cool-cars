@@ -91,3 +91,9 @@ textarea:focus {
 	background-color: #0056b3;
 	color: white;
 }
+
+@media screen and (max-width: 650px) {
+	.contact-us-container {
+		display: block;
+	}
+}

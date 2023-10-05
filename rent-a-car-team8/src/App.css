@@ -24,8 +24,8 @@ html {
 }
 
 .models-page-container .MuiSelect-select {
-	font-weight: 600 !important;
-	font-size: 1.2rem;
+	font-weight: 500 !important;
+	font-size: 1rem;
 }
 
 .on-hover-red:hover {
@@ -52,4 +52,13 @@ html {
 
 .navbar-container .MuiBox-root {
 	align-items: center;
+}
+
+.models-page-container-main .MuiSelect-outlined {
+	padding: 10px 14px;
+}
+
+#input-slider {
+	margin-top: 5px;
+	margin-bottom: 30px;
 }

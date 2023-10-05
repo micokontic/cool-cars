@@ -5,12 +5,13 @@ import CarCard from "../../components/CarCard/CarCard";
 import "./ModelsPage.css";
 import { carServiceNew } from "../../service/beckCommunication";
 import NoCarsToShow from "../../components/NoCarsToShow/NoCarsToShow";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import toast, { Toaster } from "react-hot-toast";
 
 const { getCars } = carServiceNew;
 
 function ModelsPage({ superAdmin = false }) {
-	const [sliderValue, setSliderValue] = useState([5, 100]);
+	const [sliderValue, setSliderValue] = useState([0, 100]);
 	const [filter, setFilter] = useState({
 		fuel_type: "Izaberi",
 		transmission: "Izaberi",
@@ -33,7 +34,7 @@ function ModelsPage({ superAdmin = false }) {
 			url = url + "door_count=" + filter.door_count + "&";
 		}
 		if (filter.car_body != "Izaberi") {
-			url = url + "car_body=" + filter.door_count + "&";
+			url = url + "car_body=" + filter.car_body + "&";
 		}
 
 		return url;
@@ -81,38 +82,52 @@ function ModelsPage({ superAdmin = false }) {
 
 	return (
 		<>
-			<div className="models-page-container px-3 lg:px-10 lg:pt-5 pt-10">
-				<div className="p-8 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5 mt-6">
-					<SliderFilter
-						sliderValue={sliderValue}
-						setSliderValue={setSliderValue}
-					></SliderFilter>
-					<FilterCars
-						filter={filter}
-						setFilter={setFilter}
-						getCarsSubmit={getCarsSubmit}
-					></FilterCars>
+			<div className="models-page-container-main">
+				<div className="models-page-container px-3 lg:px-5 lg:pt-5 pt-10">
+					<div className="py-3 px-6 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5 mt-6">
+						<section className=" text-gray-100">
+							<div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
+								<h2 className="text-xl font-semibold sm:text-2xl">
+									Pronađite Vaše idealno vozilo
+								</h2>
+								<p className="mt-4 mb-3 text-gray-400">
+									Postavite svoj opseg cijena za pretragu i karakteristike Vašeg
+									traženog vozila.
+								</p>
+							</div>
+						</section>
+						<SliderFilter
+							sliderValue={sliderValue}
+							setSliderValue={setSliderValue}
+						></SliderFilter>
+						<FilterCars
+							filter={filter}
+							setFilter={setFilter}
+							getCarsSubmit={getCarsSubmit}
+						></FilterCars>
+					</div>
 				</div>
-			</div>
-			<div className="models-page-container px-3 lg:px-10 lg:pt-1">
-				<div className="p-8 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5">
-					<div className="mt-4">
-						{cars.length > 0 ? (
-							<>
-								<div className="list-of-unapproved-cars grid grid-cols-6 gap-4">
-									{cars.map((car, i) => (
-										<div
-											key={i}
-											className="lg:col-span-2 md:col-span-3 col-span-6"
-										>
-											<CarCard car={car} maxWidth={450}></CarCard>
-										</div>
-									))}
-								</div>
-							</>
-						) : (
-							<NoCarsToShow></NoCarsToShow>
-						)}
+
+				<div className="models-page-container models-page-container-right px-3 lg:px-4 lg:pt-5 pt-10">
+					<div className="p-8 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5 mt-6">
+						<div className="mt-4">
+							{cars.length > 0 ? (
+								<>
+									<div className="list-of-unapproved-cars grid grid-cols-6 gap-4">
+										{cars.map((car, i) => (
+											<div
+												key={i}
+												className="xl:col-span-2 lg:col-span-3 md:col-span-6 col-span-6"
+											>
+												<CarCard car={car} maxWidth={400}></CarCard>
+											</div>
+										))}
+									</div>
+								</>
+							) : (
+								<NoCarsToShow></NoCarsToShow>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>

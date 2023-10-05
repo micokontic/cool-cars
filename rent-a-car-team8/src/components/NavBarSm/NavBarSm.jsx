@@ -27,7 +27,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 						variant="body1"
 						style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
 					>
-						MODELS
+						MODELI
 					</Typography>
 				</Button>
 			</NavLink>
@@ -52,7 +52,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 						variant="body1"
 						style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
 					>
-						ABOUT US
+						O NAMA
 					</Typography>
 				</Button>
 			</NavLink>
@@ -77,7 +77,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 						variant="body1"
 						style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
 					>
-						CONTACT US
+						KONTAKT
 					</Typography>
 				</Button>
 			</NavLink>
@@ -102,7 +102,7 @@ function NavBarSm({ activeButton, setActiveButton, handleCloseNavMenu }) {
 					variant="body1"
 					style={{ fontWeight: "bold", letterSpacing: "0.1rem" }}
 				>
-					LOG IN
+					ULOGUJTE SE
 				</Typography>
 			</Button>
 		</>

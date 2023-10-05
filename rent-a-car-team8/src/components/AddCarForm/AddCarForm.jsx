@@ -3,7 +3,7 @@ import SectionHeading from "../SectionHeading/SectionHeading";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import validateInputCar from "../../service/validateInputCar";
+import validateInputCar from "../../utils/validateInputCar";
 
 import "./AddCarForm.css";
 
