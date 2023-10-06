@@ -1,7 +1,11 @@
 import { CircularProgress } from "@mui/material";
 
 function Loading() {
-	return <CircularProgress> </CircularProgress>;
+	return (
+		<div className="my-10">
+			<CircularProgress> </CircularProgress>
+		</div>
+	);
 }
 
 export default Loading;

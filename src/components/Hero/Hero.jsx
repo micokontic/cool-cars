@@ -14,7 +14,7 @@ function Hero() {
 						Naši automobili su najbolji i nećemo{" "}
 						<span className="text-amber-400"> Vas </span> prevariti
 					</p>
-					<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+					<div className="flex flex-col space-y-8 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
 						<NavLink to="/cars">
 							<a
 								rel="noopener noreferrer"

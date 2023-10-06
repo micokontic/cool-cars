@@ -1,3 +1,4 @@
+import Layout from "../Layout/Layout";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LogInPage/LogInPage";
 import LostPage from "../pages/LostPage/LostPage";
@@ -17,9 +18,9 @@ export const appRoutes = [
 		exact: "true",
 		element: (
 			<>
-				<Navigation></Navigation>
-				<HomePage />
-				<Footer></Footer>
+				<Layout>
+					<HomePage />
+				</Layout>
 			</>
 		),
 	},
@@ -29,9 +30,9 @@ export const appRoutes = [
 			<PublicRoute
 				element={
 					<>
-						<Navigation></Navigation>
-						<LoginPage></LoginPage>
-						<Footer></Footer>
+						<Layout>
+							<LoginPage></LoginPage>
+						</Layout>
 					</>
 				}
 			/>
@@ -43,9 +44,9 @@ export const appRoutes = [
 			<PublicRoute
 				element={
 					<>
-						<Navigation></Navigation>
-						<AboutUsPage></AboutUsPage>
-						<Footer></Footer>
+						<Layout>
+							<AboutUsPage></AboutUsPage>
+						</Layout>
 					</>
 				}
 			/>
@@ -57,9 +58,9 @@ export const appRoutes = [
 			<SuperAdminRoute
 				element={
 					<>
-						<Navigation></Navigation>
-						<DashBoardPage></DashBoardPage>
-						<Footer></Footer>
+						<Layout>
+							<DashBoardPage></DashBoardPage>
+						</Layout>
 					</>
 				}
 			/>
@@ -71,9 +72,9 @@ export const appRoutes = [
 			<ProtectedRoute
 				element={
 					<>
-						<Navigation></Navigation>
-						<DashBoardPage superAdmin={false} />
-						<Footer></Footer>
+						<Layout>
+							<DashBoardPage superAdmin={false} />
+						</Layout>
 					</>
 				}
 			/>
@@ -85,9 +86,9 @@ export const appRoutes = [
 			<PublicRoute
 				element={
 					<>
-						<Navigation></Navigation>
-						<ContactUs></ContactUs>
-						<Footer></Footer>
+						<Layout>
+							<ContactUs></ContactUs>
+						</Layout>
 					</>
 				}
 			/>
@@ -99,9 +100,9 @@ export const appRoutes = [
 			<PublicRoute
 				element={
 					<>
-						<Navigation></Navigation>
-						<ModelsPage></ModelsPage>
-						<Footer></Footer>
+						<Layout>
+							<ModelsPage></ModelsPage>
+						</Layout>
 					</>
 				}
 			/>
@@ -112,9 +113,9 @@ export const appRoutes = [
 		path: "*",
 		element: (
 			<>
-				<Navigation></Navigation>
-				<LostPage />
-				<Footer></Footer>
+				<Layout>
+					<LostPage />
+				</Layout>
 			</>
 		),
 	},

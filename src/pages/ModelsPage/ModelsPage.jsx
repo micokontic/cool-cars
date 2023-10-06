@@ -3,15 +3,16 @@ import FilterCars from "../../components/FiterCars/FilterCars";
 import SliderFilter from "../../components/SliderFilter/SliderFilter";
 import CarCard from "../../components/CarCard/CarCard";
 import "./ModelsPage.css";
-import { carServiceNew } from "../../service/beckCommunication";
+import { CarServiceNew } from "../../service/beckCommunication";
 import NoCarsToShow from "../../components/NoCarsToShow/NoCarsToShow";
-import SectionHeading from "../../components/SectionHeading/SectionHeading";
-import toast, { Toaster } from "react-hot-toast";
+import Loading from "../../components/Loading/Loading";
 
-const { getCars } = carServiceNew;
+const { getCars } = CarServiceNew;
 
 function ModelsPage({ superAdmin = false }) {
 	const [sliderValue, setSliderValue] = useState([0, 100]);
+	const [isLoading, setIsLoading] = useState(true);
+
 	const [filter, setFilter] = useState({
 		fuel_type: "Izaberi",
 		transmission: "Izaberi",
@@ -40,43 +41,31 @@ function ModelsPage({ superAdmin = false }) {
 		return url;
 	};
 
-	useEffect(() => {
-		let isMounted = true;
+	const getCarsApi = async () => {
+		try {
+			const url = createURL();
+			console.log(url);
+			const result = await getCars(url);
+			console.log(result.data);
+			setCars(result.data);
+			console.log("submit post");
+			setTimeout(() => {
+				setIsLoading(false);
+			}, 1500);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
-		const fetchData = async () => {
-			console.log("odje udjoh");
-			try {
-				const url = createURL();
-				console.log(url);
-				const result = await getCars(url);
-				if (isMounted) {
-					setCars(result.data);
-				}
-			} catch (err) {
-				console.log(err);
-			}
-		};
+	useEffect(() => {
+		getCarsApi();
+
 		console.log("ovo pozvah");
-		fetchData();
-		return () => {
-			isMounted = false;
-		};
+		getCarsApi();
 	}, []);
 
 	const getCarsSubmit = () => {
-		const getCarsApi = async () => {
-			try {
-				const url = createURL();
-				console.log(url);
-				const result = await getCars(url);
-				console.log(result.data);
-				setCars(result.data);
-				console.log("submit post");
-			} catch (err) {
-				console.log(err);
-			}
-		};
-
+		setIsLoading(true);
 		getCarsApi();
 	};
 
@@ -108,26 +97,32 @@ function ModelsPage({ superAdmin = false }) {
 					</div>
 				</div>
 
-				<div className="models-page-container models-page-container-right px-3 lg:px-4 lg:pt-5 pt-10">
-					<div className="p-8 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5 mt-6">
-						<div className="mt-4">
-							{cars.length > 0 ? (
-								<>
-									<div className="list-of-unapproved-cars grid grid-cols-6 gap-4">
-										{cars.map((car, i) => (
-											<div
-												key={i}
-												className="xl:col-span-2 lg:col-span-3 md:col-span-6 col-span-6"
-											>
-												<CarCard car={car} maxWidth={400}></CarCard>
-											</div>
-										))}
-									</div>
-								</>
-							) : (
-								<NoCarsToShow></NoCarsToShow>
-							)}
-						</div>
+				<div className="models-page-container models-page-container-right px-3 lg:px-4 lg:pt-5 pt-10  ">
+					<div className="p-8 space-y-2 bg-gray-900 text-gray-100 align-to-start lg:mx-0 mx-3 mb-5 mt-6 hight-must relative flex justify-center items-center">
+						{isLoading ? (
+							<div className="w-full h-full flex justify-center items-center">
+								<Loading></Loading>
+							</div>
+						) : (
+							<div className="mt-4">
+								{cars.length > 0 ? (
+									<>
+										<div className="list-of-unapproved-cars grid grid-cols-6 gap-4">
+											{cars.map((car, i) => (
+												<div
+													key={i}
+													className="xl:col-span-2 lg:col-span-3 md:col-span-6 col-span-6"
+												>
+													<CarCard car={car} maxWidth={400}></CarCard>
+												</div>
+											))}
+										</div>
+									</>
+								) : (
+									<NoCarsToShow></NoCarsToShow>
+								)}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

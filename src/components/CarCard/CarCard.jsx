@@ -9,9 +9,9 @@ import Button from "@mui/material/Button";
 import DisapproveTick from "./DisapproveTick";
 import DeleteCar from "./DeleteCar";
 import { Modal, Box } from "@mui/material";
-import { carServiceNew } from "../../service/beckCommunication";
+import { CarServiceNew } from "../../service/beckCommunication";
 import "./CarCard.css";
-const { patchCar, deleteCar } = carServiceNew;
+const { patchCar, deleteCar } = CarServiceNew;
 
 function CarCard({
 	unApproved = false,

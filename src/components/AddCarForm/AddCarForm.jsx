@@ -7,8 +7,8 @@ import validateInputCar from "../../utils/validateInputCar";
 
 import "./AddCarForm.css";
 
-import { carServiceNew } from "../../service/beckCommunication";
-const { addCar } = carServiceNew;
+import { CarServiceNew } from "../../service/beckCommunication";
+const { addCar } = CarServiceNew;
 
 const MenuProps = {
 	getContentAnchorEl: null,

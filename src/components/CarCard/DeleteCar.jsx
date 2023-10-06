@@ -1,4 +1,4 @@
-import { carServiceNew } from "../../service/beckCommunication";
+import { CarServiceNew } from "../../service/beckCommunication";
 
 function DeleteCar({ deleteCarSubmit }) {
 	return (

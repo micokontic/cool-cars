@@ -1,6 +1,5 @@
-import DeleteCar from "../components/CarCard/DeleteCar";
 import { axiosInstance } from "./api";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const requestObjectMessage = {
 	loading: "Loading",
@@ -8,7 +7,7 @@ const requestObjectMessage = {
 	error: "Error",
 };
 
-class carService {
+class CarService {
 	getCars = async (url) => await axiosInstance.get("cars" + url);
 	getNewCars = async () => await axiosInstance.get("/cars/newest");
 	getToken = async (body) =>
@@ -91,4 +90,4 @@ class carService {
 		);
 }
 
-export const carServiceNew = new carService();
+export const CarServiceNew = new CarService();

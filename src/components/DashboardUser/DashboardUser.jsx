@@ -7,8 +7,8 @@ import NumberOfCarsChart from "../NumberOfCarsChart/NumberOfCarsChart";
 import ListOfUnapprovedCars from "../ListOfUnapprovedCars/ListOfUnapprovedCars";
 import AddCarForm from "../AddCarForm/AddCarForm";
 import { UserContext } from "../../contexts/userContext";
-import { carServiceNew } from "../../service/beckCommunication";
-const { getUser } = carServiceNew;
+import { CarServiceNew } from "../../service/beckCommunication";
+const { getUser } = CarServiceNew;
 
 function DashboardUser() {
 	const [selectedIndex, setSelectedIndex] = useState(1);

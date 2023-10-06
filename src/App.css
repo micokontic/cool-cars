@@ -58,6 +58,11 @@ html {
 	padding: 10px 14px;
 }
 
+.carousel-slider .control-arrow {
+	background: rgba(0, 0, 0, 0.2) !important;
+	border-radius: 3px;
+}
+
 #input-slider {
 	margin-top: 5px;
 	margin-bottom: 30px;

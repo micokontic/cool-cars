@@ -4,8 +4,8 @@ import CarCard from "../CarCard/CarCard";
 import Loading from "../../components/Loading/Loading";
 import "./CarsCarousel.css";
 import { useState, useEffect } from "react";
-import { carServiceNew } from "../../service/beckCommunication";
-const { getNewCars } = carServiceNew;
+import { CarServiceNew } from "../../service/beckCommunication";
+const { getNewCars } = CarServiceNew;
 
 const car = {
 	description: "Brza i pouzdana DUM",
@@ -80,7 +80,7 @@ function CarsCarousel() {
 			showIndicators={false}
 			useKeyboardArrows={true}
 			// Ovo ispod zamijeniti
-			autoPlay={false}
+			autoPlay={true}
 			transitionTime={500}
 			showThumbs={false}
 			showStatus={false}

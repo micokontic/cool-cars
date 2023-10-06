@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import RetailerInTable from "../RetailerInTable/RetailerInTable";
-import { carServiceNew } from "../../service/beckCommunication";
-const { getUsers } = carServiceNew;
+import { CarServiceNew } from "../../service/beckCommunication";
+const { getUsers } = CarServiceNew;
 
 function RetailerTable() {
 	const [allRetailers, setAllRetailers] = useState([]);

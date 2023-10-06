@@ -2,8 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { useNavigate } from "react-router-dom";
 import "./LogInPage.css";
-import { carServiceNew } from "../../service/beckCommunication";
-const { getToken } = carServiceNew;
+import { CarServiceNew } from "../../service/beckCommunication";
+const { getToken } = CarServiceNew;
 
 import validateLogIn from "../../utils/validateLogIn";
 
@@ -38,7 +38,9 @@ function LogInPage() {
 
 		try {
 			const body = JSON.stringify({ username, password });
-			setErrors(validateLogIn({ username, password }));
+			const validationErrors = await validateLogIn({ username, password });
+			setErrors(validationErrors);
+			console.log(errors);
 			setTimeout(async () => {
 				if (Object.keys(errors).length === 0) {
 					console.log("pozivam server");

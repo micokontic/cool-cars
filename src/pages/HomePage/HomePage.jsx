@@ -7,10 +7,10 @@ import OurStats from "../../components/OurStats/OurStats";
 import PriceDiscount from "../../components/PriceDiscount/PriceDiscount";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import OurServices from "../../components/OurServices/OurServices";
-import { carServiceNew } from "../../service/beckCommunication";
+import { CarServiceNew } from "../../service/beckCommunication";
 
 import "./HomePage.css";
-const { getCheapestCar } = carServiceNew;
+const { getCheapestCar } = CarServiceNew;
 
 function HomePage() {
 	const [cheapestCar, setCheapestCar] = useState({});

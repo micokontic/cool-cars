@@ -1,7 +1,7 @@
 import deleteIcon from "../../assets/icons/delete-retailer.svg";
 import profileImageBlank from "../../assets/profileImageBlank.png";
-import { carServiceNew } from "../../service/beckCommunication";
-const { deleteUser } = carServiceNew;
+import { CarServiceNew } from "../../service/beckCommunication";
+const { deleteUser } = CarServiceNew;
 function RetailerInTable({ retailer, setRefresh, refresh }) {
 	const deleteUserSubmit = () => {
 		console.log("brisem");

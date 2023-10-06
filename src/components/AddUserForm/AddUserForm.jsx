@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
-import { carServiceNew } from "../../service/beckCommunication";
+import { CarServiceNew } from "../../service/beckCommunication";
 import validateInputUser from "../../utils/validateInputUser";
 
-const { addRetailer, patchUser } = carServiceNew;
+const { addRetailer, patchUser } = CarServiceNew;
 
 function AddUserForm({
 	edit = false,
@@ -43,7 +43,8 @@ function AddUserForm({
 	};
 
 	const addRetailerSubmit = () => {
-		setErrors(validateInputUser(retailer));
+		const validationErrors = validateInputUser(retailer);
+		setErrors(validationErrors);
 		console.log("stampam ovo");
 		console.log(errors);
 		setTimeout(() => {
