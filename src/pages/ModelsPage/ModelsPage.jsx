@@ -59,7 +59,7 @@ function ModelsPage({ superAdmin = false }) {
 
 	useEffect(() => {
 		getCarsApi();
-
+		console.log("git check");
 		console.log("ovo pozvah");
 		getCarsApi();
 	}, []);
