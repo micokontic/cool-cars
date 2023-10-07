@@ -35,7 +35,11 @@ function ListOfUnaprovedCars({
 											refresh={refresh}
 										></CarCard>
 									) : (
-										<CarCard car={car}></CarCard>
+										<CarCard
+											car={car}
+											setRefresh={setRefresh}
+											refresh={refresh}
+										></CarCard>
 									)}
 								</div>
 							);
@@ -54,6 +58,8 @@ function ListOfUnaprovedCars({
 										<CarCard
 											car={car}
 											deletePossible={deletePossible}
+											setRefresh={setRefresh}
+											refresh={refresh}
 										></CarCard>
 									)}
 								</div>
