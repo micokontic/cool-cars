@@ -15,7 +15,6 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
 	(request) => {
-		// console.log('Starting Request', JSON.stringify(request, null, 2));
 		return request;
 	},
 	(error) => {
@@ -27,7 +26,6 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
 	(response) => {
-		// console.log('Response:', JSON.stringify(response, null, 2));
 		return response;
 	},
 	(error) => {

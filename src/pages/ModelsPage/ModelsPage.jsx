@@ -44,11 +44,11 @@ function ModelsPage({ superAdmin = false }) {
 	const getCarsApi = async () => {
 		try {
 			const url = createURL();
-			console.log(url);
+
 			const result = await getCars(url);
-			console.log(result.data.results);
+
 			setCars(result.data.results);
-			console.log("submit post");
+
 			setTimeout(() => {
 				setIsLoading(false);
 			}, 1500);
@@ -59,8 +59,7 @@ function ModelsPage({ superAdmin = false }) {
 
 	useEffect(() => {
 		getCarsApi();
-		console.log("git check");
-		console.log("ovo pozvah");
+
 		getCarsApi();
 	}, []);
 

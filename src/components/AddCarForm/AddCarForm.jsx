@@ -69,7 +69,6 @@ function AddUserForm({ refresh, setRefresh }) {
 	};
 
 	const handleChange = (e) => {
-		console.log(e.target);
 		const { name, value } = e.target;
 
 		// Update the formData state using the id as the key and value as the new value
@@ -81,8 +80,7 @@ function AddUserForm({ refresh, setRefresh }) {
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
-		console.log("file type");
-		console.log(file.type);
+
 		if (file && file.type === "image/jpeg") {
 			// If the file is a JPEG image, set it in state
 			setCar((prevRetailer) => ({

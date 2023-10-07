@@ -40,10 +40,9 @@ function LogInPage() {
 			const body = JSON.stringify({ username, password });
 			const validationErrors = await validateLogIn({ username, password });
 			setErrors(validationErrors);
-			console.log(errors);
+
 			setTimeout(async () => {
 				if (Object.keys(errors).length === 0) {
-					console.log("pozivam server");
 					const response = await getToken(body);
 					handleUserLogin(response.data.access);
 				}

@@ -49,7 +49,7 @@ function CarCard({
 	const patchCarApi = async (status) => {
 		try {
 			const result = await patchCar(status, car.id);
-			console.log(result.data);
+
 			setRefresh(!refresh);
 		} catch (err) {
 			console.log(err);
@@ -57,25 +57,20 @@ function CarCard({
 	};
 
 	const patchCarSubmit = (status) => {
-		console.log("patchujem");
-
 		patchCarApi(status);
 	};
 
 	const deleteCarApi = async () => {
 		try {
 			const result = await deleteCar(car.id);
-			console.log(result.data);
+
 			setRefresh(!refresh);
-			console.log("refresh sam");
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
 	const deleteCarSubmit = () => {
-		console.log("brisem");
-
 		deleteCarApi();
 	};
 
@@ -98,7 +93,6 @@ function CarCard({
 					}}
 					className="car-card-container-inner"
 					onClick={(e) => {
-						console.log(e.target.classList);
 						if (!e.target.classList.contains("button-class-name")) {
 							openModal(car);
 						}
@@ -253,10 +247,17 @@ function CarCard({
 								}}
 							>
 								<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-									{car.description}
+									<span>{car.description}</span>
 								</Typography>
 								<Typography>
-									Year of Manufacturing: {car.year_of_manufacturing}
+									Year of Manufacturing:{" "}
+									<span>{car.year_of_manufacturing}</span>
+								</Typography>
+								<Typography>
+									Body: <span>{car.car_body}</span>
+								</Typography>
+								<Typography>
+									Price: <span>{car.vehicle_price}</span>
 								</Typography>
 							</div>
 							<div
@@ -266,12 +267,7 @@ function CarCard({
 									flexDirection: "column",
 								}}
 							>
-								<Typography>Transmission: {car.transmission}</Typography>
-								<Typography>Fuel Type: {car.fuel_type}</Typography>
-								<Typography>Number of Doors: {car.door_count}</Typography>
-								<Typography>Body: {car.car_body}</Typography>
-								<Typography>Price: {car.vehicle_price}</Typography>
-								<Typography>Owners: {car.owner}</Typography>
+								<CardData car={car}></CardData>
 							</div>
 						</div>
 

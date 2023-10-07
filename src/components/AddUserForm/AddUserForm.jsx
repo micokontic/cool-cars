@@ -25,13 +25,9 @@ function AddUserForm({
 	const addRetailerApi = async () => {
 		try {
 			if (edit) {
-				console.log(retailer);
-				console.log(profileData.id);
 				const result = await patchUser(retailer, profileData.id);
-				console.log(result.data);
 			} else {
 				const result = await addRetailer(retailer);
-				console.log(result.data);
 			}
 
 			setRefresh(!refresh);
@@ -43,8 +39,7 @@ function AddUserForm({
 	const addRetailerSubmit = () => {
 		const validationErrors = validateInputUser(retailer);
 		setErrors(validationErrors);
-		console.log("stampam ovo");
-		console.log(errors);
+
 		setTimeout(() => {
 			if (Object.keys(errors).length === 0) {
 				console.log("pozivam server");

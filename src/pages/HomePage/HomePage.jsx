@@ -19,8 +19,7 @@ function HomePage() {
 		const fetchData = async () => {
 			try {
 				const result = await getCheapestCar();
-				console.log(result);
-				console.log(result.data);
+
 				setCheapestCar(result.data);
 			} catch (err) {
 				console.log(err);
