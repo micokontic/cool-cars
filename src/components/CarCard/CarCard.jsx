@@ -64,6 +64,7 @@ function CarCard({
 			const result = await deleteCar(car.id);
 			console.log(result.data);
 			setRefresh(!refresh);
+			console.log("refresh sam");
 		} catch (err) {
 			console.log(err);
 		}

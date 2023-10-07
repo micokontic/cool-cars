@@ -14,7 +14,6 @@ function RetailerTable() {
 			console.log(result);
 			console.log(result.data);
 			setAllRetailers(result.data);
-			setRefresh(!refresh);
 		} catch (err) {
 			console.log(err);
 		}

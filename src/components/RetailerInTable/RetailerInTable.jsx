@@ -22,7 +22,11 @@ function RetailerInTable({ retailer, setRefresh, refresh }) {
 			<tr>
 				<td className="px-3 text-2xl font-medium text-gray-400">
 					<img
-						src={retailer.img == null ? profileImageBlank : retailer.img}
+						src={
+							retailer.img == null
+								? profileImageBlank
+								: import.meta.env.VITE_API_BASE_URL + retailer.img
+						}
 						alt=""
 						className="w-12 h-12 rounded-full bg-gray-500"
 					/>
@@ -46,7 +50,7 @@ function RetailerInTable({ retailer, setRefresh, refresh }) {
 					<p>{retailer.email}</p>
 				</td>
 				<td className="px-3 py-2 text-center">
-					<p>34</p>
+					<p>{retailer.vehicle_count}</p>
 				</td>
 
 				<td className="">

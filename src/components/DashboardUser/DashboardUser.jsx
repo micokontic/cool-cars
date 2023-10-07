@@ -34,10 +34,13 @@ function DashboardUser() {
 			console.log(err);
 		}
 	};
+
 	useEffect(() => {
 		fetchData();
 	}, []);
+
 	useEffect(() => {
+		console.log("refresh sam");
 		fetchData();
 	}, [refresh]);
 

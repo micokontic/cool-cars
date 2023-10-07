@@ -8,17 +8,18 @@ const requestObjectMessage = {
 };
 
 class CarService {
-	getCars = async (url) => await axiosInstance.get("cars" + url);
-	getNewCars = async () => await axiosInstance.get("/cars/newest");
+	getCars = async (url) =>
+		await axiosInstance.get("cars/?status=approved&" + url);
+	getNewCars = async () => await axiosInstance.get("/cars/?newest=true");
 	getToken = async (body) =>
 		await toast.promise(
 			axiosInstance.post("api/token/", body),
 			requestObjectMessage
 		);
-	getCheapestCar = async () => await axiosInstance.get("cars/cheapest");
+	getCheapestCar = async () => await axiosInstance.get("cars/?cheapest=true");
 	addRetailer = async (body) =>
 		await toast.promise(
-			axiosInstance.post("/admin/users/create/", body, {
+			axiosInstance.post("users/", body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 					"content-type": "multipart/form-data",
@@ -28,20 +29,20 @@ class CarService {
 		);
 
 	getUsers = async () =>
-		await axiosInstance.get("admin/users", {
+		await axiosInstance.get("users/", {
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		});
 	getUser = async (id) =>
-		await axiosInstance.get(`admin/user/${id}`, {
+		await axiosInstance.get(`users/${id}`, {
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		});
 	deleteCar = async (id) =>
 		await toast.promise(
-			axiosInstance.delete(`/car/${id}`, {
+			axiosInstance.delete(`/cars/${id}`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				},
@@ -50,7 +51,7 @@ class CarService {
 		);
 	deleteUser = async (id) =>
 		await toast.promise(
-			axiosInstance.delete(`admin/user/${id}`, {
+			axiosInstance.delete(`users/${id}`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				},
@@ -60,7 +61,7 @@ class CarService {
 
 	patchUser = async (body, id) =>
 		await toast.promise(
-			axiosInstance.patch(`admin/user/${id}/`, body, {
+			axiosInstance.patch(`users/${id}/`, body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 					"content-type": "multipart/form-data",
@@ -70,7 +71,7 @@ class CarService {
 		);
 	addCar = async (body) =>
 		await toast.promise(
-			axiosInstance.post("/cars/create", body, {
+			axiosInstance.post("/cars/", body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 					"content-type": "multipart/form-data",
@@ -80,7 +81,7 @@ class CarService {
 		);
 	patchCar = async (body, id) =>
 		await toast.promise(
-			axiosInstance.patch(`car/${id}/`, body, {
+			axiosInstance.patch(`cars/${id}/`, body, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 					"content-type": "multipart/form-data",

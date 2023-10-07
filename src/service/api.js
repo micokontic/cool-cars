@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
 		"Access-Control-Allow-Origin": "*",
 		"Access-Control-Allow-Credentials": true,
 		"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT,PATCH",
-		"Access-Control-Allow-Headers": "Accept",
+		"Access-Control-Allow-Headers": "*",
 		"X-Requested-With": "XMLHttpRequest",
 	},
 });

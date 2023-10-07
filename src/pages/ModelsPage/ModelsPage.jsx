@@ -23,7 +23,7 @@ function ModelsPage({ superAdmin = false }) {
 
 	const createURL = () => {
 		var url = "";
-		url = url + "?min_price=" + sliderValue[0] * 1000 + "&";
+		url = url + "min_price=" + sliderValue[0] * 1000 + "&";
 		url = url + "max_price=" + sliderValue[1] * 1000 + "&";
 		if (filter.fuel_type != "Izaberi") {
 			url = url + "fuel_type=" + filter.fuel_type + "&";
@@ -46,8 +46,8 @@ function ModelsPage({ superAdmin = false }) {
 			const url = createURL();
 			console.log(url);
 			const result = await getCars(url);
-			console.log(result.data);
-			setCars(result.data);
+			console.log(result.data.results);
+			setCars(result.data.results);
 			console.log("submit post");
 			setTimeout(() => {
 				setIsLoading(false);
