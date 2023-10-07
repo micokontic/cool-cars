@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
+import './Modal.css'
 
 
-const Modal = ({ isOpen, closeModal, children }) => {
+const CustomModal = ({ isOpen, closeModal, children }) => {
   return (
     isOpen && (
       <div className="modal-overlay">
@@ -16,4 +17,4 @@ const Modal = ({ isOpen, closeModal, children }) => {
   );
 };
 
-export default Modal;
+export default CustomModal;

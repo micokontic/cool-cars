@@ -3,22 +3,23 @@ const ContactUs = () => {
 	return (
 		<div className="contact-us-container hight-must bg-cool-blue">
 			<div className="contact-details">
-				<h1>Contact Us</h1>
+				<h1>Kontakt</h1>
 				<p>
-					If you have any questions or need assistance, feel free to contact us:
+					Ako imate pitanja ili Vam treba pomoć u odabiru automobila, 
+					kontaktirajte nas:
 				</p>
 				<ul>
 					<li>Email: info@yourrentacar.com</li>
-					<li>Phone: +1 (123) 456-7890</li>
-					<li>Address: 123 Main Street, City, Country</li>
+					<li>Telefon: +382-(0)68007007</li>
+					<li>Adresa: Hercegovacka, Podgorica, Crna Gora</li>
 				</ul>
 			</div>
 
 			<div className="contact-form">
-				<h2>Send Us a Message</h2>
+				<h2>Pošsaljite nam poruku</h2>
 				<form>
 					<div className="form-group">
-						<label htmlFor="name">Name</label>
+						<label htmlFor="name">Ime i prezime</label>
 						<input type="text" id="name" name="name" required />
 					</div>
 					<div className="form-group">
@@ -26,10 +27,10 @@ const ContactUs = () => {
 						<input type="email" id="email" name="email" required />
 					</div>
 					<div className="form-group">
-						<label htmlFor="message">Message</label>
+						<label htmlFor="message">Poruka</label>
 						<textarea id="message" name="message" rows="4" required></textarea>
 					</div>
-					<button type="submit">Submit</button>
+					<button type="submit">Pošalji</button>
 				</form>
 			</div>
 		</div>
