@@ -13,7 +13,8 @@ import { CarServiceNew } from "../../service/beckCommunication";
 import YouTubeVideo from "../../components/YouTubeVideo/YouTubeVideo";
 import "./Modal.css";
 import "./CarCard.css";
-const { patchCar, deleteCar } = CarServiceNew;
+import ModalGallery from "../../components/ModalGallery/ModalGallery";
+const { patchCar, deleteCar, getCarGallary } = CarServiceNew;
 
 function CarCard({
 	unApproved = false,
@@ -39,8 +40,23 @@ function CarCard({
 	refresh,
 }) {
 	const [isModalOpen, setModalOpen] = useState(false);
-	const [selectedCar, setSelectedCar] = useState(null);
-	const [galleryImages, setGalleryImages] = useState([]);
+	const [gallery, setGallery] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const result = await getCarGallary(car.id);
+				console.log(result.data);
+				setGallery(result.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		if (isModalOpen) {
+			fetchData();
+		}
+	}, [isModalOpen]);
 
 	function hasWWW(str) {
 		return str.indexOf("https") !== -1;
@@ -79,7 +95,6 @@ function CarCard({
 	};
 
 	const closeModal = () => {
-		setSelectedCar(null);
 		setModalOpen(false);
 	};
 
@@ -174,7 +189,7 @@ function CarCard({
 							>
 								Već od
 							</Typography>
-							{car.vehicle_price}
+							{car.vehicle_price + " €"}
 						</Typography>
 					</CardContent>
 				</Card>
@@ -183,8 +198,8 @@ function CarCard({
 					open={isModalOpen}
 					onClose={() => {
 						setModalOpen(false);
-						setGalleryImages([]); // Clear gallery images when modal is closed
 					}}
+					sx={{ overflow: "scroll" }}
 					aria-labelledby="modal-modal-title"
 					aria-describedby="modal-modal-description"
 				>
@@ -201,17 +216,17 @@ function CarCard({
 							border: "2px solid #000",
 							borderRadius: "8px",
 						}}
+						className="youtube-box"
 					>
 						<Typography
-							id="modal-modal-title"
-							variant="h6"
-							component="h2"
-							style={{
-								padding: "4px",
-							}}
+							gutterBottom
+							variant="h5"
+							component="div"
+							textAlign="left"
 						>
 							{car.vehicle_make} {car.vehicle_model}
 						</Typography>
+						<div className="line line-modal"></div>
 						<Button
 							onClick={closeModal}
 							style={{
@@ -225,20 +240,8 @@ function CarCard({
 						>
 							Close
 						</Button>
-						<div className="modal-media-container">
-							<img
-								src={
-									car.image
-										? hasWWW(car.image)
-											? car.image
-											: `${import.meta.env.VITE_API_BASE_URL}${car.image}`
-										: "https://bizrent.rs/wp-content/uploads/2023/05/Screenshot-2023-05-18-at-17.44.42.png"
-								}
-								alt={`${car.vehicle_make} ${car.vehicle_model}`}
-							/>
-							<YouTubeVideo></YouTubeVideo>
-						</div>
-						<div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+						<YouTubeVideo url={car.video_url}></YouTubeVideo>
+						<div className="modal-container-inner">
 							<div
 								style={{
 									flexBasis: "calc(50% - 10px)",
@@ -246,28 +249,67 @@ function CarCard({
 									flexDirection: "column",
 								}}
 							>
-								<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-									<span>{car.description}</span>
+								<Typography
+									variant="body1"
+									color="text.secondary"
+									textAlign="left"
+									sx={{
+										fontSize: "1.5rem",
+										marginTop: "0.5rem",
+									}}
+								>
+									{car.description}
 								</Typography>
-								<Typography>
-									Year of Manufacturing:{" "}
-									<span>{car.year_of_manufacturing}</span>
+
+								<CardData car={car}></CardData>
+
+								<Typography
+									variant="body1"
+									textAlign="left"
+									sx={{
+										fontWeight: 700,
+										marginBottom: "0.5rem",
+										fontSize: "1.5rem",
+									}}
+									className="font-semibold m3 pt-3"
+								>
+									<span className="font-normal">Karoserija: </span>
+									{car.car_body ? car.car_body : "SUV4x4"}
 								</Typography>
-								<Typography>
-									Body: <span>{car.car_body}</span>
+								<Typography
+									variant="body1"
+									textAlign="left"
+									sx={{
+										fontWeight: 700,
+										marginBottom: "0.5rem",
+										fontSize: "1.5rem",
+									}}
+									className="font-semibold m3 pt-3"
+								>
+									<span className="font-normal">Godina proizvodnje: </span>
+									{car.year_of_manufacturing
+										? car.year_of_manufacturing
+										: "2022"}
 								</Typography>
-								<Typography>
-									Price: <span>{car.vehicle_price}</span>
+
+								<Typography
+									variant="body1"
+									textAlign="left"
+									sx={{
+										fontWeight: 700,
+										marginBottom: "0.5rem",
+										fontSize: "1.5rem",
+									}}
+									className="font-semibold m3 mt-9 pt-3"
+								>
+									<span>Cijena već od: </span>
+									<span className="font-normal text-5xl font-semibold">
+										{car.vehicle_price ? car.vehicle_price + " €" : "20000 €"}
+									</span>
 								</Typography>
 							</div>
-							<div
-								style={{
-									flexBasis: "calc(50% - 10px)",
-									display: "flex",
-									flexDirection: "column",
-								}}
-							>
-								<CardData car={car}></CardData>
+							<div className="modal-media-container">
+								<ModalGallery gallery={gallery}></ModalGallery>
 							</div>
 						</div>
 

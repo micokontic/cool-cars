@@ -89,6 +89,11 @@ class CarService {
 			}),
 			requestObjectMessage
 		);
+	getCarGallary = async (id) =>
+		await toast.promise(
+			axiosInstance.get(`/cars/${id}/gallery`),
+			requestObjectMessage
+		);
 }
 
 export const CarServiceNew = new CarService();

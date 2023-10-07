@@ -67,3 +67,7 @@ html {
 	margin-top: 5px;
 	margin-bottom: 30px;
 }
+
+iframe {
+	margin: 0 auto;
+}

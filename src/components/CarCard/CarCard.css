@@ -9,6 +9,38 @@
 
 .modal-media-container {
 	display: grid;
+}
+
+.line-modal {
+	margin-right: 0;
+	margin-bottom: 20px;
+}
+
+.modal-container-inner {
+	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-gap: 50px;
+}
+
+.modal-container-inner .car-data {
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.modal-media-container .carousel .slider-wrapper {
+	width: 60%;
+}
+
+.modal-media-container {
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 1000px) {
+	.modal-container-inner {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.youtube-box {
+		top: 100% !important;
+	}
 }
