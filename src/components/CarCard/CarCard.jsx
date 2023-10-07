@@ -10,7 +10,8 @@ import DisapproveTick from "./DisapproveTick";
 import DeleteCar from "./DeleteCar";
 import { Modal, Box } from "@mui/material";
 import { CarServiceNew } from "../../service/beckCommunication";
-import './Modal.css'
+import YouTubeVideo from "../../components/YouTubeVideo/YouTubeVideo";
+import "./Modal.css";
 import "./CarCard.css";
 const { patchCar, deleteCar } = CarServiceNew;
 
@@ -78,16 +79,9 @@ function CarCard({
 		deleteCarApi();
 	};
 
-	
-  
-
 	const openModal = () => {
 		setModalOpen(true);
 	};
-
-    
-
-  
 
 	const closeModal = () => {
 		setSelectedCar(null);
@@ -185,83 +179,100 @@ function CarCard({
 						</Typography>
 					</CardContent>
 				</Card>
-				
+
 				<Modal
-  open={isModalOpen}
-  onClose={() => {
-	setModalOpen(false);
-	setGalleryImages([]); // Clear gallery images when modal is closed
-  }}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
-  
->
-  <Box
-    sx={{
-      position: "relative",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: "50%",
-      bgcolor: "background.paper",
-      boxShadow: 24,
-      p: 4,
- border: "2px solid #000",
-    borderRadius: "8px",
-    }}
-  >
-    <Typography  id="modal-modal-title"
-    variant="h6"
-    component="h2"
-    style={{
-      
-      
-      padding: "4px",}} >
-      {car.vehicle_make} {car.vehicle_model} 
-    </Typography>
-	<Button onClick={closeModal}
-	style={{
-        position: "absolute",
-        top: "10px", 
-        right: "10px", 
-        backgroundColor: "transparent", 
-        color: "#000",
-        cursor: "pointer",
-      }} >Close</Button>
-    <img
-      src={
-        car.image
-          ? hasWWW(car.image)
-            ? car.image
-            : `${import.meta.env.VITE_API_BASE_URL}${car.image}`
-          : "https://bizrent.rs/wp-content/uploads/2023/05/Screenshot-2023-05-18-at-17.44.42.png"
-      }
-      alt={`${car.vehicle_make} ${car.vehicle_model}`}
-    />
-   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-  <div style={{ flexBasis: 'calc(50% - 10px)', display: 'flex', flexDirection: 'column' }}>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      {car.description}
-    </Typography>
-    <Typography>
-      Year of Manufacturing: {car.year_of_manufacturing}
-    </Typography>
-  </div>
-  <div style={{ flexBasis: 'calc(50% - 10px)', display: 'flex', flexDirection: 'column' }}>
-    <Typography>Transmission: {car.transmission}</Typography>
-    <Typography>Fuel Type: {car.fuel_type}</Typography>
-    <Typography>Number of Doors: {car.door_count}</Typography>
-    <Typography>Body: {car.car_body}</Typography>
-    <Typography>Price: {car.vehicle_price}</Typography>
-    <Typography>Owners: {car.owner}</Typography>
-  </div>
-</div>
+					open={isModalOpen}
+					onClose={() => {
+						setModalOpen(false);
+						setGalleryImages([]); // Clear gallery images when modal is closed
+					}}
+					aria-labelledby="modal-modal-title"
+					aria-describedby="modal-modal-description"
+				>
+					<Box
+						sx={{
+							position: "relative",
+							top: "50%",
+							left: "50%",
+							transform: "translate(-50%, -50%)",
+							width: "80%",
+							bgcolor: "background.paper",
+							boxShadow: 24,
+							p: 4,
+							border: "2px solid #000",
+							borderRadius: "8px",
+						}}
+					>
+						<Typography
+							id="modal-modal-title"
+							variant="h6"
+							component="h2"
+							style={{
+								padding: "4px",
+							}}
+						>
+							{car.vehicle_make} {car.vehicle_model}
+						</Typography>
+						<Button
+							onClick={closeModal}
+							style={{
+								position: "absolute",
+								top: "10px",
+								right: "10px",
+								backgroundColor: "transparent",
+								color: "#000",
+								cursor: "pointer",
+							}}
+						>
+							Close
+						</Button>
+						<div className="modal-media-container">
+							<img
+								src={
+									car.image
+										? hasWWW(car.image)
+											? car.image
+											: `${import.meta.env.VITE_API_BASE_URL}${car.image}`
+										: "https://bizrent.rs/wp-content/uploads/2023/05/Screenshot-2023-05-18-at-17.44.42.png"
+								}
+								alt={`${car.vehicle_make} ${car.vehicle_model}`}
+							/>
+							<YouTubeVideo></YouTubeVideo>
+						</div>
+						<div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+							<div
+								style={{
+									flexBasis: "calc(50% - 10px)",
+									display: "flex",
+									flexDirection: "column",
+								}}
+							>
+								<Typography id="modal-modal-description" sx={{ mt: 2 }}>
+									{car.description}
+								</Typography>
+								<Typography>
+									Year of Manufacturing: {car.year_of_manufacturing}
+								</Typography>
+							</div>
+							<div
+								style={{
+									flexBasis: "calc(50% - 10px)",
+									display: "flex",
+									flexDirection: "column",
+								}}
+							>
+								<Typography>Transmission: {car.transmission}</Typography>
+								<Typography>Fuel Type: {car.fuel_type}</Typography>
+								<Typography>Number of Doors: {car.door_count}</Typography>
+								<Typography>Body: {car.car_body}</Typography>
+								<Typography>Price: {car.vehicle_price}</Typography>
+								<Typography>Owners: {car.owner}</Typography>
+							</div>
+						</div>
 
-    {/* Add more data fields as needed */}
-    
-  </Box>
-</Modal>
-
+						{/* Add more data fields as needed */}
+					</Box>
+				</Modal>
 			</>
 		);
 	}

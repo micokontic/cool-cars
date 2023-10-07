@@ -1,20 +1,15 @@
-import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { useState, useContext } from "react";
 import "./Navigation.css";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-
-import AdbIcon from "@mui/icons-material/Adb";
 import Box from "@mui/material/Box";
 import MUIcon from "../jsxIcons/MUIcon/MUIcon";
 import NavBarMd from "../NavBarMd/NavBarMd";
-import NavBarSm from "../NavBarSm/NavBarSm";
 
 function ResponsiveAppBar() {
 	const [anchorElNav, setAnchorElNav] = useState(null);

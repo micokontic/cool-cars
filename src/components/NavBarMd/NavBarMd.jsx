@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import { UserContext } from "../../contexts/userContext";
@@ -10,7 +10,6 @@ import Box from "@mui/material/Box";
 
 function NavBarMd({ activeButton, setActiveButton, handleOpenUserMenu }) {
 	const { user, handleUserLogout } = useContext(UserContext);
-
 	return (
 		<>
 			<NavLink to="/cars">
@@ -119,10 +118,16 @@ function NavBarMd({ activeButton, setActiveButton, handleOpenUserMenu }) {
 							<Box sx={{ flexGrow: 0 }}>
 								<Tooltip title="Avatar of user">
 									<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-										<Avatar
-											alt="Remy Sharp"
-											src="https://source.unsplash.com/100x100/?portrait"
-										/>
+										{user.img != null ? (
+											<Avatar
+												alt={user.firstname}
+												src={
+													import.meta.env.VITE_API_BASE_URL + user.img.img_url
+												}
+											/>
+										) : (
+											""
+										)}
 									</IconButton>
 								</Tooltip>
 							</Box>

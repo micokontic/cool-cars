@@ -6,3 +6,9 @@
 .car-card-container-inner:hover {
 	transform: scale(1.03); /* Enlarge by 10% on hover */
 }
+
+.modal-media-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 50px;
+}

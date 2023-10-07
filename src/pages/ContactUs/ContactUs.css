@@ -4,9 +4,9 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 50px;
-  }
-  
-  .contact-details {
+}
+
+.contact-us-container .contact-details {
 	flex: 1;
 	color: #fff;
 	padding: 20px;
@@ -14,67 +14,67 @@
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	margin-right: 20px;
-  }
-  
-  .contact-details h1 {
+}
+
+.contact-us-container .contact-details h1 {
 	font-size: 28px;
 	margin-bottom: 20px;
-  }
-  
-  .contact-details p {
+}
+
+.contact-us-container .contact-details p {
 	font-size: 16px;
 	margin-bottom: 20px;
-  }
-  
-  .contact-details ul {
+}
+
+.contact-us-container .contact-details ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-  }
-  
-  .contact-details li {
+}
+
+.contact-us-container .contact-details li {
 	margin-bottom: 10px;
-  }
-  
-  .contact-form {
+}
+
+.contact-us-container .contact-form {
 	flex: 1;
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	padding: 20px;
-  }
-  
-  .contact-form h2 {
+}
+
+.contact-us-container .contact-form h2 {
 	font-size: 24px;
 	margin-bottom: 20px;
-  }
-  
-  .form-group {
+}
+
+.contact-us-container .form-group {
 	margin-bottom: 20px;
-  }
-  
-  .form-group label {
+}
+
+.contact-us-container .form-group label {
 	display: block;
 	font-size: 16px;
 	margin-bottom: 5px;
 	color: #333;
 	text-align: left; /* Add this line to align labels to the left (start) */
-  }
-  
-  .form-group input,
-  .form-group textarea {
+}
+
+.contact-us-container .form-group input,
+.contact-us-container .form-group textarea {
 	width: 100%;
 	padding: 10px;
 	font-size: 16px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-  }
-  
-  .form-group textarea {
+}
+
+.contact-us-container .form-group textarea {
 	resize: vertical;
-  }
-  
-  button[type="submit"] {
+}
+
+.contact-us-container button[type="submit"] {
 	background-color: #007acc;
 	color: #fff;
 	border: none;
@@ -82,9 +82,8 @@
 	font-size: 16px;
 	border-radius: 5px;
 	cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
+}
+
+.contact-us-container button[type="submit"]:hover {
 	background-color: #005c99;
-  }
-  
+}
