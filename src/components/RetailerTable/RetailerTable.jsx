@@ -11,8 +11,7 @@ function RetailerTable() {
 	const fetchData = async () => {
 		try {
 			const result = await getUsers();
-			console.log(result);
-			console.log(result.data);
+
 			setAllRetailers(result.data);
 		} catch (err) {
 			console.log(err);

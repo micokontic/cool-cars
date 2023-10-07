@@ -48,8 +48,6 @@ function CarsCarousel() {
 		const fetchData = async () => {
 			try {
 				const result = await getNewCars();
-				console.log(result);
-				console.log(result.data);
 				var shortArray = result.data;
 				setTenCars(shortArray);
 

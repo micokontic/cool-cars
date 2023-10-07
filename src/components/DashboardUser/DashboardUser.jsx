@@ -16,8 +16,7 @@ function DashboardUser() {
 	const [refresh, setRefresh] = useState(true);
 
 	const { user } = useContext(UserContext);
-	console.log("user je");
-	console.log(user);
+
 	const [userData, setUserData] = useState({
 		user: {
 			first_name: "",
@@ -29,7 +28,7 @@ function DashboardUser() {
 	const fetchData = async () => {
 		try {
 			const result = await getUser(user.user_id);
-			console.log(result.data);
+
 			setUserData(result.data);
 		} catch (err) {
 			console.log(err);
@@ -41,7 +40,6 @@ function DashboardUser() {
 	}, []);
 
 	useEffect(() => {
-		console.log("refresh sam");
 		fetchData();
 	}, [refresh]);
 

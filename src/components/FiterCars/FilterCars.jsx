@@ -5,8 +5,6 @@ import Select from "@mui/material/Select";
 
 function FilterCars({ setFilter, filter, getCarsSubmit }) {
 	const handleChange = (e) => {
-		console.log(e);
-		console.log(e.target);
 		const { name, value } = e.target;
 
 		// Update the formData state using the id as the key and value as the new value

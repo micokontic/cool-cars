@@ -4,7 +4,6 @@ import { CarServiceNew } from "../../service/beckCommunication";
 const { deleteUser } = CarServiceNew;
 function RetailerInTable({ retailer, setRefresh, refresh }) {
 	const deleteUserSubmit = () => {
-		console.log("brisem");
 		const deleteUserApi = async () => {
 			try {
 				const result = await deleteUser(retailer.id);

@@ -7,7 +7,7 @@ function valuetext(value) {
 
 	// Use a regular expression to add commas as thousands separators
 	numberString = numberString.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €";
-	console.log(numberString);
+
 	return numberString;
 }
 

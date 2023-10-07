@@ -1,6 +1,7 @@
 import React from "react";
 import Jovana from "../../assets/Jovana.png";
 import Mico from "../../assets/Mico.jpeg";
+import Ersan from "../../assets/Ersan.jpg";
 
 function AboutUsPage() {
 	return (
@@ -17,7 +18,7 @@ function AboutUsPage() {
 						<img
 							alt=""
 							className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500"
-							src="https://source.unsplash.com/100x100/?portrait?0"
+							src={Ersan}
 						/>
 						<div className="flex-1 my-4">
 							<p className="text-xl font-semibold leadi"> Ersan Hodzic</p>
