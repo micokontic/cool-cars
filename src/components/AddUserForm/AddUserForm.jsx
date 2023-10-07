@@ -15,9 +15,7 @@ function AddUserForm({
 		password: "",
 		position: "",
 	},
-	setRefresh = () => {
-		console.log("dummy function");
-	},
+	setRefresh = () => {},
 	refresh,
 }) {
 	const [retailer, setRetailer] = useState(profileData);

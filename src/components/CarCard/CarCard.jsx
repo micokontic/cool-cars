@@ -97,7 +97,12 @@ function CarCard({
 						margin: "3% auto",
 					}}
 					className="car-card-container-inner"
-					onClick={() => openModal(car)}
+					onClick={(e) => {
+						console.log(e.target.classList);
+						if (!e.target.classList.contains("button-class-name")) {
+							openModal(car);
+						}
+					}}
 				>
 					{unApproved ? (
 						<div className="relative">

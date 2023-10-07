@@ -5,7 +5,7 @@ const ContactUs = () => {
 			<div className="contact-details">
 				<h1>Kontakt</h1>
 				<p>
-					Ako imate pitanja ili Vam treba pomoć u odabiru automobila, 
+					Ako imate pitanja ili Vam treba pomoć u odabiru automobila,
 					kontaktirajte nas:
 				</p>
 				<ul>
@@ -16,7 +16,7 @@ const ContactUs = () => {
 			</div>
 
 			<div className="contact-form">
-				<h2>Pošsaljite nam poruku</h2>
+				<h2>Pošaljite nam poruku</h2>
 				<form>
 					<div className="form-group">
 						<label htmlFor="name">Ime i prezime</label>

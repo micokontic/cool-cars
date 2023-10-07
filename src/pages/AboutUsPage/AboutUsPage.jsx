@@ -1,4 +1,6 @@
 import React from "react";
+import Jovana from "../../assets/Jovana.png";
+import Mico from "../../assets/Mico.jpeg";
 
 function AboutUsPage() {
 	return (
@@ -89,11 +91,11 @@ function AboutUsPage() {
 						<img
 							alt=""
 							className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500"
-							src="https://source.unsplash.com/100x100/?portrait?1"
+							src={Jovana}
 						/>
 						<div className="flex-1 my-4">
 							<p className="text-xl font-semibold leadi">Jovana Ikovic</p>
-							<p>Beck-end</p>
+							<p>Back-end</p>
 						</div>
 						<div className="flex items-center justify-center p-3 space-x-3 border-t-2">
 							<a
@@ -163,7 +165,7 @@ function AboutUsPage() {
 						<img
 							alt=""
 							className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500"
-							src="https://source.unsplash.com/100x100/?portrait?2"
+							src={Mico}
 						/>
 						<div className="flex-1 my-4">
 							<p className="text-xl font-semibold leadi">Mico Kontic</p>

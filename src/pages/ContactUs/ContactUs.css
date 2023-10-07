@@ -4,6 +4,7 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 50px;
+	gap: 10px;
 }
 
 .contact-us-container .contact-details {
@@ -13,7 +14,6 @@
 	background-color: #007acc;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	margin-right: 20px;
 }
 
 .contact-us-container .contact-details h1 {
@@ -86,4 +86,15 @@
 
 .contact-us-container button[type="submit"]:hover {
 	background-color: #005c99;
+}
+
+.contact-us-container .contact-form,
+.contact-us-container .contact-details {
+	width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+	.contact-us-container {
+		flex-direction: column;
+	}
 }

@@ -25,6 +25,7 @@ function Dashboard() {
 	const fetchData = async () => {
 		try {
 			const result = await getUser(user.user_id);
+			console.log("ovo su podaci admina");
 			console.log(result.data);
 			setUserData(result.data);
 		} catch (err) {

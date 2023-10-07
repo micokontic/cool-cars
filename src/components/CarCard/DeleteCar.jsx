@@ -5,17 +5,17 @@ function DeleteCar({ deleteCarSubmit }) {
 		<>
 			<button
 				type="button"
-				className=" rounded-lg text-gray-600"
+				className=" rounded-lg text-gray-600 button-class-name"
 				title="Obrisi ogras"
 				onClick={() => {
 					deleteCarSubmit();
 				}}
 			>
-				<span className="icon lightStar">
+				<span className="icon lightStar button-class-name">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0  32 32"
-						className="text-red-300	 hover:text-red-600 hover:fill-current"
+						className="text-red-300	 hover:text-red-600 hover:fill-current button-class-name"
 						width="50px"
 						height="50px"
 					>

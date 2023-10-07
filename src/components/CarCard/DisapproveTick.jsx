@@ -3,17 +3,17 @@ function DisapproveTick({ patchCarSubmit }) {
 		<>
 			<button
 				type="button"
-				className=" rounded-lg text-gray-600"
+				className=" rounded-lg text-gray-600 button-class-name"
 				title="Odbij oglas"
 				onClick={() => {
 					patchCarSubmit({ status: "denied" });
 				}}
 			>
-				<span className="icon lightStar">
+				<span className="icon lightStar button-class-name">
 					<svg
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
-						className="text-red-300	 hover:text-red-600 hover:fill-current"
+						className="text-red-300	 hover:text-red-600 hover:fill-current button-class-name"
 						width="50px"
 						height="50px"
 						viewBox="0 0 24 24"

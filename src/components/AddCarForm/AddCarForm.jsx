@@ -39,8 +39,6 @@ function AddUserForm({ refresh, setRefresh }) {
 	const addCarSubmit = () => {
 		const addCarApi = async () => {
 			try {
-				console.log("evo ih");
-				console.log(car);
 				const formData = new FormData();
 				for (const key in car) {
 					if (car.hasOwnProperty(key)) {
@@ -53,27 +51,24 @@ function AddUserForm({ refresh, setRefresh }) {
 						}
 					}
 				}
-				console.log(formData);
 				const result = await addCar(formData);
-				console.log(result.data);
 				setRefresh(!refresh);
 			} catch (err) {
-				console.log(err);
+				err;
 			}
 		};
 
 		setErrors(validateInputCar(car));
-		console.log("stampam ovo");
-		console.log(car);
+		("stampam ovo");
+		car;
 
 		if (Object.keys(errors).length === 0) {
-			console.log("pozivam server");
+			("pozivam server");
 			addCarApi();
 		}
 	};
 
 	const handleChange = (e) => {
-		console.log(e);
 		console.log(e.target);
 		const { name, value } = e.target;
 

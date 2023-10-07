@@ -3,20 +3,20 @@ function ApproveTick({ patchCarSubmit }) {
 		<>
 			<button
 				type="button"
-				className=" rounded-lg text-gray-600"
+				className=" rounded-lg text-gray-600 button-class-name"
 				title="Odobri oglas"
 				onClick={() => {
 					patchCarSubmit({ status: "approved" });
 				}}
 			>
-				<span className="icon lightStar">
+				<span className="icon lightStar button-class-name">
 					<svg
 						width="50px"
 						height="50px"
 						viewBox="0 0 24 24"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
-						className="text-green-300 hover:text-green-600 hover:fill-current"
+						className="text-green-300 hover:text-green-600 hover:fill-current button-class-name"
 					>
 						<path
 							className="fill-current"
